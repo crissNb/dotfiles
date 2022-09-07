@@ -1,0 +1,80 @@
+# toggle yabai
+hyper - u : ~/.config/skhd/CustomScripts/ToggleWM.sh 1
+hyper - y : ~/.config/skhd/CustomScripts/ToggleWM.sh 0
+
+# focus window
+f16 : yabai -m window --focus west || \
+             yabai -m window --focus $(yabai -m query --spaces --display west | jq '.[] | select(."is-visible" == true) | ."last-window"')
+f19 : yabai -m window --focus east || \
+              yabai -m window --focus $(yabai -m query --spaces --display east | jq '.[] | select(."is-visible" == true) | ."first-window"')
+f18 : yabai -m window --focus north
+f17 : yabai -m window --focus south
+
+# move window in current monitor
+# same as shift + rcmd + rctrl + ralt+ lcmd - key
+alt - f16 : yabai -m window --warp west
+alt - f19 : yabai -m window --warp east
+alt - f18 : yabai -m window --warp north
+alt - f17 : yabai -m window --warp south
+
+# move window to anotherm onitor
+shift + rcmd + rctrl + ralt + lcmd - n : ~/.config/skhd/CustomScripts/MoveWindowLeftAndFocus.sh
+shift + rcmd + rctrl + ralt + lcmd - m : ~/.config/skhd/CustomScripts/MoveWindowRightAndFocus.sh
+
+# open apps
+
+# terminal window
+hyper - t : osascript ~/.config/skhd/CustomScripts/new-iterm-window.scpt
+
+# finder
+hyper - e : open ~/
+
+# floating window
+hyper - g : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+# rotate tree
+hyper - r : yabai -m space --rotate 90
+
+# flip The tree vertically
+hyper - w : yabai -m space --mirror y-axis
+
+# fill screen
+hyper - return : yabai -m window --toggle zoom-fullscreen
+hyper - o : yabai -m window --grid 1:1:0:0:1:1
+
+# resize window
+shift + rcmd + lctrl + rctrl + ralt - h : yabai -m window --resize left:-20:0
+shift + rcmd + lctrl + rctrl + ralt - l : yabai -m window --resize left:20:0
+
+shift + rcmd + lctrl + rctrl + ralt - j : yabai -m window --resize top:0:20
+shift + rcmd + lctrl + rctrl + ralt - k : yabai -m window --resize top:0:-20
+
+# focus desktop
+shift + rcmd + rctrl + ralt - a : ~/.config/skhd/CustomScripts/SwitchSpace.sh 1
+shift + rcmd + rctrl + ralt - s : ~/.config/skhd/CustomScripts/SwitchSpace.sh 2
+shift + rcmd + rctrl + ralt - d : ~/.config/skhd/CustomScripts/SwitchSpace.sh 3
+shift + rcmd + rctrl + ralt - f : ~/.config/skhd/CustomScripts/SwitchSpace.sh 4
+shift + rcmd + rctrl + ralt - 1 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 5
+shift + rcmd + rctrl + ralt - 2 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 6
+shift + rcmd + rctrl + ralt - 3 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 7
+shift + rcmd + rctrl + ralt - 4 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 8
+
+# move window to desktop
+shift + rcmd + rctrl + ralt + lalt - a : ~/.config/skhd/CustomScripts/MoveWindow.sh 1
+shift + rcmd + rctrl + ralt + lalt - s : ~/.config/skhd/CustomScripts/MoveWindow.sh 2
+shift + rcmd + rctrl + ralt + lalt - d : ~/.config/skhd/CustomScripts/MoveWindow.sh 3
+shift + rcmd + rctrl + ralt + lalt - f : ~/.config/skhd/CustomScripts/MoveWindow.sh 4
+shift + rcmd + rctrl + ralt + lalt - 1 : ~/.config/skhd/CustomScripts/MoveWindow.sh 5
+shift + rcmd + rctrl + ralt + lalt - 2 : ~/.config/skhd/CustomScripts/MoveWindow.sh 6
+shift + rcmd + rctrl + ralt + lalt - 3 : ~/.config/skhd/CustomScripts/MoveWindow.sh 7
+shift + rcmd + rctrl + ralt + lalt - 4 : ~/.config/skhd/CustomScripts/MoveWindow.sh 8
+
+# stacking
+shift + rcmd + rctrl + ralt - left : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window west --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+shift + rcmd + rctrl + ralt - right : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+shift + rcmd + rctrl + ralt - up : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window north --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+shift + rcmd + rctrl + ralt - down : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window south --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+
+# scroll through stack
+rshift + rcmd + rctrl + ralt - 0x30 : yabai -m window --focus stack.next
+rshift + rcmd + rctrl + ralt + lshift - 0x30 : yabai -m window --focus stack.prev
