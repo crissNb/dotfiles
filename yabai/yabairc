@@ -54,7 +54,9 @@ yabai -m rule --add label="Software Update" title="Software Update" manage=off
 yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
 yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Select file to save to" manage=off
 yabai -m rule --add label="Blender File View" app="^Blender$" title="Blender File View" layer=above manage=off
-yabai -m rule --add label"AppCleaner" app="^AppCleaner$" layer=above manage=off
+yabai -m rule --add label="AppCleaner" app="^AppCleaner$" layer=above manage=off
+yabai -m rule --add app="^Eclipse$" manage=off
+yabai -m rule --add app="^IntelliJ$" manage=off
 
 yabai -m space 1 --label one
 yabai -m space 2 --label two
