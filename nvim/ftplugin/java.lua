@@ -1,3 +1,12 @@
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_cmp_ok then
+  return
+end
+capabilities.textDocument.completion.completionItem.snippetSupport = false
+capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+
 local status, jdtls = pcall(require, "jdtls")
 if not status then
 	return
@@ -20,24 +29,25 @@ end
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
-JAVA_LS_EXECUTABLE = home .. "/.local/share/lunarvim/lvim/utils/bin/jdtls"
+JAVA_LS_EXECUTABLE = home .. "/.local/share/nvim/mason/bin/jdtls"
 
 local bundles = {
 	vim.fn.glob(home ..
-		"/.config/lvim/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
+		"/.config/nvim/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
 };
 
 -- This is the new part
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/lvim/java/vscode-java-test/server/*.jar"), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java/vscode-java-test/server/*.jar"), "\n"))
 
 jdtls.start_or_attach {
---	on_attach = require("lvim.lsp").common_on_attach,
 	-- on_attach = function(client, bufnr)
 	--   -- With `hotcodereplace = 'auto' the debug adapter will try to apply code changes
 	--   -- you make during a debug session immediately.
 	--   -- Remove the option if you do not want that.
 	--   require("jdtls").setup_dap { hotcodereplace = "auto" }
 	-- end,
+	--	on_attach = require("user.lspconfig").on_attach,
+	capabilities = capabilities,
 	init_options = {
 		bundles = bundles,
 	},

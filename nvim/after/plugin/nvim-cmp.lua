@@ -88,20 +88,7 @@ local options = {
 	},
 	sources = {
 		{ name = "luasnip" },
-		{
-			name = "nvim_lsp",
-			filter = function(entry, ctx)
-				local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
-				if kind == "Snippet" and ctx.prev_context.filetype == "java" then
-					return true
-				end
-
-				if kind == "Text" then
-					return true
-				end
-			end,
-			group_index = 2,
-		},
+		{ name = "nvim_lsp" },
 		{ name = "buffer" },
 		{ name = "nvim_lua" },
 		{ name = "path" },
