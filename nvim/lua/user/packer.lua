@@ -63,6 +63,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'hrsh7th/cmp-cmdline' }
 	use { 'hrsh7th/nvim-cmp' }
 	use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
+	use { 'saadparwaiz1/cmp_luasnip' }
 
 	-- debugger
 	use { 'mfussenegger/nvim-dap' }
@@ -70,6 +71,9 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- java
 	use { 'mfussenegger/nvim-jdtls' }
+
+	-- make
+	use { 'tpope/vim-dispatch' }
 
 	-- improve neovim UI
 	use { 'stevearc/dressing.nvim'}

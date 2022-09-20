@@ -23,6 +23,36 @@ local function border(hl_name)
 	}
 end
 
+local icons = {
+	Text          = ' ',
+	Method        = ' ',
+	Function      = ' ',
+	Constructor   = ' ',
+	Field         = '識',
+	Variable      = '𝑋 ',
+	Class         = ' ',
+	Interface     = ' ',
+	Module        = ' ',
+	Property      = ' ',
+	Unit          = ' ',
+	Value         = ' ',
+	Enum          = ' ',
+	Keyword       = ' ',
+	Snippet       = '﬌ ',
+	Color         = ' ',
+	File          = ' ',
+	Reference     = ' ',
+	Folder        = ' ',
+	EnumMember    = ' ',
+	Constant      = ' ',
+	Struct        = ' ',
+	Event         = ' ',
+	Operator      = 'ﬦ' ,
+	TypeParameter = ' ',
+}
+
+local compare = require "cmp.config.compare"
+
 local cmp_window = require "cmp.utils.window"
 
 cmp_window.info_ = cmp_window.info
@@ -40,14 +70,13 @@ local options = {
 		},
 		documentation = {
 			border = border "CmpDocBorder",
+			--   border = "rounded",
+			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
 		},
-	},
-	experimental = {
-		ghost_text = true,
 	},
 	snippet = {
 		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	mapping = {
@@ -59,13 +88,21 @@ local options = {
 		["<C-e>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping.confirm {
 			behavior = cmp.ConfirmBehavior.Replace,
-			select = false,
+			select = true,
 		},
-		["<Tab>"] = cmp.mapping(function(fallback)
+		["<Tab>"] = cmp.mapping.confirm {
+			behavior = cmp.ConfirmBehavior.Replace,
+			select = true,
+		},
+		["<Down>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
-			elseif require("luasnip").expand_or_jumpable() then
-				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+			elseif luasnip.jumpable(1) then
+				luasnip.jump(1)
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			elseif luasnip.expandable() then
+				luasnip.expand()
 			else
 				fallback()
 			end
@@ -73,10 +110,10 @@ local options = {
 			"i",
 			"s",
 		}),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
+		["<Up>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
-			elseif require("luasnip").jumpable(-1) then
+			elseif luasnip.jumpable(-1) then
 				vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
 			else
 				fallback()
@@ -87,11 +124,37 @@ local options = {
 		}),
 	},
 	sources = {
-		{ name = "luasnip" },
-		{ name = "nvim_lsp" },
-		{ name = "buffer" },
-		{ name = "nvim_lua" },
-		{ name = "path" },
+		{ name = "luasnip", group_index = 2 },
+		{ name = "nvim_lsp", group_index = 2 },
+		{ name = "buffer", group_index = 2 },
+		{ name = "nvim_lua", group_index = 2 },
+		{ name = "path", group_index = 2 },
+	},
+	sorting = {
+		priority_weight = 2,
+		comparators = {
+			compare.offset,
+			compare.exact,
+			compare.score,
+			compare.recently_used,
+			compare.locality,
+			compare.sort_text,
+			compare.length,
+			compare.order,
+		},
+	},
+	completion = {
+		completeopt = 'menu,menuone,noinsert',
+	},
+	formatting = {
+		fields = {"kind", "abbr", "menu"},
+
+		format = function(_, vim_item)
+			vim_item.menu = vim_item.kind
+			vim_item.kind = icons[vim_item.kind]
+
+			return vim_item
+		end,
 	},
 }
 
