@@ -1,12 +1,3 @@
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
-  return
-end
-capabilities.textDocument.completion.completionItem.snippetSupport = false
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
 local status, jdtls = pcall(require, "jdtls")
 if not status then
 	return
@@ -46,8 +37,6 @@ jdtls.start_or_attach {
 	--   -- Remove the option if you do not want that.
 	--   require("jdtls").setup_dap { hotcodereplace = "auto" }
 	-- end,
-	--	on_attach = require("user.lspconfig").on_attach,
-	capabilities = capabilities,
 	init_options = {
 		bundles = bundles,
 	},
@@ -88,6 +77,8 @@ jdtls.start_or_attach {
 		"-data",
 		WORKSPACE_PATH,
 	},
+	on_attach = require("user.lspconfig").on_attach,
+
 	settings = {
 		extendedClientCapabilities = extendedClientCapabilities,
 		sources = {
@@ -105,7 +96,8 @@ jdtls.start_or_attach {
 		signatureHelp = { enabled = true },
 	},
 }
-require('jdtls').setup_dap()
+-- require('jdtls').setup_dap()
+
 vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
 vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"
 vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()"

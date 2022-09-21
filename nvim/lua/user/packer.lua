@@ -40,11 +40,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
 		end
 	}
 
-	-- auto scroll
-	use {
-		'karb94/neoscroll.nvim'
-	}
-
 	-- indent
 	use { 'lukas-reineke/indent-blankline.nvim' }
 
@@ -53,6 +48,8 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- LSP related
 	use { 'ray-x/lsp_signature.nvim' }
+	use { 'SmiteshP/nvim-navic',
+		requires = 'neovim/nvim-lspconfig' }
 
 	use { 'neovim/nvim-lspconfig' }
 	use { 'williamboman/mason.nvim' }
@@ -62,8 +59,17 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'hrsh7th/cmp-path' }
 	use { 'hrsh7th/cmp-cmdline' }
 	use { 'hrsh7th/nvim-cmp' }
-	use({"L3MON4D3/LuaSnip", tag = "v<CurrentMajor>.*"})
-	use { 'saadparwaiz1/cmp_luasnip' }
+
+	-- snippets
+	use({ 'L3MON4D3/LuaSnip',
+		tag = "v<CurrentMajor>.*",
+		config = function()
+			require("luasnip").config.setup({ history = true })
+			require("luasnip.loaders.from_vscode").load()
+		end,
+	})
+	use { "saadparwaiz1/cmp_luasnip" }
+	use { "rafamadriz/friendly-snippets"}
 
 	-- debugger
 	use { 'mfussenegger/nvim-dap' }
@@ -76,6 +82,22 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'tpope/vim-dispatch' }
 
 	-- improve neovim UI
-	use { 'stevearc/dressing.nvim'}
+	use { 'stevearc/dressing.nvim' }
 	use { 'p00f/nvim-ts-rainbow' }
+	use { 'RRethy/vim-illuminate' }
+
+	-- buffer management
+	use { 'matbme/JABS.nvim' }
+
+	-- plenary
+	use { 'nvim-lua/plenary.nvim' }
+
+	-- telescope
+	use { 'nvim-telescope/telescope.nvim' }
+
+	-- neovim optimizations
+	use { 'lewis6991/impatient.nvim' }
+
+	-- terminal
+	use { 'akinsho/toggleterm.nvim' }
 end)

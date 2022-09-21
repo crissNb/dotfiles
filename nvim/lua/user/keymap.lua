@@ -39,3 +39,11 @@ nkeymap('<leader>fm', ':lua vim.lsp.buf.formatting()<cr>')
 nkeymap("<leader>ff", ":lua require('telescope.builtin').find_files()<cr>")
 nkeymap('<leader>fg', ":lua require('telescope.builtin').live_grep()<cr>")
 nkeymap('<leader>fb', ":lua require('telescope.builtin').buffers()<cr>")
+
+-- JABS (buffer management)
+nkeymap('<leader>b', ':JABSOpen<cr>')
+
+-- terminal
+nkeymap('<leader>tt', ":ToggleTerm<cr>")
+nkeymap('<leader>th', ":ToggleTerm direction=horizontal<cr>")
+nkeymap('<leader>tv', ":ToggleTerm direction=vertical<cr>")
