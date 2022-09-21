@@ -47,3 +47,18 @@ nkeymap('<leader>b', ':JABSOpen<cr>')
 nkeymap('<leader>tt', ":ToggleTerm<cr>")
 nkeymap('<leader>th', ":ToggleTerm direction=horizontal<cr>")
 nkeymap('<leader>tv', ":ToggleTerm direction=vertical<cr>")
+
+-- jdtls
+-- test
+nkeymap('<leader>jt', ":lua require'jdtls'.test_nearest_method()<CR>")
+nkeymap('<leader>jT', ":lua require'jdtls'.test_class()<CR>")
+
+-- refactoring
+nkeymap('<leader>jv', ":lua require'jdtls'.extract_variable(true)<CR>")
+nkeymap('<leader>jc', ":lua require'jdtls'.extract_constant(true)<CR>")
+nkeymap('<leader>jm', ":lua require'jdtls'.extract_method(true)<CR>")
+
+-- dap (debugging)
+nkeymap('<leader>db', ":lua require'dap'.toggle_breakpoint()<CR>")
+nkeymap('<leader>dc', ":lua require'dap'.continue()<CR>")
+nkeymap('<leader>dg', ":lua require'dap'.step_into()<CR>")

@@ -29,6 +29,15 @@ local bundles = {
 
 -- This is the new part
 vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java/vscode-java-test/server/*.jar"), "\n"))
+vim.list_extend(
+	bundles,
+	vim.split(
+		vim.fn.glob(
+			home .. "/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+		),
+		"\n"
+	)
+)
 
 jdtls.start_or_attach {
 	-- on_attach = function(client, bufnr)
