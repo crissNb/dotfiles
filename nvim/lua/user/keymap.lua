@@ -9,6 +9,13 @@ end
 keymap('n', 'x', '"_x', opts)
 keymap('v', 'x', '"_d', opts)
 
+-- move selected line / block of text in visual mode
+keymap("v", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("v", "J", ":move '>+1<CR>gv-gv", opts)
+-- keymap("v", "<A-j>", ":m '>+1<CR>gv-gv", opts)
+-- keymap("v", "<A-k>", ":m '<-2<CR>gv-gv", opts)
+
+
 -- leader
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
