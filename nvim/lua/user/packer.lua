@@ -39,6 +39,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 			require('gitsigns').setup()
 		end
 	}
+	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
 	-- indent
 	use { 'lukas-reineke/indent-blankline.nvim' }
