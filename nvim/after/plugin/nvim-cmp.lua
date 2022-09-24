@@ -114,7 +114,6 @@ local options = {
 		end, { "i", "s" }),
 	},
 	sources = {
-		{ name = "luasnip", group_index = 2 },
 		{ name = "nvim_lsp",
 			filter = function(entry, ctx)
 				local kind = require("cmp.types.lsp").CompletionItemKind[entry:get_kind()]
@@ -127,8 +126,9 @@ local options = {
 				end
 			end,
 			group_index = 2 },
-		{ name = "buffer", group_index = 2 },
+		{ name = "luasnip", group_index = 2 },
 		{ name = "nvim_lua", group_index = 2 },
+		{ name = "buffer", group_index = 2 },
 		{ name = "path", group_index = 2 },
 	},
 	sorting = {
@@ -165,6 +165,9 @@ local options = {
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
+	},
+	experimental = {
+		ghost_text = true,
 	},
 }
 

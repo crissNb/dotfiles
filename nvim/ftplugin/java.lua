@@ -24,16 +24,16 @@ JAVA_LS_EXECUTABLE = home .. "/.local/share/nvim/mason/bin/jdtls"
 
 local bundles = {
 	vim.fn.glob(home ..
-		"/.config/nvim/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
+		"/.config/nvim/DebugAdapters/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar")
 };
 
 -- This is the new part
-vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/java/vscode-java-test/server/*.jar"), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(home .. "/.config/nvim/DebugAdapters/java/vscode-java-test/server/*.jar"), "\n"))
 vim.list_extend(
 	bundles,
 	vim.split(
 		vim.fn.glob(
-			home .. "/.config/nvim/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
+			home .. "/.config/nvim/DebugAdapters/java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
 		),
 		"\n"
 	)

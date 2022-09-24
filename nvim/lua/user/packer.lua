@@ -69,7 +69,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 		end,
 	})
 	use { "saadparwaiz1/cmp_luasnip" }
-	use { "rafamadriz/friendly-snippets"}
+	use { "rafamadriz/friendly-snippets" }
 
 	-- debugger
 	use { 'mfussenegger/nvim-dap' }
@@ -94,6 +94,11 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- telescope
 	use { 'nvim-telescope/telescope.nvim' }
+
+	-- telescope extensions
+	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+	use { 'nvim-telescope/telescope-ui-select.nvim' }
+	use { 'stevearc/aerial.nvim', config = function() require('aerial').setup() end }
 
 	-- neovim optimizations
 	use { 'lewis6991/impatient.nvim' }

@@ -12,6 +12,8 @@ vim.opt.incsearch = true
 vim.opt.smartindent = true
 
 vim.opt.wrap = false
+vim.opt.swapfile = false
+vim.opt.ignorecase = true
 
 -- Use system clipboard by default
 vim.api.nvim_set_option("clipboard", "unnamed")

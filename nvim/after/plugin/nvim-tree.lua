@@ -5,8 +5,7 @@ end
 
 nt.setup {
 	filters = {
-		custom = { ".git" },
-		exclude = { "*.meta" },
+		custom = { ".git", "*.meta" },
 	},
 	renderer = {
 		icons = {

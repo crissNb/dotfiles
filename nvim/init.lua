@@ -7,3 +7,6 @@ require("user.keymap")
 require("user.lspconfig")
 
 require("user.packer")
+
+-- telescope
+require("user.telescope")
