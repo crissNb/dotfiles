@@ -124,3 +124,4 @@ Kitty is my weapon of choice. Nothing much has been configured to Kitty, apart f
 Credits
 =======
 Part of my SKHD configuration and Yabai configuration (and their custom scripts) are from [Jesse Skelton](https://www.notion.so/Yabai-8da3b829872d432fac43181b7ff628fc)
+.zshrc config by [Luke Smith](https://github.com/LukeSmithxyz/voidrice)
