@@ -15,6 +15,11 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.ignorecase = true
 
+vim.opt.updatetime=50
+
+vim.opt.termguicolors = true
+vim.opt.cmdheight = 1
+
 -- Use system clipboard by default
 vim.api.nvim_set_option("clipboard", "unnamed")
 vim.opt.foldmethod = "expr"

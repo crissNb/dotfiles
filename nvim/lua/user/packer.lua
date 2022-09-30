@@ -1,7 +1,6 @@
-vim.cmd [[packadd packer.nvim]]
+-- vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use) -- Packer can manage itself
-	use 'wbthomason/packer.nvim'
+return require('packer').startup(function(use) -- Packer can manage itself use 'wbthomason/packer.nvim'
 
 	-- LSP + Treesitter
 	use 'nvim-treesitter/nvim-treesitter'
@@ -18,12 +17,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	-- comment
 	use {
 		'numToStr/Comment.nvim',
-	}
-
-	-- autopairs
-	use {
-		"windwp/nvim-autopairs",
-		config = function() require("nvim-autopairs").setup {} end
 	}
 
 	-- Status bar
@@ -48,7 +41,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'catppuccin/nvim', as = 'catppuccin' }
 
 	-- LSP related
-	use { 'ray-x/lsp_signature.nvim' }
 	use { 'SmiteshP/nvim-navic',
 		requires = 'neovim/nvim-lspconfig' }
 
@@ -106,4 +98,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- terminal
 	use { 'akinsho/toggleterm.nvim' }
+
+	-- harpoon man
+	use { 'ThePrimeagen/harpoon' }
 end)

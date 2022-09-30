@@ -23,10 +23,10 @@ nkeymap("<Space>", "")
 
 -- Normal --
 -- switch between windows
-nkeymap('<C-h>', '<C-w>h')
-nkeymap('<C-l>', '<C-w>l')
-nkeymap('<C-j>', '<C-w>j')
-nkeymap('<C-k>', '<C-w>k')
+-- nkeymap('<C-h>', '<C-w>h')
+-- nkeymap('<C-l>', '<C-w>l')
+-- nkeymap('<C-j>', '<C-w>j')
+-- nkeymap('<C-k>', '<C-w>k')
 
 -- nvim tree
 nkeymap("<leader>e", ":NvimTreeToggle<CR>")
@@ -39,11 +39,11 @@ nkeymap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
 nkeymap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
 nkeymap('gr', ':lua vim.lsp.buf.references()<cr>')
 nkeymap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
-nkeymap('<leader>k', ':lua vim.diagnostic.open_float()<CR>')
-nkeymap('<leader>h', ':lua vim.lsp.buf.signature_help()<cr>')
 nkeymap('<leader>a', ':lua vim.lsp.buf.code_action()<cr>')
 nkeymap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
 nkeymap('<leader>fm', ':lua vim.lsp.buf.formatting()<cr>')
+
+keymap('i', '<C-h>', ':lua vim.lsp.buf.signature_help()<cr>', opts)
 
 -- telescope
 nkeymap("<leader>ff", ":lua require('telescope.builtin').find_files()<cr>")
@@ -72,3 +72,11 @@ nkeymap('<leader>jm', ":lua require'jdtls'.extract_method(true)<CR>")
 nkeymap('<leader>b', ":lua require'dap'.toggle_breakpoint()<CR>")
 nkeymap('<leader>n', ":lua require'dap'.continue()<CR>")
 nkeymap('<leader>dg', ":lua require'dap'.step_into()<CR>")
+
+-- harpoon man
+nkeymap('<C-e>', ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+nkeymap('<leader>m', ":lua require('harpoon.mark').add_file()<CR>")
+nkeymap('<leader>z', ":lua require('harpoon.ui').nav_file(1)<CR>")
+nkeymap('<leader>x', ":lua require('harpoon.ui').nav_file(2)<CR>")
+nkeymap('<leader>c', ":lua require('harpoon.ui').nav_file(3)<CR>")
+nkeymap('<leader>v', ":lua require('harpoon.ui').nav_file(4)<CR>")
