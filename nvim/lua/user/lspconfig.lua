@@ -17,12 +17,12 @@ M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
 M.on_attach = function(client, bufnr)
 	-- lsp signature
-	-- require "lsp_signature".on_attach({
-	-- 	bind = true,
-	-- 	handler_opts = {
-	-- 		border = "rounded"
-	-- 	}
-	-- }, bufnr)
+	require "lsp_signature".on_attach({
+		bind = true,
+		handler_opts = {
+			border = "rounded"
+		}
+	}, bufnr)
 
 	-- navic
 	require("nvim-navic").attach(client, bufnr)
@@ -47,6 +47,16 @@ nvim_lsp["omnisharp"].setup {
 }
 
 nvim_lsp["clangd"].setup {
+	capabilities = M.capabilities;
+	on_attach = M.on_attach;
+}
+
+nvim_lsp["pyright"].setup {
+	capabilities = M.capabilities;
+	on_attach = M.on_attach;
+}
+
+nvim_lsp["bashls"].setup {
 	capabilities = M.capabilities;
 	on_attach = M.on_attach;
 }

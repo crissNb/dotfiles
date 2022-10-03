@@ -1,4 +1,4 @@
-SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
+SPOTIFY_EVENT="com.apple.Music.playerInfo"
 POPUP_SCRIPT="sketchybar -m --set spotify.cover popup.drawing=toggle"
 
 sketchybar --add       event           spotify_change $SPOTIFY_EVENT       \

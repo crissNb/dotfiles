@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-NOTIFICATION_DATABASE="/private/var/folders/fp/zmbcqg310sl24n424_r5p8wr0000gn/0/com.apple.notificationcenter/db2/db"
+NOTIFICATION_DATABASE="/private/var/folders/..."
 # CHANGE THIS LINE ^^^^^^^^^^^^^
 
 cache="$HOME/.config/sketchybar/plugins/dynamic_island/islands/notification/data/notifications"
@@ -32,15 +32,18 @@ if changed $cache; then
 		# format notif
 		IFS=';'
 		read -ra strarr <<< "$notif"
+		unset IFS
 
-		source "$HOME/.config/sketchybar/plugins/dynamic_island/islands/notification/notification_island.sh" ${strarr[5]} ${strarr[6]} ${strarr[7]} ${strarr[2]}
 		# copy last line to changed
 		printf $curNotifCount > "$lastNotifCount"
 		cp $lastLine $changed
 
-		sleep 3
-
-		source "$HOME/.config/sketchybar/plugins/dynamic_island/islands/notification/reset.sh"
+		bash "$HOME/.config/sketchybar/plugins/dynamic_island/queue_island.sh" \
+			"notifications" \
+			3 \
+			"$HOME/.config/sketchybar/plugins/dynamic_island/islands/notification/notification_island.sh ${strarr[5]} ${strarr[6]} ${strarr[7]} ${strarr[2]}" \
+			"$HOME/.config/sketchybar/plugins/dynamic_island/islands/notification/reset.sh" \
+			1.2 \
 	else
 		cp $lastLine $changed
 		printf $curNotifCount > "$lastNotifCount"

@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-SPACE_ICONS=("a" "s" "d" "f" "1" "2" "3" "4" "5" "6")
+SPACE_ICONS=("z" "a" "s" "d" "f" "1" "2" "3" "4" "5")
 
 for i in "${!SPACE_ICONS[@]}"
 do

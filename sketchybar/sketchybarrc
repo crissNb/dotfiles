@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors 
 source "$HOME/.config/sketchybar/icons.sh" # Loads all defined icons
 
 ITEM_DIR="$HOME/.config/sketchybar/items" # Directory where the items are configured
@@ -10,7 +10,7 @@ FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
 SPACE_CLICK_SCRIPT="yabai -m space --focus \$SID 2>/dev/null" # The script that is run for clicking on space components
 
 PADDINGS=3 # All paddings use this value (icon, label, background)
-CORNER_RADIUS=0
+CORNER_RADIUS=5
 
 POPUP_BORDER_WIDTH=2
 POPUP_CORNER_RADIUS=11
@@ -28,7 +28,7 @@ sketchybar --bar     height=32                                         \
                      corner_radius=0                                   \
                      y_offset= 0                                      \
                      margin=10                                         \
-                     blur_radius=30                                    \
+                     blur_radius=80                                    \
                      notch_width=0                                     \
                                                                        \
            --default updates=when_shown                                \
@@ -53,7 +53,8 @@ source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
 
 # Center
-source "$ITEM_DIR/spotify.sh"
+# source "$ITEM_DIR/spotify.sh"
+source "$ITEM_DIR/dynamic_island.sh"
 
 # Right
 # source "$ITEM_DIR/github.sh"

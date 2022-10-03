@@ -79,22 +79,11 @@ _G.packer_plugins = {
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
-  ["JABS.nvim"] = {
-    loaded = true,
-    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/JABS.nvim",
-    url = "https://github.com/matbme/JABS.nvim"
-  },
   LuaSnip = {
     config = { "\27LJ\2\n…\1\0\0\3\0\a\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\4\0B\0\2\0016\0\0\0'\2\5\0B\0\2\0029\0\6\0B\0\1\1K\0\1\0\tload luasnip.loaders.from_vscode\1\0\1\fhistory\2\nsetup\vconfig\fluasnip\frequire\0" },
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
-  },
-  ["aerial.nvim"] = {
-    config = { "\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vaerial\frequire\0" },
-    loaded = true,
-    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/aerial.nvim",
-    url = "https://github.com/stevearc/aerial.nvim"
   },
   catppuccin = {
     loaded = true,
@@ -162,6 +151,11 @@ _G.packer_plugins = {
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -217,11 +211,6 @@ _G.packer_plugins = {
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
-  ["nvim-ts-rainbow"] = {
-    loaded = true,
-    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/nvim-ts-rainbow",
-    url = "https://github.com/p00f/nvim-ts-rainbow"
-  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -237,16 +226,6 @@ _G.packer_plugins = {
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["telescope-fzf-native.nvim"] = {
-    loaded = true,
-    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
-    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
-  },
-  ["telescope-ui-select.nvim"] = {
-    loaded = true,
-    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/telescope-ui-select.nvim",
-    url = "https://github.com/nvim-telescope/telescope-ui-select.nvim"
-  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -261,27 +240,18 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/vim-dispatch",
     url = "https://github.com/tpope/vim-dispatch"
-  },
-  ["vim-illuminate"] = {
-    loaded = true,
-    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/vim-illuminate",
-    url = "https://github.com/RRethy/vim-illuminate"
   }
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: gitsigns.nvim
-time([[Config for gitsigns.nvim]], true)
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
-time([[Config for gitsigns.nvim]], false)
 -- Config for: LuaSnip
 time([[Config for LuaSnip]], true)
 try_loadstring("\27LJ\2\n…\1\0\0\3\0\a\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\4\0B\0\2\0016\0\0\0'\2\5\0B\0\2\0029\0\6\0B\0\1\1K\0\1\0\tload luasnip.loaders.from_vscode\1\0\1\fhistory\2\nsetup\vconfig\fluasnip\frequire\0", "config", "LuaSnip")
 time([[Config for LuaSnip]], false)
--- Config for: aerial.nvim
-time([[Config for aerial.nvim]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\vaerial\frequire\0", "config", "aerial.nvim")
-time([[Config for aerial.nvim]], false)
+-- Config for: gitsigns.nvim
+time([[Config for gitsigns.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rgitsigns\frequire\0", "config", "gitsigns.nvim")
+time([[Config for gitsigns.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

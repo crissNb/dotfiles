@@ -4,7 +4,9 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
 	-- LSP + Treesitter
-	use 'nvim-treesitter/nvim-treesitter'
+	use { 'nvim-treesitter/nvim-treesitter',
+			run = ':TSUpdate'
+	}
 
 	-- nvim tree
 	use {
@@ -53,6 +55,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'hrsh7th/cmp-path' }
 	use { 'hrsh7th/cmp-cmdline' }
 	use { 'hrsh7th/nvim-cmp' }
+	use { 'ray-x/lsp_signature.nvim' }
 
 	-- snippets
 	use({ 'L3MON4D3/LuaSnip',
@@ -77,22 +80,12 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- improve neovim UI
 	use { 'stevearc/dressing.nvim' }
-	use { 'p00f/nvim-ts-rainbow' }
-	use { 'RRethy/vim-illuminate' }
-
-	-- buffer management
-	use { 'matbme/JABS.nvim' }
 
 	-- plenary
 	use { 'nvim-lua/plenary.nvim' }
 
 	-- telescope
 	use { 'nvim-telescope/telescope.nvim' }
-
-	-- telescope extensions
-	use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-	use { 'nvim-telescope/telescope-ui-select.nvim' }
-	use { 'stevearc/aerial.nvim', config = function() require('aerial').setup() end }
 
 	-- neovim optimizations
 	use { 'lewis6991/impatient.nvim' }

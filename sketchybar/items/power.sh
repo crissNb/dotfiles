@@ -12,4 +12,5 @@ sketchybar --add item power_logo right \
                  label.drawing=off \
                  background.color=$GREEN \
                  background.height=23 \
+				 background.padding_right=0 \
                  background.corner_radius=$CORNER_RADIUS \
