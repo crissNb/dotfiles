@@ -1,9 +1,11 @@
 require("catppuccin").setup({
-	transparent_background = true,
+	transparent_background = false,
 	term_colors = true,
 	integrations = {
 		treesitter = true,
 		cmp = true,
+		illuminate = true,
+		harpoon = true,
 		gitsigns = true,
 		telescope = true,
 		nvimtree = true,

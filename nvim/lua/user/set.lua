@@ -15,7 +15,7 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.ignorecase = true
 
-vim.opt.updatetime=50
+vim.opt.updatetime = 50
 
 vim.opt.termguicolors = true
 vim.opt.cmdheight = 1

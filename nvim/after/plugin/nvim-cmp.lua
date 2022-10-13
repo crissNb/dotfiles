@@ -13,19 +13,6 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
-local function border(hl_name)
-	return {
-		{ "╭", hl_name },
-		{ "─", hl_name },
-		{ "╮", hl_name },
-		{ "│", hl_name },
-		{ "╯", hl_name },
-		{ "─", hl_name },
-		{ "╰", hl_name },
-		{ "│", hl_name },
-	}
-end
-
 local icons = {
 	Text          = ' ',
 	Method        = ' ',
@@ -68,12 +55,9 @@ end
 local options = {
 	window = {
 		completion = {
-			border = border "CmpBorder",
 			winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
 		},
 		documentation = {
-			border = border "CmpDocBorder",
-			--   border = "rounded",
 			winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
 		},
 	},

@@ -44,9 +44,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'catppuccin/nvim', as = 'catppuccin' }
 
 	-- LSP related
-	use { 'SmiteshP/nvim-navic',
-		requires = 'neovim/nvim-lspconfig' }
-
 	use { 'neovim/nvim-lspconfig' }
 	use { 'williamboman/mason.nvim' }
 	use { 'williamboman/mason-lspconfig.nvim' }
@@ -56,6 +53,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'hrsh7th/cmp-cmdline' }
 	use { 'hrsh7th/nvim-cmp' }
 	use { 'ray-x/lsp_signature.nvim' }
+	use { 'RRethy/vim-illuminate' }
 
 	-- snippets
 	use({ 'L3MON4D3/LuaSnip',
@@ -95,5 +93,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- harpoon man
 	use { 'ThePrimeagen/harpoon' }
-	
+
+	-- jabs
+	use { 'matbme/JABS.nvim' }
 end)

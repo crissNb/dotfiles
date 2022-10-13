@@ -45,6 +45,7 @@ nkeymap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
 nkeymap('<leader>fm', ':lua vim.lsp.buf.format({ async = true })<cr>')
 nkeymap("[d", ':lua vim.diagnostic.goto_prev()<cr>')
 nkeymap("]d", ':lua vim.diagnostic.goto_next()<cr>')
+nkeymap("K", ":lua vim.lsp.buf.hover()<cr>")
 vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
 
 -- telescope
