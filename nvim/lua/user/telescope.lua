@@ -63,9 +63,20 @@ require("telescope").setup({
 				local selection = require("telescope.actions.state").get_selected_entry()
 				local dir = vim.fn.fnamemodify(selection.path, ":p:h")
 				require("telescope.actions").close(prompt_bufnr)
-				-- Depending on what you want put `cd`, `lcd`, `tcd`
 				vim.cmd(string.format("silent lcd %s", dir))
 			end
 		}
 	}
 })
+
+local M = {}
+
+M.search_unity_scripts = function()
+	require("telescope.builtin").find_files({
+		prompt_title = "Unity Scripts",
+		cwd = "Assets/Scripts",
+		hidden = false,
+	})
+end
+
+return M

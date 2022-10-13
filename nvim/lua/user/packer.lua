@@ -95,4 +95,5 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- harpoon man
 	use { 'ThePrimeagen/harpoon' }
+	
 end)

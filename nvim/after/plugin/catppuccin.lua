@@ -26,6 +26,10 @@ require("catppuccin").setup({
 			enabled = true,
 			enable_ui = true,
 		},
+		indent_blankline = {
+			enabled = true,
+			colored_indent_levels = false,
+		},
 	},
 })
 

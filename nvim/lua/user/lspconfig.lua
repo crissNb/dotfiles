@@ -25,7 +25,9 @@ M.on_attach = function(client, bufnr)
 	}, bufnr)
 
 	-- navic
-	require("nvim-navic").attach(client, bufnr)
+	if client.server_capabilities.documentSymbolProvider then
+		require("nvim-navic").attach(client, bufnr)
+	end
 
 	if client.name == "jdtls" then
 		vim.lsp.codelens.refresh()
@@ -43,7 +45,7 @@ nvim_lsp['sumneko_lua'].setup {
 nvim_lsp["omnisharp"].setup {
 	capabilities = M.capabilities,
 	on_attach = M.on_attach,
-    cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) },
+    cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) }
 }
 
 nvim_lsp["clangd"].setup {
