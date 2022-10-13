@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 sketchybar --add item mail right                   \
-           --set mail update_freq=120              \
+           --set mail update_freq=60              \
                       icon.drawing=off             \
                       script="$PLUGIN_DIR/mail.sh" \
                       label=!                      \

@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 source "$HOME/.config/sketchybar/icons.sh"
 
-profile="$HOME/Library/Thunderbird/Profiles/asdfasdf.default-release"
+profile="$HOME/Library/Thunderbird/Profiles/5wpj8jv2.default-release"
 regex='\(\^A1=([0-9]+)'
 
 count_unreadmails() {
