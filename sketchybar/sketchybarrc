@@ -6,15 +6,18 @@ source "$HOME/.config/sketchybar/icons.sh" # Loads all defined icons
 ITEM_DIR="$HOME/.config/sketchybar/items" # Directory where the items are configured
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
+FONT="SF Pro"
+
 # Define Dynamic island custom configs here
-source "$PLUGIN_DIR/Dynamic-Island-Sketchybar/config.sh" # Loads Dynamic-Island config
+bash "$PLUGIN_DIR/Dynamic-Island-Sketchybar/config.sh" # Loads Dynamic-Island config
 
 # Set up your own custom sketchybar config here
+sketchybar --bar	color=$BAR_COLOR
 
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
 
-source "$PLUGIN_DIR/Dynamic-Island-Sketchybar/item.sh" # Loads Dynamic-Island item
+bash "$PLUGIN_DIR/Dynamic-Island-Sketchybar/item.sh" # Loads Dynamic-Island item
 
 source "$ITEM_DIR/mail.sh"
 source "$ITEM_DIR/power.sh"
