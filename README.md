@@ -126,3 +126,5 @@ Credits
 Part of my SKHD configuration and Yabai configuration (and their custom scripts) are from [Jesse Skelton](https://www.notion.so/Yabai-8da3b829872d432fac43181b7ff628fc)
 
 .zshrc config by [Luke Smith](https://github.com/LukeSmithxyz/voidrice)
+
+The majority of the sketchybar config is from [Felix Kratz](https://github.com/FelixKratz/dotfiles/)

@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
 
 sketchybar --add item     calendar right               \
-           --set calendar update_freq=15               \
-                          icon=cal                     \
+           --set calendar icon=cal                     \
                           icon.color=$LABEL_COLOR            \
                           icon.font="$FONT:Black:12.0" \
                           icon.padding_left=5         \
@@ -12,7 +11,6 @@ sketchybar --add item     calendar right               \
                           label.padding_right=5       \
                           width=140                    \
                           align=center                 \
-                          script="$PLUGIN_DIR/time.sh" \
                           background.color=$ITEM_COLOR  \
                           background.height=23         \
                           background.corner_radius=$CORNER_RADIUS

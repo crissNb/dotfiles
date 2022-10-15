@@ -5,20 +5,27 @@ SPACE_ICONS=("z" "a" "s" "d" "f" "1" "2" "3" "4" "5")
 for i in "${!SPACE_ICONS[@]}"
 do
   sid=$(($i+1))
-  sketchybar --add space      space.$sid left                    \
-             --set space.$sid associated_space=$sid              \
-                              icon=${SPACE_ICONS[i]}             \
-                              icon.padding_left=22               \
-                              icon.padding_right=22              \
-                              icon.highlight_color=$YELLOW          \
-                              icon.color=$LABEL_COLOR           \
-                              background.padding_left=-8         \
-                              background.padding_right=-8        \
-                              background.height=23               \
-                              background.corner_radius=$CORNER_RADIUS         \
-                              background.color=$ITEM_COLOR        \
-                              background.drawing=on              \
-                              label.drawing=off                  \
+  sketchybar --add space      space.$sid left                               \
+             --set space.$sid associated_space=$sid                         \
+                              icon=${SPACE_ICONS[i]}                        \
+                              icon.padding_left=22                          \
+                              icon.padding_right=22                         \
+                              label.padding_right=33                        \
+                              icon.highlight_color=$RED                     \
+                              background.padding_left=-8                    \
+                              background.padding_right=-8                   \
+                              background.height=26                          \
+                              background.corner_radius=9                    \
+                              background.color=$SPACE_BACKGROUND            \
+                              background.drawing=on                         \
+                              label.font="sketchybar-app-font:Regular:16.0" \
+                              label.background.height=26                    \
+                              label.background.drawing=on                   \
+                              label.background.color=$OPEN_APPS_BACKGROUND  \
+                              label.background.corner_radius=9              \
+                              label.drawing=off                             \
+                              script=""                                     \
+                              mach_helper="$HELPER"                         \
                               click_script="$SPACE_CLICK_SCRIPT"
 done
 
