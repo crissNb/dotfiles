@@ -25,6 +25,11 @@ hyper - w : yabai -m space --mirror y-axis
 hyper - return : yabai -m window --toggle zoom-fullscreen
 hyper - o : yabai -m window --grid 1:1:0:0:1:1
 
+# media controls p [ ] keys
+hyper - 0x23 : osascript -e 'tell application "Music" to previous track'
+hyper - 0x21 : osascript -e 'tell application "Music" to playpause'
+hyper - 0x1E : osascript -e 'tell application "Music" to next track'
+
 # focus desktop
 shift + rcmd + rctrl + ralt - z : ~/.config/skhd/CustomScripts/SwitchSpace.sh 1
 shift + rcmd + rctrl + ralt - a : ~/.config/skhd/CustomScripts/SwitchSpace.sh 2
@@ -62,12 +67,12 @@ window < k : yabai -m window --focus south
 
 # move window
 # same as shift + rcmd + rctrl + ralt+ lcmd - key
-window < ctrl - h : yabai -m window --warp west || \
+window < shift - h : yabai -m window --warp west || \
 		~/.config/skhd/CustomScripts/MoveWindowLeftAndFocus.sh
-window < ctrl - l : yabai -m window --warp east || \
+window < shift - l : yabai -m window --warp east || \
 		~/.config/skhd/CustomScripts/MoveWindowLeftAndFocus.sh
-window < ctrl - k : yabai -m window --warp north
-window < ctrl - j : yabai -m window --warp south
+window < shift - k : yabai -m window --warp north
+window < shift - j : yabai -m window --warp south
 
 # move window to desktop
 window < z : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 1
@@ -81,11 +86,11 @@ window < 3 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 8
 window < 4 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 9
 
 # resize window
-window < shift + rcmd + lctrl + rctrl + ralt - h : yabai -m window --resize left:-20:0 || \
+window < ctrl - h : yabai -m window --resize left:-20:0 || \
 											yabai -m window --resize right:-20:0
-window < shift + rcmd + lctrl + rctrl + ralt - l : yabai -m window --resize left:20:0 || \
+window < ctrl - l : yabai -m window --resize left:20:0 || \
 											yabai -m window --resize right:20:0
-window < shift + rcmd + lctrl + rctrl + ralt - j : yabai -m window --resize top:0:20 || \
+window < ctrl - j : yabai -m window --resize top:0:20 || \
 											yabai -m window --resize bottom:0:20
-window < shift + rcmd + lctrl + rctrl + ralt - k : yabai -m window --resize top:0:-20 || \
+window < ctrl - k : yabai -m window --resize top:0:-20 || \
 											yabai -m window --resize bottom:0:-20
