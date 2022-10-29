@@ -4,6 +4,7 @@ hyper - y : ~/.config/skhd/CustomScripts/ToggleWM.sh 0
 
 # killall dock - when desktop transitions act weird
 hyper - x : killall Dock
+hyper - b : brew services restart sketchybar
 
 # open apps
 # terminal window
@@ -48,12 +49,14 @@ shift + rcmd + rctrl + ralt - up : window=$(yabai -m query --windows --window | 
 shift + rcmd + rctrl + ralt - down : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window south --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
 
 # scroll through stack
-rshift + rcmd + rctrl + ralt - 0x30 : yabai -m window --focus stack.next
-rshift + rcmd + rctrl + ralt + lshift - 0x30 : yabai -m window --focus stack.prev
+lalt - 0x30 : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+lalt + lshift - 0x30 : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
 
 # modes
-:: default : sketchybar --set island drawing=off
-:: window @ : sketchybar --set island drawing=on
+# :: default : sketchybar --set island drawing=off
+# :: window @ : sketchybar --set island drawing=on
+:: default
+:: window @
 hyper - n ; window
 window < escape ; default
 

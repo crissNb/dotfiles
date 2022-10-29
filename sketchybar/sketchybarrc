@@ -6,13 +6,16 @@ source "$HOME/.config/sketchybar/icons.sh" # Loads all defined icons
 ITEM_DIR="$HOME/.config/sketchybar/items" # Directory where the items are configured
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
 
-SPACE_CLICK_SCRIPT="yabai -m space --focus \$SID 2>/dev/null" # The script that is run for clicking on space components
-
 # helper process
 HELPER=git.felix.helper
 killall helper
 cd $HOME/.config/sketchybar/helper && make
 $HOME/.config/sketchybar/helper/helper $HELPER &
+
+ISLANDHELPER=git.crissnb.islandhelper
+killall islandhelper
+cd $HOME/.config/sketchybar/plugins/Dynamic-Island-Sketchybar/helper && make
+$HOME/.config/sketchybar/plugins/Dynamic-Island-Sketchybar/helper/islandhelper $ISLANDHELPER &
 
 # Define Dynamic island custom configs here
 source "$PLUGIN_DIR/Dynamic-Island-Sketchybar/config.sh" # Loads Dynamic-Island config
@@ -20,7 +23,7 @@ source "$PLUGIN_DIR/Dynamic-Island-Sketchybar/config.sh" # Loads Dynamic-Island 
 # Set up your own custom sketchybar config here
 sketchybar --bar	color=$BAR_COLOR \
 					margin=10		 \
-					corner_radius=9	 \
+					corner_radius=9
 
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"

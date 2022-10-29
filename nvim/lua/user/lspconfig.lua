@@ -13,7 +13,7 @@ if not status_cmp_ok then
 end
 
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.on_attach = function(client, bufnr)
 	-- lsp signature
@@ -47,6 +47,7 @@ nvim_lsp["omnisharp"].setup {
 	on_attach = M.on_attach,
 	--vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc'),
     cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) },
+    -- cmd = { "/Users/semi/Developer/Other/omnisharp-roslyn/artifacts/publish/OmniSharp.Stdio.Driver/mono/run", "--languageserver", "--hostPID", tostring(pid) },
 }
 
 nvim_lsp["clangd"].setup {

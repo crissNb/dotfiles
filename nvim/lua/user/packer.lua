@@ -96,4 +96,10 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- jabs
 	use { 'matbme/JABS.nvim' }
+
+	-- latex
+	use { 'lervag/vimtex' }
+
+	-- discord presence
+	use { 'andweeb/presence.nvim' }
 end)
