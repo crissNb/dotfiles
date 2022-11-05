@@ -105,7 +105,7 @@ jdtls.start_or_attach {
 		signatureHelp = { enabled = true },
 	},
 }
-require('jdtls').setup_dap()
+-- require('jdtls').setup_dap()
 
 vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_compile JdtCompile lua require('jdtls').compile(<f-args>)"
 vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._complete_set_runtime JdtSetRuntime lua require('jdtls').set_runtime(<f-args>)"

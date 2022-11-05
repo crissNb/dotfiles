@@ -105,7 +105,7 @@ local options = {
 				end
 
 				if kind == "Text" then
-					return true
+					return false
 				end
 			end,
 			group_index = 2 },
