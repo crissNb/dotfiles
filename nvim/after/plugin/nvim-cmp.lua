@@ -13,6 +13,8 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 local icons = {
 	Text          = ' ',
 	Method        = ' ',
@@ -95,6 +97,17 @@ local options = {
 				fallback()
 			end
 		end, { "i", "s" }),
+		["<Tab>"] = cmp.mapping(function(fallback)
+			if cmp.visible() then
+				cmp.select_next_item()
+			elseif luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			elseif has_words_before() then
+				cmp.complete()
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 	},
 	sources = {
 		{ name = "nvim_lsp",
@@ -109,7 +122,7 @@ local options = {
 				end
 			end,
 			group_index = 2 },
-		{ name = "luasnip", group_index = 2 },
+		{ name = "luasnip", option = { use_show_condition = false }, group_index = 2 },
 		{ name = "nvim_lua", group_index = 2 },
 		{ name = "buffer", group_index = 2 },
 		{ name = "path", group_index = 2 },
