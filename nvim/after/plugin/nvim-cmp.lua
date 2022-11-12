@@ -122,9 +122,9 @@ local options = {
 				end
 			end,
 			group_index = 2 },
+		{ name = 'omni', group_index = 2 },
 		{ name = "luasnip", option = { use_show_condition = false }, group_index = 2 },
 		{ name = "nvim_lua", group_index = 2 },
-		{ name = "buffer", group_index = 2 },
 		{ name = "path", group_index = 2 },
 	},
 	sorting = {
@@ -151,7 +151,7 @@ local options = {
 				nvim_lsp = "",
 				nvim_lua = "",
 				luasnip = "",
-				buffer = "",
+				omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
 				path = "",
 				emoji = "",
 			})[_.source.name]

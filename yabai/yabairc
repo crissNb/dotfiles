@@ -3,6 +3,10 @@
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+yabai -m signal --add event=display_added action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
+yabai -m signal --add event=display_removed action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
+yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 
 yabai -m config external_bar               all:32:0
 yabai -m config window_border              on
@@ -12,13 +16,13 @@ yabai -m config window_placement           second_child
 yabai -m config window_topmost             off
 yabai -m config window_shadow              float
 yabai -m config window_opacity             off
-yabai -m config window_opacity_duration    0.0
+yabai -m config window_opacity_duration    0.15
 yabai -m config active_window_opacity      1.0
 yabai -m config normal_window_opacity      1.0
 yabai -m config window_border_width        3
-yabai -m config active_window_border_color 0xffe1e3e4
-yabai -m config normal_window_border_color 0xff555555
-yabai -m config normal_window_border_color 0xff2a2f38
+yabai -m config window_border_radius	   3
+yabai -m config active_window_border_color 0xffa6e3a1
+yabai -m config normal_window_border_color 0xffe1e3e4
 yabai -m config insert_feedback_color      0xff9dd274
 yabai -m config split_ratio                0.50
 yabai -m config auto_balance               off
@@ -27,15 +31,14 @@ yabai -m config mouse_action1              move
 yabai -m config mouse_action2              resize
 yabai -m config mouse_drop_action          swap
 
-
 yabai -m config layout                     bsp
-yabai -m config top_padding                9
-yabai -m config bottom_padding             9
-yabai -m config left_padding               9
-yabai -m config right_padding              9
-yabai -m config window_gap                 9
+yabai -m config top_padding                10
+yabai -m config bottom_padding             10
+yabai -m config left_padding               10
+yabai -m config right_padding              10
+yabai -m config window_gap                 8
 # Do not manage some apps which are not resizable
-yabai -m rule --add app="^(LuLu|Vimac|Calculator|VLC|System Preferences|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice)$" manage=off
+yabai -m rule --add app="^(LuLu|Vimac|Calculator|VLC|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice)$" manage=off
 
 # ===== Rules ==================================
 
@@ -45,7 +48,7 @@ yabai -m rule --add app="^Unity$" manage=off
 yabai -m rule --add label="raycast" app="^Raycast$" manage=off
 yabai -m rule --add label="Bitwarden" app="^Bitwarden$" layer=above manage=off
 yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
-yabai -m rule --add label="System Preferences" app="^System Preferences$" manage=off
+yabai -m rule --add label="System Settings" app="^System Preferences$" manage=off
 yabai -m rule --add label="App Store" app="^App Store$" manage=off
 yabai -m rule --add label="Activity Monitor" app="^Activity Monitor$" manage=off
 yabai -m rule --add label="Calculator" app="^Calculator$" manage=off
@@ -56,7 +59,7 @@ yabai -m rule --add label="Select file to save to" app="^Inkscape$" title="Selec
 yabai -m rule --add label="Blender File View" app="^Blender$" title="Blender File View" layer=above manage=off
 yabai -m rule --add label="AppCleaner" app="^AppCleaner$" layer=above manage=off
 yabai -m rule --add app="^Eclipse$" manage=off
-yabai -m rule --add app="^IntelliJ$" manage=off
+yabai -m rule --add app="^IntelliJ IDEA$" manage=off
 
 yabai -m space 1 --label one
 yabai -m space 2 --label two

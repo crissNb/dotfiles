@@ -1,11 +1,11 @@
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use) -- Packer can manage itself 
+return require('packer').startup(function(use) -- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 
 	-- LSP + Treesitter
 	use { 'nvim-treesitter/nvim-treesitter',
-			run = ':TSUpdate'
+		run = ':TSUpdate'
 	}
 
 	-- nvim tree
@@ -48,7 +48,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'williamboman/mason.nvim' }
 	use { 'williamboman/mason-lspconfig.nvim' }
 	use { 'hrsh7th/cmp-nvim-lsp' }
-	use { 'hrsh7th/cmp-buffer' }
+	use { 'hrsh7th/cmp-omni' }
 	use { 'hrsh7th/cmp-path' }
 	use { 'hrsh7th/cmp-cmdline' }
 	use { 'hrsh7th/nvim-cmp' }
@@ -98,7 +98,10 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'matbme/JABS.nvim' }
 
 	-- latex
-	use { 'lervag/vimtex' }
+	use { 'lervag/vimtex',
+		ft = { "tex", "bib" },
+		config = 'require("user.vimtex")' }
+
 
 	-- discord presence
 	use { 'andweeb/presence.nvim' }
