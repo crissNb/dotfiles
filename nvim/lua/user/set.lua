@@ -20,6 +20,8 @@ vim.opt.updatetime = 50
 vim.opt.termguicolors = true
 vim.opt.cmdheight = 1
 
+vim.opt.undofile = true
+
 -- Use system clipboard by default
 vim.api.nvim_set_option("clipboard", "unnamed")
 vim.opt.foldmethod = "expr"

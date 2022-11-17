@@ -17,12 +17,12 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.on_attach = function(client, bufnr)
 	-- lsp signature
-	require "lsp_signature".on_attach({
-		bind = true,
-		handler_opts = {
-			border = "rounded"
-		}
-	}, bufnr)
+	-- require "lsp_signature".on_attach({
+	-- 	bind = true,
+	-- 	handler_opts = {
+	-- 		border = "rounded"
+	-- 	}
+	-- }, bufnr)
 
 	-- navic
 	-- if client.server_capabilities.documentSymbolProvider then

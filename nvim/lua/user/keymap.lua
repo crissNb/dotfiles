@@ -75,6 +75,7 @@ nkeymap('<leader>jm', ":lua require'jdtls'.extract_method(true)<CR>")
 nkeymap('<leader>b', ":lua require'dap'.toggle_breakpoint()<CR>")
 nkeymap('<leader>n', ":lua require'dap'.continue()<CR>")
 nkeymap('<leader>dg', ":lua require'dap'.step_into()<CR>")
+nkeymap('<leader>do', ":lua require'dapui'.toggle()<CR>")
 
 -- harpoon man
 nkeymap('<C-e>', ":lua require('harpoon.ui').toggle_quick_menu()<CR>")

@@ -42,6 +42,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- theme
 	use { 'catppuccin/nvim', as = 'catppuccin' }
+	use { "ellisonleao/gruvbox.nvim" }
 
 	-- LSP related
 	use { 'neovim/nvim-lspconfig' }
@@ -52,7 +53,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'hrsh7th/cmp-path' }
 	use { 'hrsh7th/cmp-cmdline' }
 	use { 'hrsh7th/nvim-cmp' }
-	use { 'ray-x/lsp_signature.nvim' }
+	-- use { 'ray-x/lsp_signature.nvim' }
 	use { 'RRethy/vim-illuminate' }
 
 	-- snippets
