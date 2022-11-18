@@ -1,0 +1,371 @@
+/* ==/ Gruvy Discord for Desktop \==
+
+@name           Gruvbox-Discord
+@namespace      https://github.com/jack-mil/gruvy-discord
+@version        1.4.0
+@description    Gruvbox colors for Discord (desktop). Modified from https://github.com/elkowar/a-box-of-gruv
+@author         jack-mil (https://github.com/jack-mil)
+@license        MIT
+
+Use your favorite Discord CSS hot-loader of choice.
+==/ EOL \== */
+
+
+/* Gruvbox color scheme */
+
+ :root {
+    /* Change these fonts to what you have installed */
+    --fontMain: "Terminus (TTF) for Windows";
+    --fontCode: "Fira Code";
+    /*  ----  */
+    --bg1: #282828;
+    --bg2: #222222;
+    --bg3: #1d2021;
+    --bgcode: #303030;
+    --button: #daddee1a;
+    /*  ----  */
+    --fg2: #a89984;
+    --fg1: #fbf1c7;
+    --disabled: #696969;
+    /*  ----  */
+    --accent: #83c07c;
+    --accent2: #83a598;
+    --contrast: #ffffff;
+    /*  ----  */
+    --red: #fb4934;
+    --purple: #b16286;
+    --blue: #458588;
+    --cyan: #7acfe4;
+    --green: #83c07c;
+    --yellow: #fabd2f;
+    --border1: #223344;
+    --border2: #334455;
+    /*  ----  */
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+
+/* Discord theme variables */
+
+.theme-dark {
+    --header-primary: var(--fg2);
+    --header-secondary: var(--fg2);
+    --text-normal: var(--fg1);
+    --text-muted: var(--fg2);
+    --text-link: var(--accent);
+    --channels-default: var(--fg1);
+    --interactive-normal: var(--fg2);
+    --interactive-hover: var(--fg1);
+    --interactive-active: var(--fg1);
+    --interactive-muted: var(--fg2);
+    --background-primary: var(--bg1);
+    --background-secondary: var(--bg2);
+    --background-secondary-alt: var(--bg1);
+    --background-tertiary: var(--bg1);
+    --background-accent: var(--accent);
+    --background-floating: var(--bg1);
+    --background-modifier-hover: rgba(79, 84, 92, 0.16);
+    --background-modifier-active: rgba(79, 84, 92, 0.24);
+    --background-modifier-accent: hsla(132, 0%, 100%, .06);
+    /*   --background-modifier-accent: rgba(0, 0, 0, 0); */
+    --elevation-high: 0 8px 16px rgba(0, 0, 0, 0.24);
+    --guild-header-text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+    --channeltextarea-background: var(--bg1);
+    --activity-card-background: var(--bg2);
+    --deprecated-panel-background: var(--bg3);
+    --background-modifier-selected: var(--bg1);
+    --elevation-low: none !important;
+    --background-message-hover: var(--bg2) !important;
+}
+
+
+/* fallback to default fonts */
+
+* body {
+    font-family: var(--fontMain), Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 1rem;
+}
+
+
+/* code formatted messages */
+
+[class*="markup"] code,
+[class*="markup"] code.inline {
+    font-family: var(--fontCode), monospace;
+    background: var(--bgcode);
+    color: var(--header-secondary);
+}
+
+
+/* code in text box */
+
+span[class*=inlineCode],
+span[class*=code] {
+    font-family: var(--fontCode), monospace;
+    background: var(--bgcode);
+    color: var(--header-secondary);
+    font-size: 85%;
+}
+
+
+/* code language specifier */
+
+span[class*=codeBlockLang] {
+    color: var(--purple);
+}
+
+
+/* scrollbar restyling and color */
+
+ ::-webkit-scrollbar,
+ ::-webkit-scrollbar-track,
+ ::-webkit-scrollbar-track-handle,
+ ::-webkit-scrollbar-track-piece {
+    border-color: rgb(0, 0, 0, 0) !important;
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background-color: var(--accent) !important;
+}
+
+
+/* sections */
+
+[class*="peopleColumn"] {
+    background-color: var(--bg2);
+}
+
+[class*="section"] {
+    background-color: var(--bg3);
+}
+
+
+/* Server name sidebar header */
+
+[class*="sidebar"] [class*="container"] [class*="header"] {
+    background-color: var(--bg3);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
+}
+
+
+/* Server channels sidebar */
+
+[class*="sidebar"]>[class*="container"],
+[class*="members"][class*="scroller"] {
+    box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.3);
+}
+
+
+/* [class*="scrollerWrap"] {
+    border-radius: 10px !important;
+} */
+
+
+/* channel members sidebar */
+
+[class*="membersWrap"] {
+    border-top-left-radius: 15px;
+    overflow: hidden;
+}
+
+
+/* message input area */
+
+[class*="chatContent"] [class*="form"] {
+    padding-top: 0.5rem;
+    background-color: var(--bg1);
+    box-shadow: 0 -30px 20px -30px rgba(0, 0, 0, 0.3);
+}
+
+[class*="textAreaSlate"] {
+    background-color: var(--bg3);
+    border-radius: 13px;
+    color: var(--fg-2);
+    box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+[class*="textAreaSlate"]>* {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+/* search bar color */
+
+div[class*="chat"] div[class*=toolbar] div[class*="searchBar"] {
+    background-color: var(--background-secondary);
+}
+
+
+/* buttons */
+
+button[class*="lookFilled"] {
+    background-color: var(--button);
+}
+
+button[class*="buttonActive"][class*="lookFilled"] {
+    background-color: var(--accent) !important;
+    color: var(--bg1) !important;
+}
+
+button[class*="lookLink"] {
+    color: var(--fg1) !important;
+}
+
+
+/* usernames, avatars, and sprites */
+
+[class*="sprite"] {
+    filter: brightness(80%) sepia(80%) saturate(60%) !important;
+}
+
+[class*="username"] {
+    filter: sepia(30%) !important;
+    transition: filter 0.2s;
+    font-weight: 600;
+}
+
+[class*="username"]:hover {
+    filter: sepia(90%) !important;
+}
+
+[class*="newMessagesBar-"] {
+    background-color: var(--accent);
+    opacity: 1;
+}
+
+[class*="newMessagesBar-"] button {
+    color: var(--bg1) !important;
+}
+
+img[class*="avatar"][class*="clickable"] {
+    filter: sepia(50%);
+    transition: filter 0.1s, transform 0.1s ease-in-out;
+    border-radius: 10%;
+}
+
+img[class*="avatar"][class*="clickable"]:hover {
+    filter: sepia(0%);
+    transform: scale(1.05);
+}
+
+[class*="pictureInPictureWindow"] {
+    box-shadow: 0 8px 15px 0px rgba(0, 0, 0, 0.5) !important;
+}
+
+
+/* message date divider */
+
+[class*="divider"] {
+    border-color: var(--accent);
+}
+
+
+/* unread divider */
+
+[class*="divider"][class*="isUnread"] {
+    border-color: var(--red) !important;
+}
+
+[class*="unreadPill-"] {
+    background-color: var(--red);
+}
+
+[class*="unreadPillCap"] {
+    fill: var(--red);
+}
+
+
+/* channel unread dot */
+
+#channels div[class^="unread-"] {
+    background-color: var(--accent)
+}
+
+
+/* server selected and unread dot */
+
+div[class^="pill-"][class^="wrapper"]>span {
+    background-color: var(--accent)
+}
+
+div[class*="pill-"][class*="wrapper"]>span[class*="item-"] {
+    background-color: var(--interactive-active);
+}
+
+button[class*="lookFilled"] {
+    color: var(--fg1) !important;
+}
+
+
+/* server folders and icons */
+
+div[class^="blobContainer"] foreignObject {
+    filter: sepia(50%);
+}
+
+div[class^="folderIconWrapper"] {
+    background: transparent !important;
+    /* disable blue overlay */
+}
+
+div[class^="closedFolderIconWrapper"] {
+    /* `accent` (green) with opacity */
+    background-color: rgba(131, 192, 124, 0.4) !important;
+}
+
+div[class^="expandedFolderIconWrapper"]>svg {
+    color: var(--accent) !important;
+}
+
+
+/* discord logo color (DMs) */
+
+a[class*="wrapper"][class*="selected"] [class^="childWrapper"],
+a[class^="wrapper"]:hover [class^="childWrapper"] {
+    background-color: var(--accent) !important;
+}
+
+
+/* various modals; WIP */
+
+[class*="modal"] [class*="queryContainer-"],
+[class*="modal"] [class*="resultsGroup-"],
+[class*="modal"] [class*="bodyInner-"],
+[class*="modal"] [class*="quickMessage-"],
+[class*="modal"] [class*="inner-"],
+[class*="modal"] [class*="header-"]:not(header):not(h2),
+[class*="modal"] [class*="uploadModal-"] {
+    background-color: var(--bg1) !important;
+}
+
+
+/*go live source selector header bar*/
+
+[class*="live"][class*="textBadge"] {
+    background-color: var(--red) !important;
+    color: var(--fg1);
+}
+
+[class*="modal"] [class*="sourceScroller"],
+[class*="modal"] [class*="segmentContainer-"] [class*="segmentControl"] {
+    background-color: var(--bg3) !important;
+}
+
+[class*="modal"] [class*="header"] {
+    padding: 0.4rem;
+    padding-top: unset;
+}
+
+[class*="modal"] [class*="footer-"] {
+    background-color: var(--bg3) !important;
+    filter: brightness(110%);
+}
+
+[class*="panels"]>*:nth-child(2) {
+    height: 4.6rem;
+    padding-bottom: 0.5rem;
+}
