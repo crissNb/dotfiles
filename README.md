@@ -4,7 +4,7 @@ My dotfiles
 About
 =====
 The following is my dotfiles configuration on my 2021 MacBook Pro 14 inch. It also includes [Dynamic Island plugin](https://github.com/crissNb/Dynamic-Island-Sketchybar) I made for SketchyBar.
-Overall my desktop is themed using [Catppuccin](https://github.com/catppuccin/catppuccin). I'm fan of vim bindings, so I'm using HJKL keys to navigate
+Overall my desktop is themed using [Catppuccin](https://github.com/catppuccin/catppuccin) or [Gruvbox Material](https://github.com/sainnhe/gruvbox-material). These two themes can be toggled by replacing catppuccin config with gruvbox config. I'm fan of vim bindings, so I'm using HJKL keys to navigate
 between windows (see (SKHD)[#skhd]), etc.
 
 Table of Contents
