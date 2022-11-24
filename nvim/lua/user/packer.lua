@@ -42,7 +42,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- theme
 	use { 'catppuccin/nvim', as = 'catppuccin' }
-	use { "ellisonleao/gruvbox.nvim" }
+	use { "sainnhe/gruvbox-material" }
 
 	-- LSP related
 	use { 'neovim/nvim-lspconfig' }
@@ -106,4 +106,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- discord presence
 	use { 'andweeb/presence.nvim' }
+
+	-- colors
+	use { 'norcalli/nvim-colorizer.lua' }
 end)
