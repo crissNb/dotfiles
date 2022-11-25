@@ -68,7 +68,18 @@ bindkey '^e' edit-command-line
 alias ls='exa'
 alias ll='exa -l'
 
-source ~/.zsh/catppuccin-zsh-syntax-highlighting.zsh
+# source ~/.zsh/catppuccin-zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-gruvbox.zsh
 
 # Load zsh-syntax-highlighting; should be last.
 source /Users/semi/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Load zsh-autosuggestions; should be last.
+source /Users/semi/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export PATH="$HOME/.local/bin:$PATH"
+export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
