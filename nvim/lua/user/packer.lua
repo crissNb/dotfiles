@@ -109,4 +109,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- colors
 	use { 'norcalli/nvim-colorizer.lua' }
+
+	-- linters
+	use { 'jose-elias-alvarez/null-ls.nvim' }
 end)
