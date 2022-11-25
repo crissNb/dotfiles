@@ -4,13 +4,16 @@ import:
 #  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+ # - ~/.config/alacritty/gruvbox/gruvbox-dark.yml
 font:
-  size: 14
+  size: 16
   normal:
-    family: "FiraCode Nerd Font Mono"
+    family: "OperatorMono Nerd Font"
+    style: Light
   offset:
       x: 0    # For letter spacing.
-      y: 5    # For line spacing. 
+      y: 1    # For line spacing. 
 
 window:
   decorations: None
+  opacity: 0.9
