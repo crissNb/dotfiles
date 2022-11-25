@@ -9,16 +9,16 @@ yabai -m signal --add event=window_created action="sketchybar --trigger windows_
 yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 
 yabai -m config external_bar               all:32:0
-yabai -m config window_border              on
+yabai -m config window_border              off # enabling this option will also enable blur
 yabai -m config mouse_follows_focus        off
 yabai -m config focus_follows_mouse        off
 yabai -m config window_placement           second_child
 yabai -m config window_topmost             off
-yabai -m config window_shadow              float
+yabai -m config window_shadow              on
 yabai -m config window_opacity             off
-yabai -m config window_opacity_duration    0.15
+yabai -m config window_opacity_duration    0.0
 yabai -m config active_window_opacity      1.0
-yabai -m config normal_window_opacity      1.0
+yabai -m config normal_window_opacity      0.90
 yabai -m config window_border_width        3
 yabai -m config window_border_radius	   3
 yabai -m config active_window_border_color 0xffa6e3a1
@@ -73,4 +73,3 @@ yabai -m space 9 --label nine
 yabai -m space 10 --label ten
 
 yabai -m signal --add event=window_destroyed action="bash ./CustomScripts/window-focus-on-destroy.sh"
-echo "yabai configuration loaded.."
