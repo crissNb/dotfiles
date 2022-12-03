@@ -12,8 +12,6 @@ keymap('v', 'x', '"_d', opts)
 -- move selected line / block of text in visual mode
 keymap("v", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("v", "J", ":move '>+1<CR>gv-gv", opts)
--- keymap("v", "<A-j>", ":m '>+1<CR>gv-gv", opts)
--- keymap("v", "<A-k>", ":m '<-2<CR>gv-gv", opts)
 
 
 -- leader
@@ -21,12 +19,25 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 nkeymap("<Space>", "")
 
+-- global clipboard copypaste
+nkeymap("<leader>p", "\"+P")
+nkeymap("<leader>y", "\"+y")
+keymap('v', "<leader>y", "\"+y", opts)
+
 -- Normal --
 -- switch between windows
 nkeymap('<C-h>', '<C-w>h')
 nkeymap('<C-l>', '<C-w>l')
 nkeymap('<C-j>', '<C-w>j')
 nkeymap('<C-k>', '<C-w>k')
+
+-- Remap move down/ move up
+nkeymap('<C-d>', '<C-d>zz')
+nkeymap('<C-u>', '<C-u>zz')
+
+-- Remap searches
+nkeymap('n', 'nzzzv')
+nkeymap('N', 'Nzzzv')
 
 -- nvim tree
 nkeymap("<leader>e", ":NvimTreeToggle<CR>")
