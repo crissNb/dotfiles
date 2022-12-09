@@ -25,9 +25,9 @@ M.on_attach = function(client, bufnr)
 	-- }, bufnr)
 
 	-- navic
-	-- if client.server_capabilities.documentSymbolProvider then
-	-- 	require("nvim-navic").attach(client, bufnr)
-	-- end
+	if client.server_capabilities.documentSymbolProvider then
+		require("nvim-navic").attach(client, bufnr)
+	end
 
 	if client.name == "jdtls" then
 		vim.lsp.codelens.refresh()

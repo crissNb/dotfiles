@@ -11,6 +11,7 @@ require("catppuccin").setup({
 		gitsigns = true,
 		telescope = true,
 		nvimtree = true,
+		mason = true,
 		native_lsp = {
 			enabled = true,
 			virtual_text = {

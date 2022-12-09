@@ -1,10 +1,13 @@
-local status, indent_blankline = pcall(require, "comment")
+local status, comment = pcall(require, "comment")
 if not status then
-  return
+	return
 end
 
-indent_blankline.setup {
+comment.setup {
 	opleader = {
 		line = '<leader>/'
 	}
 }
+
+-- disable automatic comment on o
+vim.cmd [[ autocmd FileType * set formatoptions-=o ]]

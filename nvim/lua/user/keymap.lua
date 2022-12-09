@@ -21,6 +21,7 @@ nkeymap("<Space>", "")
 
 -- global clipboard copypaste
 nkeymap("<leader>p", "\"+P")
+keymap('v', "<leader>p", "\"+P", opts)
 nkeymap("<leader>y", "\"+y")
 keymap('v', "<leader>y", "\"+y", opts)
 
@@ -63,6 +64,7 @@ vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
 nkeymap("<leader>ff", ":lua require('telescope.builtin').find_files()<cr>")
 nkeymap('<leader>fg', ":lua require('telescope.builtin').live_grep()<cr>")
 nkeymap('<leader>fb', ":lua require('telescope.builtin').buffers()<cr>")
+nkeymap('<leader>fp', ":lua require'telescope'.extensions.projects.projects{}<cr>")
 
 -- Unity
 nkeymap('<leader>fs', ":lua require('user.telescope').search_unity_scripts()<cr>")

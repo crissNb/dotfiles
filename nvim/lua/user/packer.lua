@@ -74,9 +74,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	-- java
 	use { 'mfussenegger/nvim-jdtls' }
 
-	-- make
-	use { 'tpope/vim-dispatch' }
-
 	-- improve neovim UI
 	use { 'stevearc/dressing.nvim' }
 
@@ -103,7 +100,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
 		ft = { "tex", "bib" },
 		config = 'require("user.vimtex")' }
 
-
 	-- discord presence
 	use { 'andweeb/presence.nvim' }
 
@@ -112,4 +108,21 @@ return require('packer').startup(function(use) -- Packer can manage itself
 
 	-- linters
 	use { 'jose-elias-alvarez/null-ls.nvim' }
+
+	-- project management
+	use { "ahmedkhalf/project.nvim" }
+
+	-- navic + barbecue
+	use {
+		"utilyre/barbecue.nvim",
+		requires = {
+			"neovim/nvim-lspconfig",
+			"smiteshp/nvim-navic",
+			"kyazdani42/nvim-web-devicons", -- optional
+		},
+		after = "nvim-web-devicons", -- NOTICE: keep this if you're using NvChad
+		config = function()
+			require("barbecue").setup()
+		end,
+	}
 end)

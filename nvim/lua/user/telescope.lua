@@ -69,6 +69,9 @@ require("telescope").setup({
 	}
 })
 
+-- load telescope extensions
+require('telescope').load_extension('projects')
+
 local M = {}
 
 M.search_unity_scripts = function()
