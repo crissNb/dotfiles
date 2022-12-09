@@ -67,6 +67,7 @@ bindkey '^e' edit-command-line
 # Load aliases and shortcuts if existent.
 alias ls='exa'
 alias ll='exa -l'
+alias ..='cd ..'
 
 # source ~/.zsh/catppuccin-zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-gruvbox.zsh
@@ -76,6 +77,7 @@ source /Users/semi/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Load zsh-autosuggestions; should be last.
 source /Users/semi/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(completion)
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
@@ -83,3 +85,11 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 export PATH="$HOME/.local/bin:$PATH"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
+
+eval "$(jump shell)"
+
+alias ranger='source ranger'
+
+# configure default editors for ranger
+export VISUAL=nvim;
+export EDITOR=nvim;
