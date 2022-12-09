@@ -3,6 +3,9 @@ if not null_ls_status_ok then
 	return
 end
 
+local config = {
+}
+
 local workingDir = vim.fn.getcwd();
 
 local lastDirIndex
@@ -15,10 +18,17 @@ end
 
 local rootUpLevel = string.sub(workingDir, 0, lastDirIndex);
 
-null_ls.setup({
-	sources = {
+function file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+
+if file_exists(rootUpLevel .. "checkstyle-optional.xml") then
+	config.sources = {
 		null_ls.builtins.diagnostics.checkstyle.with({
-			extra_args = { "-c", rootUpLevel .. "/checkstyle-optional.xml" },
+			extra_args = {"-c ", rootUpLevel .. "checkstyle-optional.xml"},
 		}),
 	}
-})
+end
+
+null_ls.setup(config)

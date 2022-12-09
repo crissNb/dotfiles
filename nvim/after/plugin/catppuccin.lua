@@ -45,6 +45,7 @@ require("catppuccin").setup({
 		String = { fg = colors.yellow, style = { "italic", "bold" } }, -- a string constant: "this is a string"
 		Character = { fg = colors.teal }, --  a character constant: 'c', '\n'
 		Number = { fg = colors.maroon }, --   a number constant: 234, 0xff
+		LineNr = { fg = colors.maroon },
 		Float = { fg = colors.maroon }, --    a floating point constant: 2.3e10
 		Boolean = { fg = colors.maroon }, --  a boolean constant: TRUE, false
 		Identifier = { fg = colors.text }, -- (preferred) any variable name

@@ -99,3 +99,6 @@ nkeymap('<leader>v', ":lua require('harpoon.ui').nav_file(4)<CR>")
 -- diffview
 nkeymap('<leader>gd', ":DiffviewOpen<CR>")
 nkeymap('<leader>gq', ":DiffviewClose<CR>")
+
+-- jabs
+nkeymap('<leader>bm', ":JABSOpen<CR>")
