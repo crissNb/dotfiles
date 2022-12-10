@@ -37,7 +37,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	}
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
-	-- indent
+-- indent
 	use { 'lukas-reineke/indent-blankline.nvim' }
 
 	-- theme
@@ -47,10 +47,6 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	-- LSP related
 	use {
 		'neovim/nvim-lspconfig',
-		-- requires = {
-		-- 	{ 'ms-jpq/coq_nvim', branch = 'coq' },
-		-- 	{ 'ms-jpq/coq.artifacts', branch = 'artifacts' },
-		-- },
 	}
 
 	use { 'williamboman/mason.nvim' }
@@ -100,7 +96,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'ThePrimeagen/harpoon' }
 
 	-- buffer manager
-	use {'j-morano/buffer_manager.nvim' }
+	use { 'j-morano/buffer_manager.nvim' }
 
 	-- latex
 	use { 'lervag/vimtex',

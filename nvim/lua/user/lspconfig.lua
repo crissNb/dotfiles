@@ -28,7 +28,7 @@ M.on_attach = function(client, bufnr)
 	end
 end
 
-local servers = { "jdtls", "sumneko_lua", "bashls", "pyright", "rust_analyzer", "clangd" }
+local servers = { "sumneko_lua", "bashls", "pyright", "rust_analyzer", "clangd" }
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
