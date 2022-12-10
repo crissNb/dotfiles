@@ -103,4 +103,4 @@ nkeymap('<leader>gd', ":DiffviewOpen<CR>")
 nkeymap('<leader>gq', ":DiffviewClose<CR>")
 
 -- jabs
-nkeymap('<leader>bm', ":JABSOpen<CR>")
+nkeymap('<leader>bm', ":lua require('buffer_manager.ui').toggle_quick_menu()<CR>")

@@ -16,14 +16,6 @@ M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.on_attach = function(client, bufnr)
-	-- lsp signature
-	-- require "lsp_signature".on_attach({
-	-- 	bind = true,
-	-- 	handler_opts = {
-	-- 		border = "rounded"
-	-- 	}
-	-- }, bufnr)
-
 	-- navic
 	if client.server_capabilities.documentSymbolProvider then
 		require("nvim-navic").attach(client, bufnr)
@@ -36,38 +28,32 @@ M.on_attach = function(client, bufnr)
 	end
 end
 
+local servers = { "jdtls", "sumneko_lua", "bashls", "pyright", "rust_analyzer", "clangd" }
 
-nvim_lsp['sumneko_lua'].setup {
-	capabilities = M.capabilities;
-	on_attach = M.on_attach,
-}
+for _, lsp in ipairs(servers) do
+	nvim_lsp[lsp].setup {
+		on_attach = M.on_attach,
+		capabilities = M.capabilities
+	}
+end
 
-nvim_lsp["omnisharp"].setup {
-	capabilities = M.capabilities,
-	on_attach = M.on_attach,
-	-- vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc'),
-    cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) },
-    -- cmd = { "/Users/semi/Developer/Other/omnisharp-roslyn/artifacts/publish/OmniSharp.Stdio.Driver/mono/run", "--languageserver", "--hostPID", tostring(pid) },
-}
-
-nvim_lsp["clangd"].setup {
-	capabilities = M.capabilities;
-	on_attach = M.on_attach;
-}
-
-nvim_lsp["rust_analyzer"].setup {
-	capabilities = M.capabilities;
-	on_attach = M.on_attach;
-}
-
-nvim_lsp["pyright"].setup {
-	capabilities = M.capabilities;
-	on_attach = M.on_attach;
-}
-
-nvim_lsp["bashls"].setup {
-	capabilities = M.capabilities;
-	on_attach = M.on_attach;
-}
+-- vim.schedule(function()
+--     vim.cmd('COQnow -s')
+--     for _, lsp in ipairs(servers) do
+--         nvim_lsp[lsp].setup(coq.lsp_ensure_capabilities({
+--             on_attach = M.on_attach,
+--         }))
+--
+--
+--   --       nvim_lsp[lsp].setup{
+-- 		-- 	on_attach = M.on_attach,
+-- 		-- }
+--     end
+--
+-- 	nvim_lsp["omnisharp"].setup(coq.lsp_ensure_capabilities({
+-- 		on_attach = M.on_attach,
+-- 		cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) },
+-- 	}))
+-- end)
 
 return M

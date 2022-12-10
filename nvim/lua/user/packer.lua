@@ -45,7 +45,14 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { "sainnhe/gruvbox-material" }
 
 	-- LSP related
-	use { 'neovim/nvim-lspconfig' }
+	use {
+		'neovim/nvim-lspconfig',
+		-- requires = {
+		-- 	{ 'ms-jpq/coq_nvim', branch = 'coq' },
+		-- 	{ 'ms-jpq/coq.artifacts', branch = 'artifacts' },
+		-- },
+	}
+
 	use { 'williamboman/mason.nvim' }
 	use { 'williamboman/mason-lspconfig.nvim' }
 	use { 'hrsh7th/cmp-nvim-lsp' }
@@ -92,8 +99,8 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	-- harpoon man
 	use { 'ThePrimeagen/harpoon' }
 
-	-- jabs
-	use { 'matbme/JABS.nvim' }
+	-- buffer manager
+	use {'j-morano/buffer_manager.nvim' }
 
 	-- latex
 	use { 'lervag/vimtex',
