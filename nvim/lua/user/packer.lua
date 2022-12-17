@@ -37,7 +37,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	}
 	use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
--- indent
+	-- indent
 	use { 'lukas-reineke/indent-blankline.nvim' }
 
 	-- theme
@@ -110,7 +110,7 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'norcalli/nvim-colorizer.lua' }
 
 	-- linters
-	use { 'jose-elias-alvarez/null-ls.nvim' }
+	use { 'crissNb/null-ls.nvim' }
 
 	-- project management
 	use { "ahmedkhalf/project.nvim" }
@@ -128,4 +128,8 @@ return require('packer').startup(function(use) -- Packer can manage itself
 			require("barbecue").setup()
 		end,
 	}
+
+	-- undo tree
+	use { "mbbill/undotree" }
+	use { 'tpope/vim-fugitive' }
 end)

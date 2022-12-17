@@ -10,9 +10,13 @@ keymap('n', 'x', '"_x', opts)
 keymap('v', 'x', '"_d', opts)
 
 -- move selected line / block of text in visual mode
-keymap("v", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("v", "J", ":move '>+1<CR>gv-gv", opts)
+keymap("v", "K", ":move '<-2<CR>gv=gv", opts)
+keymap("v", "J", ":move '>+1<CR>gv=gv", opts)
 
+keymap("n", "J", "mzJ`z", opts)
+
+-- terminal
+keymap('t', '<esc>', '<C-\\><C-N>', opts)
 
 -- leader
 vim.g.mapleader = " "
@@ -20,10 +24,22 @@ vim.g.maplocalleader = " "
 nkeymap("<Space>", "")
 
 -- global clipboard copypaste
+keymap("x", "<leader>op", "\"_dP", opts)
+
+nkeymap("<leader>y", "\"+y")
+nkeymap("<leader>Y", "\"+Y")
+keymap('v', "<leader>y", "\"+y", opts)
+
 nkeymap("<leader>p", "\"+P")
 keymap('v', "<leader>p", "\"+P", opts)
-nkeymap("<leader>y", "\"+y")
-keymap('v', "<leader>y", "\"+y", opts)
+
+nkeymap("Q", "<nop>")
+
+-- Git
+vim.keymap.set("n", "<leader>gg", vim.cmd.Git);
+
+-- Tmux
+keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", opts)
 
 -- Normal --
 -- switch between windows
@@ -68,6 +84,9 @@ nkeymap('<leader>fp', ":lua require'telescope'.extensions.projects.projects{}<cr
 
 -- Unity
 nkeymap('<leader>fs', ":lua require('user.telescope').search_unity_scripts()<cr>")
+
+-- Undo tree
+nkeymap('<leader>uu', ":UndotreeToggle<CR>")
 
 -- terminal
 nkeymap('<leader>tt', ":ToggleTerm<cr>")
