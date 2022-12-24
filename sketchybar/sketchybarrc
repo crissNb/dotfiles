@@ -22,8 +22,8 @@ source "$PLUGIN_DIR/Dynamic-Island-Sketchybar/config.sh" # Loads Dynamic-Island 
 
 # Set up your own custom sketchybar config here
 sketchybar --bar	color=$BAR_COLOR \
-					margin=10		 \
-					corner_radius=9
+					margin=0		 \
+					corner_radius=0
 
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
@@ -31,6 +31,7 @@ source "$ITEM_DIR/mail.sh"
 source "$ITEM_DIR/power.sh"
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/cpu.sh"
+source "$ITEM_DIR/network.sh"
 
 
 source "$PLUGIN_DIR/Dynamic-Island-Sketchybar/item.sh" # Loads Dynamic-Island item

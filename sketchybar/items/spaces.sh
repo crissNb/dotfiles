@@ -15,7 +15,7 @@ do
                               background.padding_left=-8                    \
                               background.padding_right=-8                   \
                               background.height=26                          \
-                              background.corner_radius=9                    \
+                              background.corner_radius=0                    \
                               background.color=$SPACE_BACKGROUND            \
                               background.drawing=on                         \
                               label.font="sketchybar-app-font:Regular:16.0" \
@@ -31,7 +31,7 @@ done
 
 sketchybar   --add item       separator left                          \
              --set separator  icon=                                  \
-                              icon.font="Hack Nerd Font:Regular:12.0" \
+                              icon.font="FiraCode Nerd Font:Regular:12.0" \
                               background.padding_left=26              \
                               background.padding_right=15             \
                               label.drawing=off                       \
