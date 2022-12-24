@@ -14,7 +14,7 @@ Table of Contents
 [SKHD](#skhd)
 [Sketchybar](#sketchybar)
 [Karabiner](#karabiner)
-[Kitty](#kitty)
+[Alacritty](#alacritty)
 [Credits](#credits)
 
 Yabai
@@ -28,9 +28,9 @@ I use Yabai with SIP enabled.
 
 I have dual monitor configuration with following workspace setup (mostly for game development):
 
-1 - Browser
+1 - Mail
 
-2 - Mail
+2 - Browser
 
 3 - Music
 
@@ -113,13 +113,12 @@ coming soon
 
 Karabiner
 =========
-Required for SKHD setup. Caps lock acts as a `Hyper` key when it's being pressed with another key (if it's only caps lock that's being pressed, then it acts as
-a normal caps lock).
-The only noticeable karabiner modification is `Hyper + HJKL` (capslock + HJKL), which act as arrow keys.
+Required for SKHD setup. Tab + Q (simultaeneously) acts as a `Hyper` key when it's being pressed with another key.
+The only noticeable karabiner modification is `Hyper + HJKL` (Tab + Q + HJKL), which act as arrow keys.
 
-Kitty
+Alacritty
 =====
-Kitty is my weapon of choice. Nothing much has been configured to Kitty, apart from enabling ligatures, catppuccin theme and disabling the window decorations.
+Alacritty is my weapon of choice. Nothing much has been configured to Alacritty, apart from catppuccin theme and disabling the window decorations.
 
 Credits
 =======
