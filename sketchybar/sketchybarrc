@@ -5,6 +5,9 @@ source "$HOME/.config/sketchybar/icons.sh" # Loads all defined icons
 
 ITEM_DIR="$HOME/.config/sketchybar/items" # Directory where the items are configured
 PLUGIN_DIR="$HOME/.config/sketchybar/plugins"
+DYNAMIC_ISLAND_DIR="$HOME/.config/sketchybar/plugins/Dynamic-Island-Sketchybar"
+
+SPACE_CLICK_SCRIPT="yabai -m space --focus \$SID 2>/dev/null" # The script that is run for clicking on space components
 
 # helper process
 HELPER=git.felix.helper
@@ -14,11 +17,13 @@ $HOME/.config/sketchybar/helper/helper $HELPER &
 
 ISLANDHELPER=git.crissnb.islandhelper
 killall islandhelper
-cd $HOME/.config/sketchybar/plugins/Dynamic-Island-Sketchybar/helper && make
-$HOME/.config/sketchybar/plugins/Dynamic-Island-Sketchybar/helper/islandhelper $ISLANDHELPER &
+cd $DYNAMIC_ISLAND_DIR/helper && make
+$DYNAMIC_ISLAND_DIR/helper/islandhelper $ISLANDHELPER &
 
 # Define Dynamic island custom configs here
-source "$PLUGIN_DIR/Dynamic-Island-Sketchybar/config.sh" # Loads Dynamic-Island config
+source "$DYNAMIC_ISLAND_DIR/config.sh" # Loads Dynamic-Island config
+
+FONT="SF Pro"
 
 # Set up your own custom sketchybar config here
 sketchybar --bar	color=$BAR_COLOR \
@@ -33,7 +38,6 @@ source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/cpu.sh"
 source "$ITEM_DIR/network.sh"
 
-
-source "$PLUGIN_DIR/Dynamic-Island-Sketchybar/item.sh" # Loads Dynamic-Island item
+source "$DYNAMIC_ISLAND_DIR/item.sh" # Loads Dynamic-Island item
 
 sketchybar --update
