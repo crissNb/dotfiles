@@ -9,26 +9,29 @@ DYNAMIC_ISLAND_DIR="$HOME/.config/sketchybar/plugins/Dynamic-Island-Sketchybar"
 
 SPACE_CLICK_SCRIPT="yabai -m space --focus \$SID 2>/dev/null" # The script that is run for clicking on space components
 
+# Define Dynamic island custom configs here
+source "$DYNAMIC_ISLAND_DIR/config.sh" # Loads Dynamic-Island config
+
 # helper process
 HELPER=git.felix.helper
 killall helper
 cd $HOME/.config/sketchybar/helper && make
-$HOME/.config/sketchybar/helper/helper $HELPER &
+$HOME/.config/sketchybar/helper/helper $HELPER > /dev/null 2>&1 &
 
 ISLANDHELPER=git.crissnb.islandhelper
 killall islandhelper
 cd $DYNAMIC_ISLAND_DIR/helper && make
 $DYNAMIC_ISLAND_DIR/helper/islandhelper $ISLANDHELPER &
 
-# Define Dynamic island custom configs here
-source "$DYNAMIC_ISLAND_DIR/config.sh" # Loads Dynamic-Island config
-
 FONT="SF Pro"
 
 # Set up your own custom sketchybar config here
 sketchybar --bar	color=$BAR_COLOR \
 					margin=0		 \
-					corner_radius=0
+					blur_radius=20                                    \
+					corner_radius=10 \
+					padding_right=10                                  \
+					padding_left=10                                   \
 
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"

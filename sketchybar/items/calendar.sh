@@ -13,12 +13,15 @@ sketchybar --add item     calendar right               \
                           align=center                 \
                           background.color=$ITEM_COLOR  \
                           background.height=23         \
-                          background.corner_radius=$CORNER_RADIUS
-sketchybar --add item calendar_logo right \
-           --set calendar_logo icon=$CALENDAR \
-                 icon.font="$FONT:Bold:16.0"  \
-                 icon.color=$BLACK \
-                 label.drawing=off \
-                 background.color=$YELLOW \
-                 background.height=23 \
-                 background.corner_radius=$CORNER_RADIUS
+                          background.corner_radius=9 \
+                          update_freq=30                    \
+                          script="$PLUGIN_DIR/calendar.sh"  \
+           --subscribe    calendar system_woke
+# sketchybar --add item calendar_logo right \
+#            --set calendar_logo icon=$CALENDAR \
+#                  icon.font="$FONT:Bold:16.0"  \
+#                  icon.color=$BLACK \
+#                  label.drawing=off \
+#                  background.color=$YELLOW \
+#                  background.height=23 \
+#                  background.corner_radius=9
