@@ -6,14 +6,21 @@ import:
 #  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
  # - ~/.config/alacritty/gruvbox/gruvbox-dark.yml
 font:
-  size: 16
+  size: 14
   normal:
-    family: "OperatorMono Nerd Font"
+    # family: "OperatorMono Nerd Font"
+    family: "JetBrainsMonoNL Nerd Font"
+    # family: "Hack Nerd Font"
+    # family: "FiraCode Nerd Font Mono"
     style: Light
   offset:
       x: 0    # For letter spacing.
-      y: 1    # For line spacing. 
+      y: 2    # For line spacing. 
 
 window:
-  decorations: None
+  decorations: buttonless
   opacity: 0.9
+
+env:
+  TERM: alacritty
+  # TERM: xterm-256color

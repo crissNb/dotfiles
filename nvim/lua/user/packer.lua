@@ -53,11 +53,13 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'williamboman/mason-lspconfig.nvim' }
 	use { 'hrsh7th/cmp-nvim-lsp' }
 	use { 'hrsh7th/cmp-omni' }
+	use { 'hrsh7th/cmp-buffer' }
 	use { 'hrsh7th/cmp-path' }
 	use { 'hrsh7th/cmp-cmdline' }
 	use { 'hrsh7th/nvim-cmp' }
-	-- use { 'ray-x/lsp_signature.nvim' }
+	use { 'ray-x/lsp_signature.nvim' }
 	use { 'RRethy/vim-illuminate' }
+	use { 'onsails/lspkind.nvim' }
 
 	-- snippets
 	use({ 'L3MON4D3/LuaSnip',
@@ -110,26 +112,14 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	use { 'norcalli/nvim-colorizer.lua' }
 
 	-- linters
-	use { 'crissNb/null-ls.nvim' }
+	use { 'jose-elias-alvarez/null-ls.nvim' }
 
 	-- project management
 	use { "ahmedkhalf/project.nvim" }
 
-	-- navic + barbecue
-	use {
-		"utilyre/barbecue.nvim",
-		requires = {
-			"neovim/nvim-lspconfig",
-			"smiteshp/nvim-navic",
-			"kyazdani42/nvim-web-devicons", -- optional
-		},
-		after = "nvim-web-devicons", -- NOTICE: keep this if you're using NvChad
-		config = function()
-			require("barbecue").setup()
-		end,
-	}
-
 	-- undo tree
 	use { "mbbill/undotree" }
 	use { 'tpope/vim-fugitive' }
+
+	use { 'chaoren/vim-wordmotion' }
 end)

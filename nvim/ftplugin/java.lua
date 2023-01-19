@@ -89,6 +89,37 @@ jdtls.start_or_attach {
 	on_attach = require("user.lspconfig").on_attach,
 
 	settings = {
+        java = {
+            eclipse = {
+                downloadSources = true,
+            },
+            configuration = {
+                updateBuildConfiguration = "interactive",
+            },
+            maven = {
+                downloadSources = true,
+            },
+            implementationsCodeLens = {
+                enabled = true,
+            },
+            referencesCodeLens = {
+                enabled = false,
+            },
+            references = {
+                includeDecompiledSources = true,
+            },
+        },
+        completion = {
+            favoriteStaticMembers = {
+                "org.hamcrest.MatcherAssert.assertThat",
+                "org.hamcrest.Matchers.*",
+                "org.hamcrest.CoreMatchers.*",
+                "org.junit.jupiter.api.Assertions.*",
+                "java.util.Objects.requireNonNull",
+                "java.util.Objects.requireNonNullElse",
+            },
+        },
+        contentProvider = { preferred = "fernflower" },
 		extendedClientCapabilities = extendedClientCapabilities,
 		sources = {
 			organizeImports = {

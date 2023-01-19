@@ -40,64 +40,177 @@ require("catppuccin").setup({
 		enabled = true,
 		path = vim.fn.stdpath "cache" .. "/catppuccin"
 	},
-	custom_highlights = {
-		Comment = { fg = colors.surface2, style = { "italic" } }, -- just comments
-		Constant = { fg = colors.peach }, -- (preferred) any constant
-		String = { fg = colors.yellow, style = { "italic", "bold" } }, -- a string constant: "this is a string"
-		Character = { fg = colors.teal }, --  a character constant: 'c', '\n'
-		Number = { fg = colors.maroon }, --   a number constant: 234, 0xff
-		LineNr = { fg = colors.maroon },
-		Float = { fg = colors.maroon }, --    a floating point constant: 2.3e10
-		Boolean = { fg = colors.maroon }, --  a boolean constant: TRUE, false
-		Identifier = { fg = colors.text }, -- (preferred) any variable name
-		Function = { fg = colors.green }, -- function name (also: methods for classes)
-		Statement = { fg = colors.mauve }, -- (preferred) any statement
-		Conditional = { fg = colors.red }, --  if, then, else, endif, switch, etcp.
-		Repeat = { fg = colors.red }, --   for, do, while, etcp.
-		Label = { fg = colors.peach }, --    case, default, etcp.
-		Operator = { fg = colors.text }, -- "sizeof", "+", "*", etcp.
-		Keyword = { fg = colors.pink }, --  any other keyword
-		PreProc = { fg = colors.peach }, -- (preferred) generic Preprocessor
-		Include = { fg = colors.green }, --  preprocessor #include
-		StorageClass = { fg = colors.yellow }, -- static, register, volatile, etcp.
-		Structure = { fg = colors.yellow }, --  struct, union, enum, etcp.
-		Typedef = { fg = colors.yellow }, --  A typedef
-		Special = { fg = colors.peach }, -- (preferred) any special symbol
-		Type = { fg = colors.teal }, -- (preferred) int, long, char, etcp.
-		TSInclude = { fg = colors.peach, style = { "italic" } },
-		["@include"] = { fg = colors.peach, style = { "italic" } },
-		TSField = { fg = colors.blue }, -- For fields.
-		["@field"] = { fg = colors.blue }, -- For fields.
-		TSProperty = { fg = colors.blue }, -- Same as TSField.
-		["@property"] = { fg = colors.blue }, -- Same as TSField.
-		TSConstant = { fg = colors.maroon }, -- For constants
-		["@constant.builtin"] = { fg = colors.maroon }, -- For constants
-		TSParameter = { fg = colors.text, style = { "italic" } }, -- For parameters of a function.
-		["@parameter"] = { fg = colors.text, style = { "italic" } }, -- For parameters of a function.
-		TSOperator = { fg = colors.text },
-		["@operator"] = { fg = colors.text },
-		TSKeywordFunction = { fg = colors.peach }, -- For keywords used to define a fuction.
-		["@keyword.function"] = { fg = colors.peach }, -- For keywords used to define a fuction.
-		TSKeyword = { fg = colors.peach }, -- For keywords that don't fall in previous categories.
-		["@keyword"] = { fg = colors.peach }, -- For keywords that don't fall in previous categories.
-		TSKeywordReturn = { fg = colors.peach },
-		["@keyword.return"] = { fg = colors.peach },
-		TSType = { fg = colors.teal }, -- For types.
-		["@type"] = { fg = colors.teal }, -- For types.
-		TSTypeBuiltin = { fg = colors.teal, style = { "italic" } }, -- For builtin types.
-		["@type.builtin"] = { fg = colors.teal, style = { "italic" } }, -- For builtin types.
-		TSVariableBuiltin = { fg = colors.red }, -- Variable names that are defined by the languages, like this or self.
-		["@variable.builtin"] = { fg = colors.red }, -- Variable names that are defined by the languages, like this or self.
-		TSFunction = { fg = colors.green }, -- For function (calls and definitions).
-		["@function.builtin"] = { fg = colors.green }, -- For function (calls and definitions).
-		TSMethod = { fg = colors.green }, -- For method calls and definitions.
-		["@function"] = { fg = colors.green }, -- For method calls and definitions.
-		TSString = { fg = colors.yellow, style = { "italic" } }, -- For strings.
-		["@string"] = { fg = colors.yellow, style = { "italic" } }, -- For strings.
-		BufferLineSeparator = { fg = colors.peach, bg = "NONE" },
-		BufferLineBufferVisible = { fg = colors.surface1, bg = "NONE" },
-		BufferLineBufferSelected = { fg = colors.text, bg = "NONE", style = { "bold", "italic" } }, -- current
-		BufferLineIndicatorSelected = { fg = colors.peach, bg = "NONE" },
+	color_overrides = {
+		mocha = {
+			rosewater = "#F5E0DC",
+			flamingo = "#F2CDCD",
+			mauve = "#DDB6F2",
+			pink = "#F5C2E7",
+			red = "#F28FAD",
+			maroon = "#E8A2AF",
+			peach = "#F8BD96",
+			yellow = "#FAE3B0",
+			teal = "#94E2D5",
+			green = "#ABE9B3",
+			blue = "#96CDFB",
+			sky = "#89DCEB",
+			teal = "#B5E8E0",
+			lavender = "#C9CBFF",
+
+			text = "#D9E0EE",
+			subtext1 = "#BAC2DE",
+			subtext0 = "#A6ADC8",
+			overlay2 = "#C3BAC6",
+			overlay1 = "#988BA2",
+			overlay0 = "#6E6C7E",
+			surface2 = "#6E6C7E",
+			surface1 = "#575268",
+			surface0 = "#302D41",
+
+			base = "#1E1E2E",
+			mantle = "#1A1826",
+			crust = "#161320",
+		},
+	},
+	highlight_overrides = {
+		mocha = function(cp)
+			return {
+				-- CMP
+				CmpItemKindSnippet = { fg = cp.base, bg = cp.mauve },
+				CmpItemKindKeyword = { fg = cp.base, bg = cp.red },
+				CmpItemKindText = { fg = cp.base, bg = cp.teal },
+				CmpItemKindMethod = { fg = cp.base, bg = cp.blue },
+				CmpItemKindConstructor = { fg = cp.base, bg = cp.blue },
+				CmpItemKindFunction = { fg = cp.base, bg = cp.blue },
+				CmpItemKindFolder = { fg = cp.base, bg = cp.blue },
+				CmpItemKindModule = { fg = cp.base, bg = cp.blue },
+				CmpItemKindConstant = { fg = cp.base, bg = cp.peach },
+				CmpItemKindField = { fg = cp.base, bg = cp.green },
+				CmpItemKindProperty = { fg = cp.base, bg = cp.green },
+				CmpItemKindEnum = { fg = cp.base, bg = cp.green },
+				CmpItemKindUnit = { fg = cp.base, bg = cp.green },
+				CmpItemKindClass = { fg = cp.base, bg = cp.yellow },
+				CmpItemKindVariable = { fg = cp.base, bg = cp.flamingo },
+				CmpItemKindFile = { fg = cp.base, bg = cp.blue },
+				CmpItemKindInterface = { fg = cp.base, bg = cp.yellow },
+				CmpItemKindColor = { fg = cp.base, bg = cp.red },
+				CmpItemKindReference = { fg = cp.base, bg = cp.red },
+				CmpItemKindEnumMember = { fg = cp.base, bg = cp.red },
+				CmpItemKindStruct = { fg = cp.base, bg = cp.blue },
+				CmpItemKindValue = { fg = cp.base, bg = cp.peach },
+				CmpItemKindEvent = { fg = cp.base, bg = cp.blue },
+				CmpItemKindOperator = { fg = cp.base, bg = cp.blue },
+				CmpItemKindTypeParameter = { fg = cp.base, bg = cp.blue },
+				CmpItemKindCopilot = { fg = cp.base, bg = cp.teal },
+
+				-- For base configs.
+				CursorLineNr = { fg = cp.teal },
+				LineNR = { fg = cp.green },
+				Search = { bg = cp.surface1, fg = cp.pink, style = { "bold" } },
+				IncSearch = { bg = cp.pink, fg = cp.surface1 },
+
+				-- For native lsp configs.
+				DiagnosticVirtualTextError = { bg = cp.none },
+				DiagnosticVirtualTextWarn = { bg = cp.none },
+				DiagnosticVirtualTextInfo = { bg = cp.none },
+				DiagnosticVirtualTextHint = { fg = cp.rosewater, bg = cp.none },
+
+				DiagnosticHint = { fg = cp.rosewater },
+				LspDiagnosticsDefaultHint = { fg = cp.rosewater },
+				LspDiagnosticsHint = { fg = cp.rosewater },
+				LspDiagnosticsVirtualTextHint = { fg = cp.rosewater },
+				LspDiagnosticsUnderlineHint = { sp = cp.rosewater },
+
+				-- For fidget.
+				FidgetTask = { bg = cp.none, fg = cp.surface2 },
+				FidgetTitle = { fg = cp.blue, style = { "bold" } },
+
+				-- For treesitter.
+				-- ["@field"] = { fg = cp.rosewater },
+				-- ["@property"] = { fg = cp.yellow },
+				--
+				-- ["@include"] = { fg = cp.teal },
+				-- ["@operator"] = { fg = cp.sky },
+				-- ["@keyword.operator"] = { fg = cp.sky },
+				-- ["@punctuation.special"] = { fg = cp.maroon },
+
+				-- ["@float"] = { fg = cp.peach },
+				-- ["@number"] = { fg = cp.peach },
+				-- ["@boolean"] = { fg = cp.peach },
+
+				-- ["@constructor"] = { fg = cp.lavender },
+				-- ["@constant"] = { fg = cp.peach },
+				-- ["@conditional"] = { fg = cp.mauve },
+				-- ["@repeat"] = { fg = cp.mauve },
+				-- ["@exception"] = { fg = cp.peach },
+
+				-- ["@constant.builtin"] = { fg = cp.lavender },
+				-- ["@function.builtin"] = { fg = cp.peach, style = { "italic" } },
+				-- ["@type.builtin"] = { fg = cp.yellow, style = { "italic" } },
+				-- ["@variable.builtin"] = { fg = cp.red, style = { "italic" } },
+
+				-- ["@function"] = { fg = cp.blue },
+				-- ["@function.macro"] = { fg = cp.red, style = {} },
+				-- ["@parameter"] = { fg = cp.rosewater },
+				-- ["@keyword.function"] = { fg = cp.maroon },
+				-- ["@keyword"] = { fg = cp.red },
+				-- ["@keyword.return"] = { fg = cp.pink, style = {} },
+
+				-- ["@text.note"] = { fg = cp.base, bg = cp.blue },
+				-- ["@text.warning"] = { fg = cp.base, bg = cp.yellow },
+				-- ["@text.danger"] = { fg = cp.base, bg = cp.red },
+				-- ["@constant.macro"] = { fg = cp.mauve },
+
+				-- ["@label"] = { fg = cp.blue },
+				-- ["@method"] = { style = { "italic" } },
+				-- ["@namespace"] = { fg = cp.rosewater, style = {} },
+
+				-- ["@punctuation.delimiter"] = { fg = cp.teal },
+				-- ["@punctuation.bracket"] = { fg = cp.overlay2 },
+				-- ["@string"] = { fg = cp.green },
+				-- ["@string.regex"] = { fg = cp.peach },
+				-- ["@type"] = { fg = cp.yellow },
+				-- ["@variable"] = { fg = cp.text },
+				-- ["@tag.attribute"] = { fg = cp.mauve, style = { "italic" } },
+				-- ["@tag"] = { fg = cp.peach },
+				-- ["@tag.delimiter"] = { fg = cp.maroon },
+				-- ["@text"] = { fg = cp.text },
+
+				-- ["@text.uri"] = { fg = cp.rosewater, style = { "italic", "underline" } },
+				-- ["@text.literal"] = { fg = cp.teal, style = { "italic" } },
+				-- ["@text.reference"] = { fg = cp.lavender, style = { "bold" } },
+				-- ["@text.title"] = { fg = cp.blue, style = { "bold" } },
+				-- ["@text.emphasis"] = { fg = cp.maroon, style = { "italic" } },
+				-- ["@text.strong"] = { fg = cp.maroon, style = { "bold" } },
+				-- ["@string.escape"] = { fg = cp.pink },
+
+				-- ["@property.toml"] = { fg = cp.blue },
+				-- ["@field.yaml"] = { fg = cp.blue },
+
+				-- ["@label.json"] = { fg = cp.blue },
+				--
+				-- ["@function.builtin.bash"] = { fg = cp.red, style = { "italic" } },
+				-- ["@parameter.bash"] = { fg = cp.yellow, style = { "italic" } },
+				--
+				-- ["@field.lua"] = { fg = cp.lavender },
+				-- ["@constructor.lua"] = { fg = cp.flamingo },
+				--
+				-- ["@constant.java"] = { fg = cp.teal },
+				--
+				-- ["@property.typescript"] = { fg = cp.lavender, style = { "italic" } },
+				-- ["@constructor.typescript"] = { fg = cp.lavender },
+
+				-- ["@constructor.tsx"] = { fg = cp.lavender },
+				-- ["@tag.attribute.tsx"] = { fg = cp.mauve },
+
+				-- ["@type.css"] = { fg = cp.lavender },
+				-- ["@property.css"] = { fg = cp.yellow, style = { "italic" } },
+				--
+				-- ["@property.cpp"] = { fg = cp.text },
+
+				-- ["@symbol"] = { fg = cp.flamingo },
+			}
+		end,
 	},
 })
 

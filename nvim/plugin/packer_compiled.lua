@@ -85,14 +85,6 @@ _G.packer_plugins = {
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["barbecue.nvim"] = {
-    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rbarbecue\frequire\0" },
-    load_after = {},
-    loaded = true,
-    needs_bufread = false,
-    path = "/Users/semi/.local/share/nvim/site/pack/packer/opt/barbecue.nvim",
-    url = "https://github.com/utilyre/barbecue.nvim"
-  },
   ["buffer_manager.nvim"] = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/buffer_manager.nvim",
@@ -102,6 +94,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/catppuccin",
     url = "https://github.com/catppuccin/nvim"
+  },
+  ["cmp-buffer"] = {
+    loaded = true,
+    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-cmdline"] = {
     loaded = true,
@@ -169,6 +166,16 @@ _G.packer_plugins = {
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
+  ["lspkind.nvim"] = {
+    loaded = true,
+    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/lspkind.nvim",
+    url = "https://github.com/onsails/lspkind.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -187,7 +194,7 @@ _G.packer_plugins = {
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/crissNb/null-ls.nvim"
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -218,11 +225,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-navic"] = {
-    loaded = true,
-    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/nvim-navic",
-    url = "https://github.com/smiteshp/nvim-navic"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -284,6 +286,11 @@ _G.packer_plugins = {
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
   },
+  ["vim-wordmotion"] = {
+    loaded = true,
+    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/vim-wordmotion",
+    url = "https://github.com/chaoren/vim-wordmotion"
+  },
   vimtex = {
     config = { 'require("user.vimtex")' },
     loaded = false,
@@ -303,15 +310,6 @@ time([[Config for gitsigns.nvim]], false)
 time([[Config for LuaSnip]], true)
 try_loadstring("\27LJ\2\n…\1\0\0\3\0\a\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0009\0\3\0005\2\4\0B\0\2\0016\0\0\0'\2\5\0B\0\2\0029\0\6\0B\0\1\1K\0\1\0\tload luasnip.loaders.from_vscode\1\0\1\fhistory\2\nsetup\vconfig\fluasnip\frequire\0", "config", "LuaSnip")
 time([[Config for LuaSnip]], false)
--- Load plugins in order defined by `after`
-time([[Sequenced loading]], true)
-vim.cmd [[ packadd nvim-web-devicons ]]
-vim.cmd [[ packadd barbecue.nvim ]]
-
--- Config for: barbecue.nvim
-try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rbarbecue\frequire\0", "config", "barbecue.nvim")
-
-time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

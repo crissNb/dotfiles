@@ -39,7 +39,7 @@ nkeymap("Q", "<nop>")
 vim.keymap.set("n", "<leader>gg", vim.cmd.Git);
 
 -- Tmux
-keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", opts)
+-- keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", opts)
 
 -- Normal --
 -- switch between windows

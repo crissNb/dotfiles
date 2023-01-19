@@ -17,9 +17,11 @@ M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.on_attach = function(client, bufnr)
 	-- navic
-	if client.server_capabilities.documentSymbolProvider then
-		require("nvim-navic").attach(client, bufnr)
-	end
+	-- if client.server_capabilities.documentSymbolProvider then
+	-- 	require("nvim-navic").attach(client, bufnr)
+	-- end
+
+	require "lsp_signature".on_attach(signature_setup, bufnr)
 
 	if client.name == "jdtls" then
 		vim.lsp.codelens.refresh()
@@ -50,10 +52,13 @@ end
 -- 		-- }
 --     end
 --
--- 	nvim_lsp["omnisharp"].setup(coq.lsp_ensure_capabilities({
--- 		on_attach = M.on_attach,
--- 		cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) },
--- 	}))
 -- end)
+
+
+nvim_lsp["omnisharp"].setup({
+	on_attach = M.on_attach,
+	cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) },
+	-- cmd = { "/Users/semi/Developer/Other/omnisharp-roslyn/artifacts/publish/OmniSharp.Stdio.Driver/mono/run", "--languageserver", "--hostPID", tostring(pid) },
+})
 
 return M
