@@ -4,7 +4,7 @@ if (not status) then
 end
 
 ts.setup {
-	ensure_installed = { "lua", "bash", "c_sharp", "c", "cpp", "gitignore", "jq", "rust", "python" },
+	ensure_installed = { "lua", "bash", "c", "cpp", "gitignore", "jq", "rust", "python" },
 	sync_install = false,
 	highlight = {
 		enable = true,

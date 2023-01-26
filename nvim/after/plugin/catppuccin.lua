@@ -21,10 +21,10 @@ require("catppuccin").setup({
 				information = { "italic" },
 			},
 			underlines = {
-				errors = { "underline" },
-				hints = { "underline" },
-				warnings = { "underline" },
-				information = { "underline" },
+				errors = { "undercurl" },
+				hints = { "undercurl" },
+				warnings = { "undercurl" },
+				information = { "undercurl" },
 			},
 		},
 		dap = {
@@ -54,7 +54,6 @@ require("catppuccin").setup({
 			green = "#ABE9B3",
 			blue = "#96CDFB",
 			sky = "#89DCEB",
-			teal = "#B5E8E0",
 			lavender = "#C9CBFF",
 
 			text = "#D9E0EE",
@@ -104,8 +103,8 @@ require("catppuccin").setup({
 				CmpItemKindCopilot = { fg = cp.base, bg = cp.teal },
 
 				-- For base configs.
-				CursorLineNr = { fg = cp.teal },
-				LineNR = { fg = cp.green },
+				CursorLineNr = { fg = cp.peach },
+				LineNR = { fg = cp.rosewater },
 				Search = { bg = cp.surface1, fg = cp.pink, style = { "bold" } },
 				IncSearch = { bg = cp.pink, fg = cp.surface1 },
 

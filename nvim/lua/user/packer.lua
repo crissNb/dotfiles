@@ -117,9 +117,14 @@ return require('packer').startup(function(use) -- Packer can manage itself
 	-- project management
 	use { "ahmedkhalf/project.nvim" }
 
+	-- Omnisharp
+	use { "OmniSharp/omnisharp-vim" }
+	use { "Shougo/deoplete.nvim" }
+	use { "dense-analysis/ale" }
+
 	-- undo tree
 	use { "mbbill/undotree" }
 	use { 'tpope/vim-fugitive' }
-
-	use { 'chaoren/vim-wordmotion' }
+	use { 'j-hui/fidget.nvim' }
+	use { 'christoomey/vim-tmux-navigator' }
 end)

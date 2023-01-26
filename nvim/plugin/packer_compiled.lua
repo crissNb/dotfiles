@@ -85,6 +85,11 @@ _G.packer_plugins = {
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ale = {
+    loaded = true,
+    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/ale",
+    url = "https://github.com/dense-analysis/ale"
+  },
   ["buffer_manager.nvim"] = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/buffer_manager.nvim",
@@ -125,6 +130,11 @@ _G.packer_plugins = {
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["deoplete.nvim"] = {
+    loaded = true,
+    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/deoplete.nvim",
+    url = "https://github.com/Shougo/deoplete.nvim"
+  },
   ["diffview.nvim"] = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/diffview.nvim",
@@ -134,6 +144,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/dressing.nvim",
     url = "https://github.com/stevearc/dressing.nvim"
+  },
+  ["fidget.nvim"] = {
+    loaded = true,
+    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+    url = "https://github.com/j-hui/fidget.nvim"
   },
   ["friendly-snippets"] = {
     loaded = true,
@@ -241,6 +256,11 @@ _G.packer_plugins = {
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["omnisharp-vim"] = {
+    loaded = true,
+    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/omnisharp-vim",
+    url = "https://github.com/OmniSharp/omnisharp-vim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -286,10 +306,10 @@ _G.packer_plugins = {
     path = "/Users/semi/.local/share/nvim/site/pack/packer/start/vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
   },
-  ["vim-wordmotion"] = {
+  ["vim-tmux-navigator"] = {
     loaded = true,
-    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/vim-wordmotion",
-    url = "https://github.com/chaoren/vim-wordmotion"
+    path = "/Users/semi/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
   },
   vimtex = {
     config = { 'require("user.vimtex")' },

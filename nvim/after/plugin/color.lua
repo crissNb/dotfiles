@@ -10,10 +10,3 @@ vim.cmd [[colorscheme catppuccin]]
 -- vim.cmd([[colorscheme gruvbox-material]])
 
 require'colorizer'.setup()
-
-vim.cmd([[
-	:hi DiagnosticUnderlineError gui=undercurl
-	:hi DiagnosticUnderlineWarn gui=undercurl
-	:hi DiagnosticUnderlineInfo gui=undercurl
-	:hi DiagnosticUnderlineHint gui=undercurl
-]])

@@ -55,10 +55,10 @@ end
 -- end)
 
 
-nvim_lsp["omnisharp"].setup({
-	on_attach = M.on_attach,
-	cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) },
-	-- cmd = { "/Users/semi/Developer/Other/omnisharp-roslyn/artifacts/publish/OmniSharp.Stdio.Driver/mono/run", "--languageserver", "--hostPID", tostring(pid) },
-})
+-- nvim_lsp["omnisharp"].setup({
+-- 	on_attach = M.on_attach,
+-- 	cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) },
+-- 	-- cmd = { "/Users/semi/Developer/Other/omnisharp-roslyn/artifacts/publish/OmniSharp.Stdio.Driver/mono/run", "--languageserver", "--hostPID", tostring(pid) },
+-- })
 
 return M
