@@ -21,10 +21,10 @@ require("catppuccin").setup({
 				information = { "italic" },
 			},
 			underlines = {
-				errors = { "undercurl" },
-				hints = { "undercurl" },
-				warnings = { "undercurl" },
-				information = { "undercurl" },
+				-- errors = { "undercurl" },
+				-- hints = { "undercurl" },
+				-- warnings = { "undercurl" },
+				-- information = { "undercurl" },
 			},
 		},
 		dap = {

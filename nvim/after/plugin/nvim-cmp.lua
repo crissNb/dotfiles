@@ -70,10 +70,6 @@ end
 
 vim.g.cmp_active = true
 
-cmp.setup.filetype({ 'cs' }, {
-	enabled = false
-})
-
 cmp.setup {
 	enabled = function()
 		local buftype = vim.api.nvim_buf_get_option(0, "buftype")

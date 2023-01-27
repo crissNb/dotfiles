@@ -17,7 +17,7 @@ vim.opt.ignorecase = true
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 
-vim.opt.updatetime = 100
+vim.opt.updatetime = 50
 
 vim.opt.termguicolors = true
 vim.opt.cmdheight = 1
@@ -33,15 +33,3 @@ vim.opt.colorcolumn = "80"
 -- mouse support
 vim.api.nvim_set_option("mouse", "a")
 vim.cmd "set noshowmode"
-
-vim.cmd([[
-let g:OmniSharp_server_use_mono = 1
-]])
-vim.cmd([[
-let g:OmniSharp_server_use_net6 = 0
-]])
-vim.cmd([[
-let g:ale_linters = {
-\ 'cs': ['OmniSharp']
-\}
-]])

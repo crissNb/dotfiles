@@ -19,7 +19,6 @@ keymap("n", "J", "mzJ`z", opts)
 keymap('t', '<esc>', '<C-\\><C-N>', opts)
 
 -- leader
-vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 nkeymap("<Space>", "")
 

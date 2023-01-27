@@ -39,6 +39,13 @@ for _, lsp in ipairs(servers) do
 	}
 end
 
+-- nvim_lsp["csharp_ls"].setup({
+-- 	on_attach = M.on_attach,
+-- 	capabilities = M.capabilities,
+-- 	root_dir = require("lspconfig").util.root_pattern("Assets"),
+-- })
+
+
 -- vim.schedule(function()
 --     vim.cmd('COQnow -s')
 --     for _, lsp in ipairs(servers) do
@@ -55,10 +62,10 @@ end
 -- end)
 
 
--- nvim_lsp["omnisharp"].setup({
--- 	on_attach = M.on_attach,
--- 	cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) },
--- 	-- cmd = { "/Users/semi/Developer/Other/omnisharp-roslyn/artifacts/publish/OmniSharp.Stdio.Driver/mono/run", "--languageserver", "--hostPID", tostring(pid) },
--- })
+nvim_lsp["omnisharp"].setup({
+	on_attach = M.on_attach,
+	cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) },
+	-- cmd = { "/Users/semi/Developer/Other/omnisharp-roslyn/artifacts/publish/OmniSharp.Stdio.Driver/mono/run", "--languageserver", "--hostPID", tostring(pid) },
+})
 
 return M
