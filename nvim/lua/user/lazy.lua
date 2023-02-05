@@ -24,7 +24,7 @@ return require('lazy').setup({
 		dependencies = {
 			'kyazdani42/nvim-web-devicons', -- optional, for file icons
 		},
-		version = 'nightly' -- optional, updated every week. (see issue #1193)
+		version = "nightly" -- optional, updated every week. (see issue #1193)
 	},
 
 	-- comment
@@ -51,7 +51,7 @@ return require('lazy').setup({
 	-- theme
 	{
 		'catppuccin/nvim',
-		as = 'catppuccin'
+		name = 'catppuccin'
 	},
 
 	-- LSP related
@@ -72,12 +72,10 @@ return require('lazy').setup({
 	'onsails/lspkind.nvim',
 
 	-- snippets
-	{ 'L3MON4D3/LuaSnip',
-		version = "v<CurrentMajor>.*",
-		config = function()
-			require("luasnip").config.setup({ history = true })
-			require("luasnip.loaders.from_vscode").load()
-		end,
+	{
+		"L3MON4D3/LuaSnip",
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp"
 	},
 	'saadparwaiz1/cmp_luasnip',
 	'rafamadriz/friendly-snippets',
@@ -95,9 +93,6 @@ return require('lazy').setup({
 	-- telescope
 	'nvim-telescope/telescope.nvim',
 
-	-- neovim optimizations
-	'lewis6991/impatient.nvim',
-
 	-- terminal
 	'akinsho/toggleterm.nvim',
 
@@ -114,7 +109,35 @@ return require('lazy').setup({
 	},
 
 	-- discord presence
-	'andweeb/presence.nvim',
+	{
+		'andweeb/presence.nvim',
+		lazy = false,
+		config = function()
+			require("presence").setup({
+				-- General options
+				auto_update        = true, -- Update activity based on autocmd events (if `false`, map or manually execute `:lua package.loaded.presence:update()`)
+				neovim_image_text  = "imagine vscode", -- Text displayed when hovered over the Neovim image
+				main_image         = "neovim", -- Main image display (either "neovim" or "file")
+				client_id          = "793271441293967371", -- Use your own Discord application client id (not recommended)
+				log_level          = nil, -- Log messages at or above this level (one of the following: "debug", "info", "warn", "error")
+				debounce_timeout   = 10, -- Number of seconds to debounce events (or calls to `:lua package.loaded.presence:update(<filename>, true)`)
+				enable_line_number = false, -- Displays the current line number instead of the current project
+				blacklist          = {}, -- A list of strings or Lua patterns that disable Rich Presence if the current file name, path, or workspace matches
+				buttons            = true, -- Configure Rich Presence button(s), either a boolean to enable/disable, a static table (`{{ label = "<label>", url = "<url>" }, ...}`, or a function(buffer: string, repo_url: string|nil): table)
+				file_assets        = {}, -- Custom file asset definitions keyed by file names and extensions (see default config at `lua/presence/file_assets.lua` for reference)
+				show_time          = true, -- Show the timer
+
+				-- Rich Presence text options
+				editing_text        = "Editing %s", -- Format string rendered when an editable file is loaded in the buffer (either string or function(filename: string): string)
+				file_explorer_text  = "Browsing %s", -- Format string rendered when browsing a file explorer (either string or function(file_explorer_name: string): string)
+				git_commit_text     = "Committing changes", -- Format string rendered when committing changes in git (either string or function(filename: string): string)
+				plugin_manager_text = "Managing plugins", -- Format string rendered when managing plugins (either string or function(plugin_manager_name: string): string)
+				reading_text        = "Reading %s", -- Format string rendered when a read-only or unmodifiable file is loaded in the buffer (either string or function(filename: string): string)
+				workspace_text      = "smashing keyboard", -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
+				line_number_text    = "Line %s out of %s", -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
+			})
+		end,
+	},
 
 	-- colors
 	'norcalli/nvim-colorizer.lua',
@@ -125,15 +148,10 @@ return require('lazy').setup({
 	-- project management
 	'ahmedkhalf/project.nvim',
 
-	-- Omnisharp
-	-- { "OmniSharp/omnisharp-vim" }
-	-- { "Shougo/deoplete.nvim",
-	-- 	config = 'require("user.deoplete")' }
-	-- { "dense-analysis/ale" }
-
 	-- undo tree
 	'mbbill/undotree',
 	'tpope/vim-fugitive',
 	'j-hui/fidget.nvim',
-	'christoomey/vim-tmux-navigator'
+	{ 'christoomey/vim-tmux-navigator',
+		lazy = false },
 })

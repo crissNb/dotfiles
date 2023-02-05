@@ -1,6 +1,3 @@
--- neovim optimizations
-require("impatient")
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
 

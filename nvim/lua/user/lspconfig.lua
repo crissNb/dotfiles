@@ -7,13 +7,13 @@ if (not status) then
 	return
 end
 
-local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_cmp_ok then
-	return
-end
+-- local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+-- if not status_cmp_ok then
+-- 	return
+-- end
 
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
-M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
+-- M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.on_attach = function(client, bufnr)
 	-- navic
@@ -30,7 +30,7 @@ M.on_attach = function(client, bufnr)
 	end
 end
 
-local servers = { "sumneko_lua", "bashls", "pyright", "rust_analyzer", "clangd" }
+local servers = { "sumneko_lua", "bashls", "pyright", "rust_analyzer", "clangd", "gopls" }
 
 for _, lsp in ipairs(servers) do
 	nvim_lsp[lsp].setup {
