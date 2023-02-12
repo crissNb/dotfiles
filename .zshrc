@@ -1,16 +1,9 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Enable vs_info
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
-precmd() {
-	vcs_info
-}
+# autoload -Uz vcs_info
+# zstyle ':vcs_info:*' enable git svn
+# precmd() {
+# 	vcs_info
+# }
 
 # Enable colors and change prompt:
 autoload -U colors && colors
@@ -55,18 +48,6 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-    tmp="$(mktemp -uq)"
-    trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
-    lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-    fi
-}
-bindkey -s '^o' '^ulfcd\n'
-
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
@@ -74,7 +55,11 @@ bindkey '^e' edit-command-line
 # Load aliases and shortcuts if existent.
 alias ls='exa'
 alias ll='exa -l'
+alias cd='z'
 alias ..='cd ..'
+alias uvim='nvim --listen ~/.cache/nvimsocket'
+alias gitui='gitui -t mocha.ron'
+alias gimme='~/Softwares/pferd-mac'
 
 source ~/.zsh/catppuccin-zsh-syntax-highlighting.zsh
 source ~/.zsh/zsh-gruvbox.zsh
@@ -86,17 +71,28 @@ source /Users/semi/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /Users/semi/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(completion)
 
+# Load zsh-completions; should be last.
+fpath=(/Users/semi/.zsh/zsh-completions/src $fpath)
+
 export PATH="$HOME/.local/bin:$PATH"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
 
-eval "$(jump shell)"
-
-alias ranger='source ranger'
-
-# configure default editors for ranger
-export VISUAL=nvim;
-export EDITOR=nvim;
+eval "$(zoxide init zsh)"
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fzf catppuccin
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+# lf change working dir
+source "/Users/semi/.config/lf/lfcd.sh"
+bindkey -s '^o' 'lfcd\n'
+
+macchina
