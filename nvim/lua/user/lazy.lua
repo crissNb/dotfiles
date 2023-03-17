@@ -28,7 +28,11 @@ return require('lazy').setup({
 	},
 
 	-- comment
-	'numToStr/Comment.nvim',
+	{
+		'numToStr/Comment.nvim',
+		lazy = false,
+	}
+	,
 
 	-- Status bar
 	{
@@ -90,6 +94,8 @@ return require('lazy').setup({
 	-- plenary
 	'nvim-lua/plenary.nvim',
 
+	'sainnhe/sonokai',
+
 	-- telescope
 	'nvim-telescope/telescope.nvim',
 
@@ -148,10 +154,10 @@ return require('lazy').setup({
 	-- project management
 	'ahmedkhalf/project.nvim',
 
+	'Yazeed1s/oh-lucy.nvim',
 	-- undo tree
 	'mbbill/undotree',
 	'tpope/vim-fugitive',
-	'j-hui/fidget.nvim',
 	{ 'christoomey/vim-tmux-navigator',
 		lazy = false },
 })

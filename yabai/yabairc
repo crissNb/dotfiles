@@ -1,48 +1,51 @@
 #!/usr/bin/env sh
 
+launchctl unload -F /System/Library/LaunchAgents/com.apple.WindowManager.plist > /dev/null 2>&1 &
+
 sudo yabai --load-sa
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
-yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
 yabai -m signal --add event=display_added action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
 yabai -m signal --add event=display_removed action="sleep 1 && $HOME/.config/yabai/create_spaces.sh"
 yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_focused action="sketchybar --trigger windows_on_spaces"
 yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
+yabai -m signal --add event=window_moved action="sketchybar --trigger windows_on_spaces"
 
 yabai -m config external_bar               all:32:0
-yabai -m config window_border              off # enabling this option will also enable blur
+yabai -m config window_border              on # enabling this option will also enable blur
+yabai -m config window_border_blur 		   off
 yabai -m config mouse_follows_focus        off
 yabai -m config focus_follows_mouse        off
 yabai -m config window_placement           second_child
 yabai -m config window_topmost             off
-yabai -m config window_shadow              on
-yabai -m config window_opacity             off
-yabai -m config window_opacity_duration    0.0
+yabai -m config window_shadow              float
+yabai -m config window_opacity             on
+yabai -m config window_opacity_duration    0.1
 yabai -m config active_window_opacity      1.0
-yabai -m config normal_window_opacity      0.90
+yabai -m config normal_window_opacity      1.0
 yabai -m config window_border_width        3
+yabai -m config window_border_hidpi        off
 yabai -m config window_border_radius	   3
-yabai -m config active_window_border_color 0xffa6e3a1
-yabai -m config normal_window_border_color 0xffe1e3e4
-yabai -m config insert_feedback_color      0xff9dd274
+yabai -m config window_animation_duration  0.0
+yabai -m config active_window_border_color 0xffcdd6f4
+yabai -m config normal_window_border_color 0xff313244
+yabai -m config insert_feedback_color      0xfffab387
 yabai -m config split_ratio                0.50
 yabai -m config auto_balance               off
-yabai -m config mouse_modifier             fn
-yabai -m config mouse_action1              move
-yabai -m config mouse_action2              resize
-yabai -m config mouse_drop_action          swap
 
 yabai -m config layout                     bsp
-yabai -m config top_padding                10
-yabai -m config bottom_padding             10
-yabai -m config left_padding               10
-yabai -m config right_padding              10
-yabai -m config window_gap                 8
+yabai -m config top_padding                8
+yabai -m config bottom_padding             8
+yabai -m config left_padding               8
+yabai -m config right_padding              8
+yabai -m config window_gap                 6
 # Do not manage some apps which are not resizable
 yabai -m rule --add app="^(LuLu|Vimac|Calculator|VLC|System Settings|zoom.us|Photo Booth|Archive Utility|Python|LibreOffice)$" manage=off
 
 # ===== Rules ==================================
 
 yabai -m rule --add app="^Finder$" sticky=on layer=above manage=off
+yabai -m rule --add app="^choose$" layer=above manage=off
 yabai -m rule --add app="^Keka$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Unity$" manage=off
 yabai -m rule --add label="raycast" app="^Raycast$" manage=off
@@ -60,6 +63,7 @@ yabai -m rule --add label="Blender File View" app="^Blender$" title="Blender Fil
 yabai -m rule --add label="AppCleaner" app="^AppCleaner$" layer=above manage=off
 yabai -m rule --add app="^Eclipse$" manage=off
 yabai -m rule --add app="^IntelliJ IDEA$" manage=off
+yabai -m rule --add app="^JetBrains Rider$" manage=off
 
 yabai -m space 1 --label one
 yabai -m space 2 --label two
@@ -72,4 +76,5 @@ yabai -m space 8 --label eight
 yabai -m space 9 --label nine
 yabai -m space 10 --label ten
 
-yabai -m signal --add event=window_destroyed action="bash ./CustomScripts/window-focus-on-destroy.sh"
+# yabai -m signal --add event=window_destroyed action="bash ./CustomScripts/window-focus-on-destroy.sh"
+yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"

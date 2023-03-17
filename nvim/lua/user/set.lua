@@ -27,6 +27,14 @@ vim.opt.foldmethod = "expr"
 
 vim.opt.colorcolumn = "80"
 
+vim.cmd [[
+    let &t_ti.="\eP\e[1 q\e\\"
+    let &t_SI.="\eP\e[5 q\e\\"
+    let &t_EI.="\eP\e[1 q\e\\"
+    let &t_te.="\eP\e[0 q\e\\"
+]]
+
 -- mouse support
 vim.api.nvim_set_option("mouse", "a")
 vim.cmd "set noshowmode"
+vim.cmd "set spell"

@@ -34,7 +34,7 @@ local space = {
 local filename = {
 	'filename',
 	color = { bg = "#80A7EA", fg = "#242735" },
-	separator = { left = "", right = "" },
+	separator = { left = "", right = "" },
 }
 
 local filetype = {
@@ -42,7 +42,7 @@ local filetype = {
 	icon_only = true,
 	colored = true,
 	color = { bg = "#313244" },
-	separator = { left = "", right = "" },
+	separator = { left = "", right = "" },
 }
 
 local filetype_tab = {
@@ -55,31 +55,31 @@ local filetype_tab = {
 local fileformat = {
 	'fileformat',
 	color = { bg = "#b4befe", fg = "#313244" },
-	separator = { left = "", right = "" },
+	separator = { left = "", right = "" },
 }
 
 local encoding = {
 	'encoding',
 	color = { bg = "#313244", fg = "#80A7EA" },
-	separator = { left = "", right = "" },
+	separator = { left = "", right = "" },
 }
 
 local branch = {
 	'branch',
 	color = { bg = "#a6e3a1", fg = "#313244" },
-	separator = { left = "", right = "" },
+	separator = { left = "", right = "" },
 }
 
 local diff = {
 	"diff",
 	color = { bg = "#313244", fg = "#313244" },
-	separator = { left = "", right = "" },
+	separator = { left = "", right = "" },
 }
 
 local modes = {
 	'mode', fmt = function(str) return str end,
 	color = { bg = "#fab387		", fg = "#1e1e2e" },
-	separator = { left = "", right = "" },
+	separator = { left = "", right = "" },
 }
 
 local function getLspName()
@@ -101,14 +101,14 @@ end
 local dia = {
 	'diagnostics',
 	color = { bg = "#313244", fg = "#80A7EA" },
-	separator = { left = "", right = "" },
+	separator = { left = "", right = "" },
 }
 
 local lsp = {
 	function()
 		return getLspName()
 	end,
-	separator = { left = "", right = "" },
+	separator = { left = "", right = "" },
 	color = { bg = "#fab387", fg = "#1e1e2e" },
 }
 

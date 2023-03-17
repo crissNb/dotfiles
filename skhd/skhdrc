@@ -2,13 +2,11 @@
 hyper - u : ~/.config/skhd/CustomScripts/ToggleWM.sh 1
 hyper - y : ~/.config/skhd/CustomScripts/ToggleWM.sh 0
 
-# killall dock - when desktop transitions act weird
-hyper - x : killall Dock
 hyper - b : brew services restart sketchybar
 
 # open apps
 # terminal window
-hyper - t : osascript ~/.config/skhd/CustomScripts/new-kitty-window.scpt
+hyper - t : alacritty msg create-window
 
 # finder
 hyper - e : open ~/
@@ -32,15 +30,33 @@ hyper - 0x21 : osascript -e 'tell application "Music" to playpause'
 hyper - 0x1E : osascript -e 'tell application "Music" to next track'
 
 # focus desktop
-shift + rcmd + rctrl + ralt - z : ~/.config/skhd/CustomScripts/SwitchSpace.sh 1
-shift + rcmd + rctrl + ralt - a : ~/.config/skhd/CustomScripts/SwitchSpace.sh 2
-shift + rcmd + rctrl + ralt - s : ~/.config/skhd/CustomScripts/SwitchSpace.sh 3
-shift + rcmd + rctrl + ralt - d : ~/.config/skhd/CustomScripts/SwitchSpace.sh 4
-shift + rcmd + rctrl + ralt - f : ~/.config/skhd/CustomScripts/SwitchSpace.sh 5
-shift + rcmd + rctrl + ralt - 1 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 6
-shift + rcmd + rctrl + ralt - 2 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 7
-shift + rcmd + rctrl + ralt - 3 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 8
-shift + rcmd + rctrl + ralt - 4 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 9
+# shift + rcmd + rctrl + ralt - z : ~/.config/skhd/CustomScripts/SwitchSpace.sh 1
+# shift + rcmd + rctrl + ralt - a : ~/.config/skhd/CustomScripts/SwitchSpace.sh 2
+# shift + rcmd + rctrl + ralt - s : ~/.config/skhd/CustomScripts/SwitchSpace.sh 3
+# shift + rcmd + rctrl + ralt - d : ~/.config/skhd/CustomScripts/SwitchSpace.sh 4
+# shift + rcmd + rctrl + ralt - f : ~/.config/skhd/CustomScripts/SwitchSpace.sh 5
+# shift + rcmd + rctrl + ralt - 1 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 6
+# shift + rcmd + rctrl + ralt - 2 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 7
+# shift + rcmd + rctrl + ralt - 3 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 8
+# shift + rcmd + rctrl + ralt - 4 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 9
+shift + rcmd + rctrl + ralt - z : yabai -m space --focus 1
+shift + rcmd + rctrl + ralt - a : yabai -m space --focus 2
+shift + rcmd + rctrl + ralt - s : yabai -m space --focus 3
+shift + rcmd + rctrl + ralt - d : yabai -m space --focus 4
+shift + rcmd + rctrl + ralt - f : yabai -m space --focus 5
+shift + rcmd + rctrl + ralt - 1 : yabai -m space --focus 6
+shift + rcmd + rctrl + ralt - 2 : yabai -m space --focus 7
+shift + rcmd + rctrl + ralt - 3 : yabai -m space --focus 8
+shift + rcmd + rctrl + ralt - 4 : yabai -m space --focus 9
+shift + rcmd + rctrl + ralt - 5 : yabai -m space --focus 10
+shift + rcmd + rctrl + ralt - 6 : yabai -m space --focus 11
+shift + rcmd + rctrl + ralt - 7 : yabai -m space --focus 12
+shift + rcmd + rctrl + ralt - 8 : yabai -m space --focus 13
+shift + rcmd + rctrl + ralt - 9 : yabai -m space --focus 14
+shift + rcmd + rctrl + ralt - 0 : yabai -m space --focus 15
+
+# spotlight
+# lcmd - space : ~/Developer/Other/Rofi-macOS/ApplicationPicker.sh
 
 # stacking
 shift + rcmd + rctrl + ralt - left : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window west --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
@@ -65,8 +81,8 @@ window < h : yabai -m window --focus west || \
              yabai -m window --focus $(yabai -m query --spaces --display west | jq '.[] | select(."is-visible" == true) | ."last-window"')
 window < l : yabai -m window --focus east || \
               yabai -m window --focus $(yabai -m query --spaces --display east | jq '.[] | select(."is-visible" == true) | ."first-window"')
-window < j : yabai -m window --focus north
-window < k : yabai -m window --focus south
+window < j : yabai -m window --focus south
+window < k : yabai -m window --focus north
 
 # move window
 # same as shift + rcmd + rctrl + ralt+ lcmd - key
@@ -87,6 +103,12 @@ window < 1 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 6
 window < 2 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 7
 window < 3 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 8
 window < 4 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 9
+window < 5 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 10
+window < 6 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 11
+window < 7 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 12
+window < 8 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 13
+window < 9 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 14
+window < 0 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 15
 
 # resize window
 window < ctrl - h : yabai -m window --resize left:-20:0 || \

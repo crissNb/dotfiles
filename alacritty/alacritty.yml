@@ -1,26 +1,35 @@
 import:
   # uncomment the flavour you want below:
   - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+ # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+ # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+ # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
  # - ~/.config/alacritty/gruvbox/gruvbox-dark.yml
+
 font:
   size: 14
   normal:
     # family: "OperatorMono Nerd Font"
     family: "JetBrainsMonoNL Nerd Font"
+    # family: "SF Mono"
     # family: "Hack Nerd Font"
     # family: "FiraCode Nerd Font Mono"
     style: Light
   offset:
       x: 0    # For letter spacing.
-      y: 2    # For line spacing. 
+      y: 0    # For line spacing. 
 
 window:
   decorations: buttonless
   opacity: 0.9
+  padding:
+    x: 4
+    y: 4
 
 env:
-  TERM: alacritty
+  # TERM: alacritty
   # TERM: xterm-256color
+  TERM: screen-256color
+
+selection:
+  save_to_clipboard: true
