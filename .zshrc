@@ -1,10 +1,3 @@
-# Enable vs_info
-# autoload -Uz vcs_info
-# zstyle ':vcs_info:*' enable git svn
-# precmd() {
-# 	vcs_info
-# }
-
 # Enable colors and change prompt:
 autoload -U colors && colors
 PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[magenta]%}%(4~|.../%3~|%~)%{$fg[red]%}]%{$reset_color%}$%b "
@@ -67,12 +60,8 @@ source ~/.zsh/zsh-gruvbox.zsh
 # Load zsh-syntax-highlighting; should be last.
 source /Users/semi/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Load zsh-autosuggestions; should be last.
-source /Users/semi/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-ZSH_AUTOSUGGEST_STRATEGY=(completion)
-
-# Load zsh-completions; should be last.
-fpath=(/Users/semi/.zsh/zsh-completions/src $fpath)
+# # Load zsh-completions; should be last.
+# fpath=(/Users/semi/.zsh/zsh-completions/src $fpath)
 
 export PATH="$HOME/.local/bin:$PATH"
 export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
@@ -94,5 +83,3 @@ export FZF_DEFAULT_OPTS=" \
 # lf change working dir
 source "/Users/semi/.config/lf/lfcd.sh"
 bindkey -s '^o' 'lfcd\n'
-
-macchina
