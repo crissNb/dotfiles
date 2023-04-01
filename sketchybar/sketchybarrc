@@ -26,10 +26,11 @@ $DYNAMIC_ISLAND_DIR/helper/islandhelper $ISLANDHELPER &
 FONT="SF Pro"
 
 # Set up your own custom sketchybar config here
+launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
 sketchybar --bar	color=$BAR_COLOR \
 					margin=0		 \
 					blur_radius=20                                    \
-					corner_radius=10 \
+					corner_radius=0 \
 					padding_right=10                                  \
 					padding_left=10                                   \
 

@@ -1,0 +1,19 @@
+# vim: filetype=neomuttrc
+# muttrc file for account ufzwe@student.kit.edu
+set realname = "ufzwe"
+set from = "ufzwe@student.kit.edu"
+set sendmail = "msmtp -a ufzwe@student.kit.edu"
+alias me ufzwe <ufzwe@student.kit.edu>
+set folder = "/Users/semi/.local/share/mail/ufzwe@student.kit.edu"
+set header_cache = "/Users/semi/.cache/mutt-wizard/ufzwe_student.kit.edu/headers"
+set message_cachedir = "/Users/semi/.cache/mutt-wizard/ufzwe_student.kit.edu/bodies"
+set mbox_type = Maildir
+set hostname = "student.kit.edu"
+source /usr/local/share/mutt-wizard/switch.muttrc
+set spoolfile = "+INBOX"
+set postponed = "+Drafts"
+set trash = "+Trash"
+set record = "+Sent"
+
+macro index o "<shell-escape>mailsync ufzwe@student.kit.edu<enter>" "sync ufzwe@student.kit.edu"
+mailboxes "=Archives/1970" "=Archives/2022" "=Archives/2023" "=Calendar/Birthdays" "=Deleted Items" "=Drafts" "=INBOX" "=Journal" "=Junk Email" "=Notes" "=Outbox" "=Sent" "=Sent Items" "=Tasks" "=Trash"

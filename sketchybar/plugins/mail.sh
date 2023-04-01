@@ -1,32 +1,18 @@
 #!/usr/bin/env sh
 source "$HOME/.config/sketchybar/icons.sh"
 
-profile="$HOME/Library/Thunderbird/Profiles/5wpj8jv2.default-release"
-regex='\(\^A1=([0-9]+)'
+total=0
 
-count_unreadmails() {
-    count=0
-    result=$(grep -Eo "$regex" "$1" | tail -n1)
-    # result=$(grep -Eo "$regex" "$1")
-    if [[ $result =~ $regex ]]
-    then
-        count="${BASH_REMATCH[1]}"
-        unreadmail_count=$(($unreadmail_count + $count))
-    fi
-    return $count
-}
-
-unreadmail_count=0
-
-for inbox in "$profile/Mail/smart mailboxes/Inbox.msf"
+for folder in ~/.local/share/mail/*/
 do
-    count_unreadmails "$inbox"
+  count=$(find "$folder"/INBOX/new/ -type f | wc -l)
+  total=$((total + count))
 done
+echo "Total files in 'new' folders: $total"
 
-COUNT=$unreadmail_count
-
-if [ "$COUNT" -gt "0" ]; then
-  sketchybar --set $NAME label="$COUNT" icon=$MAIL
+if [ "$total" -gt "0" ]; then
+  sketchybar --set $NAME label="$total" icon=$MAIL
 else
-  sketchybar --set $NAME label="$COUNT" icon=$MAIL_OPEN
+  sketchybar --set $NAME label="$total" icon=$MAIL_OPEN
 fi
+

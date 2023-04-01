@@ -16,8 +16,7 @@ sketchybar --add       event        window_focus                  \
                                     mouse.clicked                 \
                                                                   \
            --add       item         front_app left                \
-           --set       front_app    mach_helper="$HELPER" 		  \
-                                    icon.drawing=off              \
+		   --set       front_app    icon.drawing=off              \
                                     background.padding_left=0     \
                                     background.padding_right=10   \
                                     label.color=$WHITE            \
