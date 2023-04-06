@@ -26,13 +26,16 @@ $DYNAMIC_ISLAND_DIR/helper/islandhelper $ISLANDHELPER &
 FONT="SF Pro"
 
 # Set up your own custom sketchybar config here
-launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
-sketchybar --bar	color=$BAR_COLOR \
+sketchybar --bar	color=$TRANSPARENT \
 					margin=0		 \
 					blur_radius=20                                    \
 					corner_radius=0 \
-					padding_right=10                                  \
-					padding_left=10                                   \
+					padding_right=14                                  \
+					padding_left=14
+
+ITEM_CORNER_RADIUS=3
+ITEM_BACKGROUND_HEIGHT=26
+ITEM_PADDING=14
 
 source "$ITEM_DIR/spaces.sh"
 source "$ITEM_DIR/front_app.sh"
@@ -41,6 +44,9 @@ source "$ITEM_DIR/power.sh"
 source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/cpu.sh"
 source "$ITEM_DIR/network.sh"
+
+source "$ITEM_DIR/bracket_r.sh"
+source "$ITEM_DIR/bracket_l.sh"
 
 source "$DYNAMIC_ISLAND_DIR/item.sh" # Loads Dynamic-Island item
 

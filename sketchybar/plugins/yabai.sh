@@ -10,7 +10,7 @@ window_state() {
   args=()
   if [[ $CURRENT -gt 0 ]]; then
     LAST=$(yabai -m query --windows --window stack.last | jq '.["stack-index"]')
-    args+=(--set $NAME icon=$YABAI_STACK icon.color=$RED label.drawing=on label=$(printf "[%s/%s]" "$CURRENT" "$LAST"))
+    args+=(--set front_app background.color=$RED)
     # yabai -m config active_window_border_color $RED > /dev/null 2>&1 &
 
   else 
@@ -18,18 +18,18 @@ window_state() {
     case "$(echo "$WINDOW" | jq '.["is-floating"]')" in
       "false")
         if [ "$(echo "$WINDOW" | jq '.["has-fullscreen-zoom"]')" = "true" ]; then
-          args+=(--set $NAME icon=$YABAI_FULLSCREEN_ZOOM icon.color=$GREEN)
+          args+=(--set front_app background.color=$GREEN)
           # yabai -m config active_window_border_color $GREEN > /dev/null 2>&1 &
         elif [ "$(echo "$WINDOW" | jq '.["has-parent-zoom"]')" = "true" ]; then
-          args+=(--set $NAME icon=$YABAI_PARENT_ZOOM icon.color=$BLUE)
+          args+=(--set front_app background.color=$BLUE)
           # yabai -m config active_window_border_color $BLUE > /dev/null 2>&1 &
         else
-          args+=(--set $NAME icon=$YABAI_GRID icon.color=$ORANGE)
+          args+=(--set front_app background.color=$ORANGE)
           # yabai -m config active_window_border_color $WHITE > /dev/null 2>&1 &
         fi
         ;;
       "true")
-        args+=(--set $NAME icon=$YABAI_FLOAT icon.color=$MAGENTA)
+        args+=(--set front_app background.color=$MAGENTA)
         # yabai -m config active_window_border_color $MAGENTA > /dev/null 2>&1 &
         ;;
     esac
