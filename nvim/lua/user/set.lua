@@ -38,3 +38,5 @@ vim.cmd [[
 vim.api.nvim_set_option("mouse", "a")
 vim.cmd "set noshowmode"
 vim.cmd "set spell"
+
+vim.o.expandtab = true

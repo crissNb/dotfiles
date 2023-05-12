@@ -23,10 +23,10 @@ function file_exists(name)
    if f~=nil then io.close(f) return true else return false end
 end
 
-if file_exists(rootUpLevel .. "checkstyle-optional.xml") then
+if file_exists("swt-checkstyle.xml") then
 	config.sources = {
 		null_ls.builtins.diagnostics.checkstyle.with({
-			extra_args = {"-c ", rootUpLevel .. "checkstyle-optional.xml"},
+			extra_args = {"-c ", "swt-checkstyle.xml"},
 		}),
 	}
 end

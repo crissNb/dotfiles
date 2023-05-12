@@ -54,7 +54,7 @@ jdtls.start_or_attach {
 	},
 	root_dir = root_dir,
 	cmd = {
-		"java", -- or '/path/to/java11_or_newer/bin/java'
+		"/usr/bin/java", -- or '/path/to/java11_or_newer/bin/java'
 		-- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -143,5 +143,3 @@ vim.cmd "command! -buffer -nargs=? -complete=custom,v:lua.require'jdtls'._comple
 vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()"
 -- vim.cmd "command! -buffer JdtJol lua require('jdtls').jol()"
 vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
-
-vim.o.expandtab = true

@@ -220,7 +220,4 @@ cmp.setup {
 	-- 		col_offset = -3,
 	-- 	},
 	-- },
-	experimental = {
-		ghost_text = true,
-	},
 }

@@ -70,7 +70,7 @@ require("telescope").setup({
 })
 
 -- load telescope extensions
-require('telescope').load_extension('projects')
+-- require('telescope').load_extension('projects')
 
 local M = {}
 
