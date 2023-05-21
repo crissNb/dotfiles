@@ -47,17 +47,17 @@ I have dual monitor configuration with following workspace setup (mostly for gam
 |Shortcut|Description|
 |--------|-----------|
 |`Hyper + Shift + H/J/K/L`|Focus window|
-|`Hyper + Control + h/j/k/l`|Resize window|
+|`Hyper + Control + H/J/K/L`|Resize window|
 |`Hyper + Alt + H/J/K/L`|Move window in current monitor|
-|`Hyper + Alt - n`|Move window to left monitor|
-|`Hyper + Alt - m`|Move window to right monitor|
+|`Hyper + Alt + N`|Move window to left monitor|
+|`Hyper + Alt + M`|Move window to right monitor|
 |`Hyper + R`|Rotate windows by 90 degrees|
 |`Hyper + W`|Flip window positions vertically|
 |`Hyper + G`|Toggle floating window|
 |`Hyper + O`|Fill screen with floating window|
 |`Hyper + Return`|Fill screen with non-floating window|
 |`Hyper + Z/A/S/D/F/1/2/3/4`|Focus desktop|
-|`Hyper + Alt - Z/A/S/D/F/1/2/3/4`|Move current window to another desktop|
+|`Hyper + Alt + Z/A/S/D/F/1/2/3/4`|Move current window to another desktop|
 |`Hyper + Left/Right/Up/Down (arrow keys)`|Window stacking|
 |`Hyper + Tab`|Next stacked window|
 |`Hyper + Shift + Tab`|Previous stacked window|
