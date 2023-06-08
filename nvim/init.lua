@@ -1,6 +1,6 @@
 -- disable netrw
-vim.g.loaded = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 vim.g.mapleader = " "
 vim.cmd("let g:coq_settings = { 'auto_start': 'shut-up' }")

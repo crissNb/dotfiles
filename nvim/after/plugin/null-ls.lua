@@ -4,6 +4,7 @@ if not null_ls_status_ok then
 end
 
 local config = {
+    sources = { null_ls.builtins.formatting.csharpier }
 }
 
 local workingDir = vim.fn.getcwd();

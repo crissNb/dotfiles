@@ -15,6 +15,10 @@ keymap("v", "J", ":move '>+1<CR>gv=gv", opts)
 
 keymap("n", "J", "mzJ`z", opts)
 
+-- copilot
+keymap("i", "<C-]>", "<Plug>(copilot-next)", opts)
+keymap("i", "<C-[>", "<Plug>(copilot-previous)", opts)
+
 -- terminal
 keymap('t', '<esc>', '<C-\\><C-N>', opts)
 
@@ -42,10 +46,10 @@ vim.keymap.set("n", "<leader>gg", vim.cmd.Git);
 
 -- Normal --
 -- switch between windows
-nkeymap('<C-h>', '<C-w>h')
-nkeymap('<C-l>', '<C-w>l')
-nkeymap('<C-j>', '<C-w>j')
-nkeymap('<C-k>', '<C-w>k')
+-- nkeymap('<C-h>', '<C-w>h')
+-- nkeymap('<C-l>', '<C-w>l')
+-- nkeymap('<C-j>', '<C-w>j')
+-- nkeymap('<C-k>', '<C-w>k')
 
 -- Remap move down/ move up
 nkeymap('<C-d>', '<C-d>zz')

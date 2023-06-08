@@ -30,6 +30,10 @@ return require('lazy').setup({
         branch = "coq",
     },
     {
+        'ms-jpq/coq.thirdparty',
+        branch = "3p",
+    },
+    {
         'ms-jpq/coq.artifacts',
         branch = "artifacts"
     },
@@ -61,9 +65,10 @@ return require('lazy').setup({
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'RRethy/vim-illuminate',
+    'ray-x/lsp_signature.nvim',
     -- debugger
-    -- 'mfussenegger/nvim-dap',
-    -- 'rcarriga/nvim-dap-ui',
+    'mfussenegger/nvim-dap',
+    'rcarriga/nvim-dap-ui',
     -- java
     'mfussenegger/nvim-jdtls',
     -- plenary
@@ -115,7 +120,7 @@ return require('lazy').setup({
     'norcalli/nvim-colorizer.lua',
     -- linters
     'jose-elias-alvarez/null-ls.nvim',
-    'ofirgall/ofirkai.nvim',
+    'morhetz/gruvbox',
     -- undo tree
     'mbbill/undotree',
     'tpope/vim-fugitive',
@@ -129,5 +134,8 @@ return require('lazy').setup({
         opts = {
             -- config
         },
+    },
+    {
+        'github/copilot.vim'
     }
 })
