@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SPACE_ICONS=("z" "a" "s" "d" "f" "1" "2" "3" "4")
+SPACE_ICONS=("z" "a" "s" "d" "f" "1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
 
 # Destroy space on right click, focus space on left click.
 # New space by left clicking separator (>)

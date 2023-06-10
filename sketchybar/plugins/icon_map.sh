@@ -65,7 +65,7 @@ case $@ in
 "App Store")
   icon_result=":app_store:"
   ;;
-"Chromium" | "Google Chrome" | "Google Chrome Canary")
+"Chromium" | "Google Chrome" | "Google Chrome Canary" | "Arc")
   icon_result=":google_chrome:"
   ;;
 "zoom.us")
