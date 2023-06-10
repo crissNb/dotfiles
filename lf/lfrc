@@ -105,3 +105,6 @@ cmd zip ${{
 }}
 
 set previewer ~/.config/lf/batpreviewer.sh
+map . set hidden!
+map d trash
+map r rename
