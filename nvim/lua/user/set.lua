@@ -8,7 +8,7 @@ vim.opt.incsearch = true
 
 vim.opt.smartindent = true
 
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.swapfile = false
 vim.opt.ignorecase = true
 vim.opt.undofile = true
@@ -37,6 +37,6 @@ vim.cmd [[
 -- mouse support
 vim.api.nvim_set_option("mouse", "a")
 vim.cmd "set noshowmode"
-vim.cmd "set spell"
+-- vim.cmd "set spell"
 
 vim.o.expandtab = true

@@ -17,8 +17,13 @@ return require('lazy').setup({
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate'
     },
+    -- {
+    --     'nvim-tree/nvim-tree.lua'
+    -- },
     {
-        'nvim-tree/nvim-tree.lua'
+        'ms-jpq/chadtree',
+        branch = "chad",
+        build = "python3 -m chadtree deps",
     },
     -- comment
     {
@@ -35,13 +40,13 @@ return require('lazy').setup({
     },
     {
         'ms-jpq/coq.artifacts',
-        branch = "artifacts"
+        branch = "artifacts",
     },
     -- Status bar
-    {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }
-    },
+    -- {
+    --     'nvim-lualine/lualine.nvim',
+    --     dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }
+    -- },
     -- git
     {
         'lewis6991/gitsigns.nvim',
@@ -49,7 +54,10 @@ return require('lazy').setup({
             require('gitsigns').setup()
         end
     },
-    'sindrets/diffview.nvim',
+    {
+        'sindrets/diffview.nvim',
+        event = "VeryLazy"
+    },
     dependencies = 'nvim-lua/plenary.nvim',
     -- indent
     'lukas-reineke/indent-blankline.nvim',
@@ -64,23 +72,41 @@ return require('lazy').setup({
     },
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
-    'RRethy/vim-illuminate',
+    {
+        'RRethy/vim-illuminate',
+        lazy = true,
+    },
     'ray-x/lsp_signature.nvim',
     -- debugger
-    'mfussenegger/nvim-dap',
+    {
+        'mfussenegger/nvim-dap',
+        ft = "java"
+    },
     'rcarriga/nvim-dap-ui',
     -- java
-    'mfussenegger/nvim-jdtls',
+    {
+        'mfussenegger/nvim-jdtls',
+        ft = "java"
+    },
     -- plenary
     'nvim-lua/plenary.nvim',
     -- telescope
-    'nvim-telescope/telescope.nvim',
+    {
+        'nvim-telescope/telescope.nvim',
+        lazy = true
+    },
     -- terminal
-    'akinsho/toggleterm.nvim',
+    {
+        'akinsho/toggleterm.nvim',
+        lazy = true
+    },
     -- harpoon man
     'ThePrimeagen/harpoon',
     -- buffer manager
-    'j-morano/buffer_manager.nvim',
+    {
+        'j-morano/buffer_manager.nvim',
+        event = "VeryLazy"
+    },
     -- latex
     {
         'lervag/vimtex',
@@ -90,7 +116,6 @@ return require('lazy').setup({
     -- discord presence
     {
         'andweeb/presence.nvim',
-        lazy = false,
         config = function()
             require("presence").setup({
                 -- General options
@@ -114,16 +139,16 @@ return require('lazy').setup({
                 workspace_text      = "smashing keyboard",  -- Format string rendered when in a git repository (either string or function(project_name: string|nil, filename: string): string)
                 line_number_text    = "Line %s out of %s",  -- Format string rendered when `enable_line_number` is set to true (either string or function(line_number: number, line_count: number): string)
             })
-        end,
+        end
     },
     -- colors
     'norcalli/nvim-colorizer.lua',
     -- linters
     'jose-elias-alvarez/null-ls.nvim',
-    'morhetz/gruvbox',
     -- undo tree
-    'mbbill/undotree',
-    'tpope/vim-fugitive',
+    {
+        'mbbill/undotree',
+    },
     {
         'christoomey/vim-tmux-navigator',
         lazy = false
@@ -131,11 +156,16 @@ return require('lazy').setup({
     {
         "utilyre/sentiment.nvim",
         version = "*",
+        event = "VeryLazy", -- keep for lazy loading
         opts = {
             -- config
         },
+        init = function()
+            -- `matchparen.vim` needs to be disabled manually in case of lazy loading
+            vim.g.loaded_matchparen = 1
+        end,
     },
     {
-        'github/copilot.vim'
+        'github/copilot.vim',
     }
 })

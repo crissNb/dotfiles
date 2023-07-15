@@ -60,7 +60,8 @@ nkeymap('n', 'nzzzv')
 nkeymap('N', 'Nzzzv')
 
 -- nvim tree
-nkeymap("<leader>e", ":NvimTreeToggle<CR>")
+-- nkeymap("<leader>e", ":NvimTreeToggle<CR>")
+nkeymap("<leader>e", ":CHADopen<CR>")
 
 -- lsp
 nkeymap('gd', ':lua vim.lsp.buf.definition()<cr>')

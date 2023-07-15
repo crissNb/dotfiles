@@ -112,25 +112,25 @@
 -- 	color = { bg = "#fab387", fg = "#1e1e2e" },
 -- }
 
-require('lualine').setup {
-
-	options = {
-		icons_enabled = true,
-		component_separators = { left = '', right = '' },
-		section_separators = { left = '', right = '' },
-		disabled_filetypes = {
-			statusline = {},
-			winbar = {},
-		},
-		ignore_focus = {},
-		always_divide_middle = true,
-		globalstatus = true,
-		refresh = {
-			statusline = 1000,
-			tabline = 1000,
-			winbar = 1000,
-		}
-	},
+-- require('lualine').setup {
+--
+-- 	options = {
+-- 		icons_enabled = true,
+-- 		component_separators = { left = '', right = '' },
+-- 		section_separators = { left = '', right = '' },
+-- 		disabled_filetypes = {
+-- 			statusline = {},
+-- 			winbar = {},
+-- 		},
+-- 		ignore_focus = {},
+-- 		always_divide_middle = true,
+-- 		globalstatus = true,
+-- 		refresh = {
+-- 			statusline = 1000,
+-- 			tabline = 1000,
+-- 			winbar = 1000,
+-- 		}
+-- 	},
 	--
 	-- sections = {
 	-- 	lualine_a = {
@@ -191,4 +191,4 @@ require('lualine').setup {
 	-- winbar = {},
 	-- inactive_winbar = {},
 
-}
+-- }

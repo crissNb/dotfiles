@@ -1,0 +1,2 @@
+COMMAND $BROWSER
+COMMAND open -a arc %s
