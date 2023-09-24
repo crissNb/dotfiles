@@ -192,7 +192,7 @@
 -- })
 
 require("catppuccin").setup({
-    transparent_background = false,
+    transparent_background = true,
     term_colors = true,
     integrations = {
         treesitter = true,
@@ -202,7 +202,7 @@ require("catppuccin").setup({
         telescope = true,
         nvimtree = true,
         mason = true,
-        coc_nvim = true,
+        cmp = true,
         native_lsp = {
             enabled = true,
             virtual_text = {
@@ -248,6 +248,11 @@ require("catppuccin").setup({
         types = { "bold" },
         operators = {},
     },
+    custom_highlights = function(colors)
+        return {
+            LineNr = { fg = colors.text }
+        }
+    end
 })
 
 -- highlight cursorline

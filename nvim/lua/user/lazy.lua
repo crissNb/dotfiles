@@ -25,23 +25,46 @@ return require('lazy').setup({
         branch = "chad",
         build = "python3 -m chadtree deps",
     },
+    {
+        'hrsh7th/cmp-nvim-lsp'
+    },
+    {
+        'hrsh7th/nvim-cmp'
+    },
+    {
+        'hrsh7th/cmp-path'
+    },
+    {
+        'onsails/lspkind.nvim'
+    },
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    },
+    {
+        "rafamadriz/friendly-snippets"
+    },
+    {
+        'saadparwaiz1/cmp_luasnip'
+    },
     -- comment
     {
         'numToStr/Comment.nvim',
         lazy = false,
     },
-    {
-        'ms-jpq/coq_nvim',
-        branch = "coq",
-    },
-    {
-        'ms-jpq/coq.thirdparty',
-        branch = "3p",
-    },
-    {
-        'ms-jpq/coq.artifacts',
-        branch = "artifacts",
-    },
+    -- {
+    --     'ms-jpq/coq_nvim',
+    --     branch = "coq",
+    -- },
+    -- {
+    --     'ms-jpq/coq.thirdparty',
+    --     branch = "3p",
+    -- },
+    -- {
+    --     'ms-jpq/coq.artifacts',
+    --     branch = "artifacts",
+    -- },
     -- Status bar
     -- {
     --     'nvim-lualine/lualine.nvim',

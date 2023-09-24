@@ -7,15 +7,12 @@ if (not status) then
 	return
 end
 
-local coq = require "coq"
+local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not status_cmp_ok then
+	return
+end
 
--- local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
--- if not status_cmp_ok then
--- 	return
--- end
-
--- M.capabilities.textDocument.completion.completionItem.snippetSupport = true
--- M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
+M.capabilities = cmp_nvim_lsp.default_capabilities()
 
 M.on_attach = function(client, bufnr)
 	-- navic
@@ -32,20 +29,14 @@ M.on_attach = function(client, bufnr)
 	end
 end
 
-local servers = { "lua_ls", "bashls", "pyright", "rust_analyzer", "clangd", "gopls" }
+local servers = { "lua_ls", "bashls", "pyright", "rust_analyzer", "clangd", "gopls", "csharp_ls" }
 
 for _, lsp in ipairs(servers) do
-	nvim_lsp[lsp].setup(coq.lsp_ensure_capabilities({
-		on_attach = M.on_attach,
-		capabilities = M.capabilities
-	}))
+    nvim_lsp[lsp].setup({
+        on_attach = M.on_attach,
+        capabilities = M.capabilities
+    })
 end
-
-nvim_lsp["csharp_ls"].setup(coq.lsp_ensure_capabilities({
-	on_attach = M.on_attach,
-	capabilities = M.capabilities,
-	-- root_dir = require("lspconfig").util.root_pattern("Assets"),
-}))
 
 
 -- vim.schedule(function()

@@ -8,6 +8,8 @@ local chadtree_settings = {
             ".git",
             ".directory",
             "thumbs.db",
+        },
+        name_glob = {
             "*.meta"
         }
     },
