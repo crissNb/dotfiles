@@ -104,7 +104,120 @@ cmd zip ${{
     rm -rf $1
 }}
 
-set previewer ~/.config/lf/batpreviewer.sh
+cmd mkdir %{{
+    IFS=" "
+    mkdir -p -- "$*"
+    lf -remote "send $id select \"$*\""
+}}
+
+cmd touch %{{
+    IFS=" "
+    if [ -z "$*" ]; then echo "name required"; exit; fi
+    if [ -f "$*" ]; then echo "file exists"; exit; fi
+    if [ -d "$*" ]; then echo "there is a directory with the same name"; exit; fi
+    touch "$*"
+    lf -remote "send $id select \"$*\""
+}}
+
+cmd create %{{
+    IFS=" "
+    if [ -z "$*" ]; then echo "name required"; exit; fi
+    if [[ "$*" == */ ]] ; then
+        mkdir -p -- "$*"
+        lf -remote "send $id select \"$*\""
+        exit 0
+    fi
+    base=$(dirname -- "$*")
+    [ "$base" != . ] && mkdir -p -- "$base"
+    touch "$*"
+    lf -remote "send $id select \"$*\""
+}}
+
+cmd fzf_jump ${{
+    res="$(fd . -H -I -d 6 -E .git -E node_modules | fzf +m | sed 's/\\/\\\\/g;s/"/\\"/g')"
+    if [ -d "$res" ] ; then
+        cmd="cd"
+    elif [ -f "$res" ] ; then
+        cmd="select"
+    else
+        exit 0
+    fi
+    lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd fzf_search_all ${{
+    res="$( \
+        RG_PREFIX="rg --column --line-number --no-heading --color=always \
+            --smart-case "
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --ansi --bind "change:reload:$RG_PREFIX {q} || true" \
+            | cut -d':' -f1
+    )"
+    [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
+}}
+
+cmd fzf_grep ${{
+    res="$( \
+        rg --column --line-number --no-heading --color=always --smart-case -e "$*"| \
+        fzf --ansi | cut -d':' -f1
+    )"
+    [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
+}}
+
+cmd chmod ${{
+        [ $# -ne 1 ] && exit
+        eval "chmod u$1 '$f'"
+        lf -remote "send $id reload"
+}}
+
+cmd copy_file_name ${{
+    printf "$(basename "$f")" | pbcopy
+}}
+
+cmd paste_file_name ${{
+    mv "$f" "$(pbpaste)"
+}}
+
+# set previewer ~/.config/lf/batpreviewer.sh
 map . set hidden!
-map d trash
+map T trash
 map r rename
+map +x chmod +x
+map +w chmod +w
+map +r chmod +r
+map -x chmod -x
+map -w chmod -w
+map -r chmod -r!/bin/sh
+
+map ?
+map ?? maps
+map F fzf_jump
+map f
+map fa fzf_search_all
+map fg push :fzf_grep<space>
+map f<space> filter
+map fc setfilter
+map ff filter
+
+map gh cd ~
+map gj cd ~/Downloads
+map gd cd ~/Documents
+map gk cd ~/KIT/Modules
+map gs cd ~/semikoder/
+map ga cd /Applications
+map gv cd /Volumes
+map gc cd ~/.config
+map gp cd ~/Pictures
+
+map Y copy_file_name
+map P paste_file_name
+
+map xz zip
+map xt tar
+map xx extract
+
+map a push :create<space>
+
+set info size
+set previewer ~/.config/lf/lf_kitty_preview
+set cleaner ~/.config/lf/lf_kitty_clean

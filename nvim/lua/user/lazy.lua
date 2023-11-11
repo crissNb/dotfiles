@@ -29,6 +29,12 @@ return require('lazy').setup({
         'hrsh7th/cmp-nvim-lsp'
     },
     {
+        "zbirenbaum/copilot-cmp",
+        config = function ()
+            require("copilot_cmp").setup()
+        end
+    },
+    {
         'hrsh7th/nvim-cmp'
     },
     {
@@ -83,11 +89,14 @@ return require('lazy').setup({
     },
     dependencies = 'nvim-lua/plenary.nvim',
     -- indent
-    'lukas-reineke/indent-blankline.nvim',
+    -- 'lukas-reineke/indent-blankline.nvim',
     -- theme
+    -- {
+    --     'catppuccin/nvim',
+    --     name = 'catppuccin'
+    -- },
     {
-        'catppuccin/nvim',
-        name = 'catppuccin'
+        'Mofiqul/vscode.nvim'
     },
     -- LSP related
     {
@@ -188,7 +197,17 @@ return require('lazy').setup({
             vim.g.loaded_matchparen = 1
         end,
     },
+    { "zbirenbaum/copilot.lua" },
     {
-        'github/copilot.vim',
+        'mikesmithgh/kitty-scrollback.nvim',
+        enabled = true,
+        lazy = true,
+        cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth' },
+        event = { 'User KittyScrollbackLaunch' },
+        -- version = '*', -- latest stable version, may have breaking changes if major version changed
+        -- version = '^2.0.0', -- pin major version, include fixes and features that do not have breaking changes
+        config = function()
+            require('kitty-scrollback').setup()
+        end,
     }
 })

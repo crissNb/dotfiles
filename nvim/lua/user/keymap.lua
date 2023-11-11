@@ -59,6 +59,10 @@ nkeymap('<C-u>', '<C-u>zz')
 nkeymap('n', 'nzzzv')
 nkeymap('N', 'Nzzzv')
 
+-- remap movement
+nkeymap('j', 'gj')
+nkeymap('k', 'gk')
+
 -- nvim tree
 -- nkeymap("<leader>e", ":NvimTreeToggle<CR>")
 nkeymap("<leader>e", ":CHADopen<CR>")
@@ -133,6 +137,9 @@ nkeymap('<leader>bm', ":lua require('buffer_manager.ui').toggle_quick_menu()<CR>
 vim.cmd [[
 ino <silent><expr> <Esc>   pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
 ]]
+
+-- copilot
+nkeymap('<leader>gc', ":Copilot panel<CR>")
 
 -- ino <silent><expr> <C-c>   pumvisible() ? "\<C-e><C-c>" : "\<C-c>"
 -- ino <silent><expr> <BS>    pumvisible() ? "\<C-e><BS>"  : "\<BS>"

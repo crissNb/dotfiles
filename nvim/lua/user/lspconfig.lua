@@ -29,7 +29,7 @@ M.on_attach = function(client, bufnr)
 	end
 end
 
-local servers = { "lua_ls", "bashls", "pyright", "rust_analyzer", "clangd", "gopls", "csharp_ls" }
+local servers = { "bashls", "pyright", "rust_analyzer", "gopls", "csharp_ls" }
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
@@ -38,6 +38,26 @@ for _, lsp in ipairs(servers) do
     })
 end
 
+nvim_lsp["lua_ls"].setup({
+    on_attach = M.on_attach,
+    capabilities = cmp_nvim_lsp.default_capabilities(),
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals =  { "vim" },
+            },
+        }
+    }
+})
+
+nvim_lsp["clangd"].setup({
+    on_attach = M.on_attach,
+    capabilities = cmp_nvim_lsp.default_capabilities(),
+    cmd = {
+        "clangd",
+        "--offset-encoding=utf-16",
+    },
+})
 
 -- vim.schedule(function()
 --     vim.cmd('COQnow -s')
