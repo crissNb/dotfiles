@@ -40,3 +40,6 @@ vim.cmd "set noshowmode"
 -- vim.cmd "set spell"
 
 vim.o.expandtab = true
+
+-- neovide
+vim.o.guifont = "CommitMono Nerd Font:h14"

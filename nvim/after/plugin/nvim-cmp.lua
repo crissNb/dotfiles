@@ -201,6 +201,11 @@ cmp.setup {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
     },
+    view = {
+        entries = {
+            follow_cursor = true,
+        }
+    },
     -- window = {
     --     completion = {
     --         border = "rounded",

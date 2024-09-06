@@ -1,6 +1,22 @@
+local ok, telescope = pcall(require, "telescope")
+if not ok then
+    return
+end
+
+local find_command = function()
+    if 1 == vim.fn.executable 'fd' then
+        return 'fd'
+    elseif 1 == vim.fn.executable 'fdfind' then
+    return 'fdfind'
+        else
+    return 'find'
+        end
+end
+
+local find = find_command()
+
 require("telescope").setup({
 	defaults = {
-		file_sorter = require("telescope.sorters").get_fzy_sorter,
 		prompt_prefix = " >",
 		color_devicons = true,
 		file_ignore_patterns = {
@@ -66,11 +82,28 @@ require("telescope").setup({
 				vim.cmd(string.format("silent lcd %s", dir))
 			end
 		}
-	}
+	},
+    pickers = {
+        find_files = {
+            find_command = {
+                find, '--type', 'file', '--type', 'symlink', '--strip-cwd-prefix',
+                '--unrestricted', '--exclude', '.git', '--ignore-file', '.ignore',
+            }
+        }
+    },
+    extensions = {
+        fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case"
+        }
+    }
 })
 
 -- load telescope extensions
--- require('telescope').load_extension('projects')
+require('telescope').load_extension('fzf')
+require('telescope').load_extension('project')
 
 local M = {}
 

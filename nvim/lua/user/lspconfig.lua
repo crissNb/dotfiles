@@ -13,6 +13,13 @@ if not status_cmp_ok then
 end
 
 M.capabilities = cmp_nvim_lsp.default_capabilities()
+M.capabilities = vim.tbl_deep_extend("force", M.capabilities, {
+    workspace = {
+        didChangeWatchedFiles = {
+            dynamicRegistration = true,
+        },
+    },
+})
 
 M.on_attach = function(client, bufnr)
 	-- navic
@@ -29,7 +36,7 @@ M.on_attach = function(client, bufnr)
 	end
 end
 
-local servers = { "bashls", "pyright", "rust_analyzer", "gopls", "csharp_ls" }
+local servers = { "bashls", "pyright", "rust_analyzer", "gopls" }
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup({
@@ -48,6 +55,11 @@ nvim_lsp["lua_ls"].setup({
             },
         }
     }
+})
+
+nvim_lsp["omnisharp_mono"].setup({
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
 })
 
 nvim_lsp["clangd"].setup({
@@ -73,12 +85,5 @@ nvim_lsp["clangd"].setup({
 --     end
 --
 -- end)
-
-
--- nvim_lsp["omnisharp"].setup({
--- 	on_attach = M.on_attach,
--- 	cmd = { "/Users/semi/.local/share/nvim/mason/bin/omnisharp-mono", "--languageserver", "--hostPID", tostring(pid) },
--- 	-- cmd = { "/Users/semi/Developer/Other/omnisharp-roslyn/artifacts/publish/OmniSharp.Stdio.Driver/mono/run", "--languageserver", "--hostPID", tostring(pid) },
--- })
 
 return M

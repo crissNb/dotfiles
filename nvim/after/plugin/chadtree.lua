@@ -15,6 +15,10 @@ local chadtree_settings = {
     },
     view = {
         width = 30
+    },
+    theme = {
+        text_colour_set = "env",
+        icon_colour_set = "github",
     }
 }
 

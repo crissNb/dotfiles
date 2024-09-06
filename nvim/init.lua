@@ -14,3 +14,4 @@ require("user.lspconfig")
 
 -- telescope
 require("user.telescope")
+require("user.monokai_sharp")

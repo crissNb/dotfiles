@@ -88,7 +88,7 @@ vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
 nkeymap("<leader>ff", ":lua require('telescope.builtin').find_files()<cr>")
 nkeymap('<leader>fg', ":lua require('telescope.builtin').live_grep()<cr>")
 nkeymap('<leader>fb', ":lua require('telescope.builtin').buffers()<cr>")
-nkeymap('<leader>fp', ":lua require'telescope'.extensions.projects.projects{}<cr>")
+nkeymap('<leader>fp', ":lua require'telescope'.extensions.project.project{display_type = 'full'}<cr>")
 
 -- Unity
 nkeymap('<leader>fs', ":lua require('user.telescope').search_unity_scripts()<cr>")
@@ -111,6 +111,7 @@ nkeymap('<leader>jS', ":lua require('jdtls.dap').setup_dap_main_class_configs()<
 nkeymap('<leader>jv', ":lua require'jdtls'.extract_variable(true)<CR>")
 nkeymap('<leader>jc', ":lua require'jdtls'.extract_constant(true)<CR>")
 nkeymap('<leader>jm', ":lua require'jdtls'.extract_method(true)<CR>")
+nkeymap('<leader>jo', ":lua require'jdtls'.organize_imports()<CR>")
 
 -- dap (debugging)
 nkeymap('<leader>b', ":lua require'dap'.toggle_breakpoint()<CR>")
