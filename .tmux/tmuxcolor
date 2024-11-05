@@ -1,0 +1,49 @@
+# GitHub Dark theme colors
+# Background: #24292e (dark gray)
+# Foreground: #c9d1d9 (light gray)
+# Accent colors from GitHub's palette:
+# Blue: #58a6ff
+# Green: #3fb950
+# Yellow: #d29922
+# Red: #f85149
+# Purple: #bc8cff
+# Cyan: #39c5cf
+
+# colors for marker labels (colored bg, white fg)
+MkOr="#[fg=colour231,bg=#f85149,bold]"  # Red
+MkGn="#[fg=colour231,bg=#3fb950,bold]"  # Green
+MkYe="#[fg=colour231,bg=#d29922,bold]"  # Yellow
+MkBl="#[fg=colour231,bg=#58a6ff,bold]"  # Blue
+MkPu="#[fg=colour231,bg=#bc8cff,bold]"  # Purple
+MkAq="#[fg=colour231,bg=#39c5cf,bold]"  # Cyan
+
+# colors for status labels (colored fg, dark bg)
+LbOr="#[fg=#f85149,bg=#24292e,nobold]"  # Red
+LbGn="#[fg=#3fb950,bg=#24292e,nobold]"  # Green
+LbYe="#[fg=#d29922,bg=#24292e,nobold]"  # Yellow
+LbBl="#[fg=#58a6ff,bg=#24292e,nobold]"  # Blue
+LbPu="#[fg=#bc8cff,bg=#24292e,nobold]"  # Purple
+LbAq="#[fg=#39c5cf,bg=#24292e,nobold]"  # Cyan
+
+# left side of the statusbar
+StLt=""
+WnSC="$MkGn #I $LbGn #W#F "
+WnSt="$MkOr #I $LbOr #W#F "
+
+# right side of the statusbar
+HsWh='#(gitmux -cfg $HOME/.gitmux.conf "#{pane_current_path}")'
+StRt="$HsWh"
+
+# statusbar settings
+set -g status-justify left
+set -g status-bg "#24292e"  # GitHub Dark background
+set -g status-fg "#c9d1d9"  # GitHub Dark foreground
+
+setw -g status-left-length 10
+setw -g status-left $StLt
+setw -g window-status-separator " "
+setw -g window-status-current-format $WnSC
+setw -g window-status-format $WnSt
+
+set -g status-right-length 100
+set -g status-right $StRt
