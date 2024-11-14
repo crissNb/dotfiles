@@ -1,0 +1,69 @@
+set scrolloff=5
+set relativenumber
+set ignorecase
+set smartcase
+set nohlsearch
+set showmode
+set showcmd
+set incsearch
+set commentary
+set updatetime=50
+set visualbell
+set noerrorbells
+set NERDTree
+set ideastatusicon=gray
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+map <leader>b <Action>(ToggleLineBreakpoint)
+
+" Find more examples here: https://jb.gg/share-ideavimrc
+let mapleader = " "
+map <leader>fm <Action>(ReformatCode)
+map <leader>fg <Action>(SearchEverywhere)
+map <leader>ff <Action>(GotoClass)
+map gr <Action>(ShowUsages)
+map <leader>rn <Action>(RenameElement)
+nmap <C-d> <C-d>zz
+nmap <C-u> <C-u>zz
+nmap n nzzzv
+nmap N Nzzzv
+vmap <leader>y \"+y
+nmap <leader>p \"+P
+vmap <leader>p \"+P
+vmap x "_d
+nmap <leader>fm <Action>(ReformatCode)
+nmap L <Action>(ShowErrorDescription)
+nmap gi <Action>(GotoImplementation)
+nmap gr <Action>(ShowUsages)
+nmap gR <Action>(FindUsages)
+nmap K <Action>(ShowHoverInfo)
+vmap J <Action>(MoveLineDown)
+vmap K <Action>(MoveLineUp)
+vmap <leader>/ <Action>(CommentByLineComment)
+
+map <leader>zc :action CollapseAllRegions<CR>
+map <leader>zo :action ExpandAllRegions<CR>
+
+" map window navigation
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+vmap < <gv
+vmap > >gv
+
+nmap ]d <Action>(GotoNextError)
+nmap [d <Action>(GotoPreviousError)
+
+nmap <leader>e :NERDTreeToggle<CR>
+" set keybind for context actions menu
+map <leader>a <Action>(ShowIntentionActions)
