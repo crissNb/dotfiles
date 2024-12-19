@@ -13,5 +13,5 @@ require("user.keymap")
 require("user.lspconfig")
 
 -- telescope
-require("user.telescope")
+-- require("user.telescope")
 require("user.monokai_sharp")

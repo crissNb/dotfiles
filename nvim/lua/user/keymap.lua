@@ -74,21 +74,25 @@ nkeymap('gi', ':lua vim.lsp.buf.implementation()<cr>')
 nkeymap('gw', ':lua vim.lsp.buf.document_symbol()<cr>')
 nkeymap('gw', ':lua vim.lsp.buf.workspace_symbol()<cr>')
 -- nkeymap('gr', ':lua vim.lsp.buf.references()<cr>')
-nkeymap('gr', ':lua require("telescope.builtin").lsp_references()<cr>')
+nkeymap('gr', ':lua require("fzf-lua").lsp_references()<cr>')
 nkeymap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
 nkeymap('<leader>a', ':lua vim.lsp.buf.code_action()<cr>')
 nkeymap('<leader>rn', ':lua vim.lsp.buf.rename()<cr>')
 nkeymap('<leader>fm', ':lua vim.lsp.buf.format({ async = true })<cr>')
 nkeymap("[d", ':lua vim.diagnostic.goto_prev()<cr>')
 nkeymap("]d", ':lua vim.diagnostic.goto_next()<cr>')
-nkeymap("K", ":lua vim.lsp.buf.hover()<cr>")
+-- nkeymap("K", ":lua vim.lsp.buf.hover()<cr>")
 vim.keymap.set('i', '<C-h>', function() vim.lsp.buf.signature_help() end, opts)
 
 -- telescope
-nkeymap("<leader>ff", ":lua require('telescope.builtin').find_files()<cr>")
-nkeymap('<leader>fg', ":lua require('telescope.builtin').live_grep()<cr>")
-nkeymap('<leader>fb', ":lua require('telescope.builtin').buffers()<cr>")
-nkeymap('<leader>fp', ":lua require'telescope'.extensions.project.project{display_type = 'full'}<cr>")
+-- nkeymap("<leader>ff", ":lua require('telescope.builtin').find_files()<cr>")
+-- nkeymap('<leader>fg', ":lua require('telescope.builtin').live_grep()<cr>")
+-- nkeymap('<leader>fb', ":lua require('telescope.builtin').buffers()<cr>")
+-- nkeymap('<leader>fp', ":lua require'telescope'.extensions.project.project{display_type = 'full'}<cr>")
+
+nkeymap('<leader>ff', ":lua require('fzf-lua').files()<cr>")
+nkeymap('<leader>fg', ":lua require('fzf-lua').live_grep()<cr>")
+nkeymap('<leader>fp', ':lua Fzfprojects({"~/Developer","~/semikoder"})<cr>')
 
 -- Unity
 nkeymap('<leader>fs', ":lua require('user.telescope').search_unity_scripts()<cr>")
@@ -141,6 +145,8 @@ ino <silent><expr> <Esc>   pumvisible() ? "\<C-e><Esc>" : "\<Esc>"
 
 -- copilot
 nkeymap('<leader>gc', ":Copilot panel<CR>")
+nkeymap('<leader>cc', ":CopilotChat<CR>")
+keymap('v', "<leader>cc", ":CopilotChat<CR>", opts)
 
 -- ino <silent><expr> <C-c>   pumvisible() ? "\<C-e><C-c>" : "\<C-c>"
 -- ino <silent><expr> <BS>    pumvisible() ? "\<C-e><BS>"  : "\<BS>"

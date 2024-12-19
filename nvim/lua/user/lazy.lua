@@ -59,6 +59,39 @@ return require('lazy').setup({
         'numToStr/Comment.nvim',
         lazy = false,
     },
+    -- hover
+    {
+        "lewis6991/hover.nvim",
+        config = function()
+            require("hover").setup {
+                init = function()
+                    -- Require providers
+                    require("hover.providers.lsp")
+                    -- require('hover.providers.gh')
+                    -- require('hover.providers.gh_user')
+                    -- require('hover.providers.jira')
+                    -- require('hover.providers.dap')
+                    -- require('hover.providers.fold_preview')
+                    require('hover.providers.diagnostic')
+                    -- require('hover.providers.man')
+                    -- require('hover.providers.dictionary')
+                end,
+                preview_opts = {
+                    border = 'single'
+                },
+                -- Whether the contents of a currently open hover window should be moved
+                -- to a :h preview-window when pressing the hover keymap.
+                preview_window = false,
+                title = true,
+            }
+
+            -- Setup keymaps
+            vim.keymap.set("n", "K", require("hover").hover, {desc = "hover.nvim"})
+            vim.keymap.set("n", "gK", require("hover").hover_select, {desc = "hover.nvim (select)"})
+            vim.keymap.set("n", "<C-p>", function() require("hover").hover_switch("previous") end, {desc = "hover.nvim (previous source)"})
+            vim.keymap.set("n", "<C-n>", function() require("hover").hover_switch("next") end, {desc = "hover.nvim (next source)"})
+        end
+    },
     -- {
     --     'ms-jpq/coq_nvim',
     --     branch = "coq",
@@ -84,10 +117,21 @@ return require('lazy').setup({
         end
     },
     {
+        'projekt0n/github-nvim-theme',
+    },
+    {
         'sindrets/diffview.nvim',
         event = "VeryLazy"
     },
-    dependencies = 'nvim-lua/plenary.nvim',
+    {
+        'nvim-flutter/flutter-tools.nvim',
+        lazy = false,
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim', -- optional for vim.ui.select
+        },
+        config = true,
+    },
     -- indent
     'lukas-reineke/indent-blankline.nvim',
     -- LSP related
@@ -117,9 +161,29 @@ return require('lazy').setup({
     -- plenary
     'nvim-lua/plenary.nvim',
     -- telescope
+    -- {
+    --     'nvim-telescope/telescope.nvim',
+    --     lazy = true
+    -- },
+    -- FZF
     {
-        'nvim-telescope/telescope.nvim',
-        lazy = true
+        "ibhagwan/fzf-lua",
+        -- optional for icon support
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    {
+        "CopilotC-Nvim/CopilotChat.nvim",
+        branch = "main",
+        dependencies = {
+            { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
+            { "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
+        },
+        build = "make tiktoken", -- Only on MacOS or Linux
+        opts = {
+            debug = true, -- Enable debugging
+            -- See Configuration section for rest
+        },
+        -- See Commands section for default commands if you want to lazy load on them
     },
     {
         'nvim-telescope/telescope-project.nvim'
