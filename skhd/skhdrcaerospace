@@ -1,0 +1,146 @@
+# toggle yabai
+# hyper - u : ~/.config/skhd/CustomScripts/ToggleWM.sh 1
+# hyper - y : ~/.config/skhd/CustomScripts/ToggleWM.sh 0
+
+# hyper - b : brew services restart sketchybar
+
+# open apps
+# terminal window
+hyper - t : alacritty msg create-window
+
+# finder
+hyper - e : open ~/
+
+hyper - w : aerospace move left; aerospace move right
+
+# floating window
+hyper - g : aerospace layout floating tiling
+
+# close all ghost windows in aerospace
+hyper - b : aerospace list-windows --all --json \
+  | jq -r '.[] | select(."window-title"=="") | ."window-id"' \
+  | xargs -n1 aerospace close --window-id
+
+# toggle menubar
+hyper - m : sketchybar --trigger swap_menus_and_spaces
+
+# fill screen
+hyper - return : aerospace fullscreen
+
+# media controls p [ ] keys
+hyper - 0x23 : osascript -e 'tell application "Music" to previous track'
+hyper - 0x21 : osascript -e 'tell application "Music" to playpause'
+hyper - 0x1E : osascript -e 'tell application "Music" to next track'
+
+# focus desktop
+# shift + rcmd + rctrl + ralt - z : ~/.config/skhd/CustomScripts/SwitchSpace.sh 1
+# shift + rcmd + rctrl + ralt - a : ~/.config/skhd/CustomScripts/SwitchSpace.sh 2
+# shift + rcmd + rctrl + ralt - s : ~/.config/skhd/CustomScripts/SwitchSpace.sh 3
+# shift + rcmd + rctrl + ralt - d : ~/.config/skhd/CustomScripts/SwitchSpace.sh 4
+# shift + rcmd + rctrl + ralt - f : ~/.config/skhd/CustomScripts/SwitchSpace.sh 5
+# shift + rcmd + rctrl + ralt - 1 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 6
+# shift + rcmd + rctrl + ralt - 2 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 7
+# shift + rcmd + rctrl + ralt - 3 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 8
+# shift + rcmd + rctrl + ralt - 4 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 9
+# shift + rcmd + rctrl + ralt - 5 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 10
+# shift + rcmd + rctrl + ralt - 6 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 11
+# shift + rcmd + rctrl + ralt - 7 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 12
+# shift + rcmd + rctrl + ralt - 8 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 13
+# shift + rcmd + rctrl + ralt - 9 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 14
+# shift + rcmd + rctrl + ralt - 0 : ~/.config/skhd/CustomScripts/SwitchSpace.sh 15
+shift + rcmd + rctrl + ralt - z : aerospace workspace z
+shift + rcmd + rctrl + ralt - a : aerospace workspace a
+shift + rcmd + rctrl + ralt - s : aerospace workspace s
+shift + rcmd + rctrl + ralt - d : aerospace workspace d
+shift + rcmd + rctrl + ralt - f : aerospace workspace f
+shift + rcmd + rctrl + ralt - 1 : aerospace workspace 1
+shift + rcmd + rctrl + ralt - 2 : aerospace workspace 2
+shift + rcmd + rctrl + ralt - 3 : aerospace workspace 3
+shift + rcmd + rctrl + ralt - 4 : aerospace workspace 4
+shift + rcmd + rctrl + ralt - 5 : aerospace workspace 5
+#
+# spotlight
+# lcmd - space : ~/Developer/Other/Rofi-macOS/ApplicationPicker.sh
+
+# stacking
+shift + rcmd + rctrl + ralt - left : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window west --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+shift + rcmd + rctrl + ralt - right : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window east --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+shift + rcmd + rctrl + ralt - up : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window north --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+shift + rcmd + rctrl + ralt - down : window=$(yabai -m query --windows --window | jq -r '.id') && yabai -m window south --stack $window || (yabai -m window $window --toggle float && yabai -m window $window --toggle float)
+
+# scroll through stack
+lalt - 0x30 : yabai -m window --focus stack.next || yabai -m window --focus stack.first
+lalt + lshift - 0x30 : yabai -m window --focus stack.prev || yabai -m window --focus stack.last
+
+# modes
+# :: default : sketchybar --set island drawing=off
+# :: window @ : sketchybar --set island drawing=on
+:: default
+:: window @
+hyper - n ; window
+window < escape ; default
+
+# focus window (use f16 - f19)
+# window < h : yabai -m window --focus west || \
+#              yabai -m window --focus $(yabai -m query --spaces --display west | jq '.[] | select(."is-visible" == true) | ."last-window"')
+# window < l : yabai -m window --focus east || \
+#               yabai -m window --focus $(yabai -m query --spaces --display east | jq '.[] | select(."is-visible" == true) | ."first-window"')
+# window < j : yabai -m window --focus south
+# window < k : yabai -m window --focus north
+window < h : aerospace focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors left
+window < j : aerospace focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors down
+window < k : aerospace focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors up
+window < l : aerospace focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors right
+
+# move window
+# same as shift + rcmd + rctrl + ralt+ lcmd - key
+# window < shift - h : yabai -m window --warp west || \
+# 		~/.config/skhd/CustomScripts/MoveWindowLeftAndFocus.sh
+# window < shift - l : yabai -m window --warp east || \
+# 		~/.config/skhd/CustomScripts/MoveWindowLeftAndFocus.sh
+# window < shift - k : yabai -m window --warp north
+# window < shift - j : yabai -m window --warp south
+window < shift - h : aerospace move left
+window < shift - j : aerospace move down
+window < shift - k : aerospace move up
+window < shift - l : aerospace move right
+
+# move window to desktop
+window < z : skhd -k "escape"; aerospace move-node-to-workspace z
+window < a : skhd -k "escape"; aerospace move-node-to-workspace a
+window < s : skhd -k "escape"; aerospace move-node-to-workspace s
+window < d : skhd -k "escape"; aerospace move-node-to-workspace d
+window < f : skhd -k "escape"; aerospace move-node-to-workspace f
+window < 1 : skhd -k "escape"; aerospace move-node-to-workspace 1
+window < 2 : skhd -k "escape"; aerospace move-node-to-workspace 2
+window < 3 : skhd -k "escape"; aerospace move-node-to-workspace 3
+window < 4 : skhd -k "escape"; aerospace move-node-to-workspace 4
+window < 5 : skhd -k "escape"; aerospace move-node-to-workspace 5
+# window < z : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 1
+# window < a : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 2
+# window < s : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 3
+# window < d : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 4
+# window < f : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 5
+# window < 1 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 6
+# window < 2 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 7
+# window < 3 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 8
+# window < 4 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 9
+# window < 5 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 10
+# window < 6 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 11
+# window < 7 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 12
+# window < 8 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 13
+# window < 9 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 14
+# window < 0 : skhd -k "escape"; ~/.config/skhd/CustomScripts/MoveWindow.sh 15
+
+# resize window
+# window < ctrl - h : yabai -m window --resize left:-20:0 || \
+# 											yabai -m window --resize right:-20:0
+# window < ctrl - l : yabai -m window --resize left:20:0 || \
+# 											yabai -m window --resize right:20:0
+# window < ctrl - j : yabai -m window --resize top:0:20 || \
+# 											yabai -m window --resize bottom:0:20
+# window < ctrl - k : yabai -m window --resize top:0:-20 || \
+# 											yabai -m window --resize bottom:0:-20
+window < ctrl - h : aerospace resize smart +50
+window < ctrl - l : aerospace resize smart -50
+
