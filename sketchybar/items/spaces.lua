@@ -133,6 +133,71 @@ local space_window_observer = sbar.add("item", {
   updates = true,
 })
 
+local function withWindows(f)
+  local open_windows = {}
+  local get_windows = "aerospace list-windows --monitor all --format '%{workspace}%{app-name}%{window-id}' --json"
+  sbar.exec(get_windows, function(workspace_and_windows)
+    local processed_windows = {}
+
+    for _, entry in ipairs(workspace_and_windows) do
+      local workspace_index = entry.workspace
+      local app = entry["app-name"]
+      local window_id = entry["window-id"]
+
+      if not processed_windows[window_id] then
+        processed_windows[window_id] = true
+
+        if open_windows[workspace_index] == nil then
+          open_windows[workspace_index] = {}
+        end
+
+        local app_exists = false
+        for _, existing_app in ipairs(open_windows[workspace_index]) do
+          if existing_app == app then
+            app_exists = true
+            break
+          end
+        end
+
+        if not app_exists then
+          table.insert(open_windows[workspace_index], app)
+        end
+      end
+    end
+
+    f(open_windows)
+  end)
+end
+
+local function updateWindow(space_id, open_windows)
+  local list = open_windows[space_id] or {}
+
+  local icon_line = ""
+  local no_app = true
+  for _, app in ipairs(list) do
+    no_app = false
+    local lookup = app_icons[app]
+    local icon = ((lookup == nil) and app_icons["Default"] or lookup)
+    icon_line = icon_line .. icon
+  end
+
+  if no_app then
+    icon_line = " —"
+  end
+
+  sbar.animate("tanh", 10, function()
+    spaces[space_id]:set({ label = { string = icon_line } })
+  end)
+end
+
+local function updateWindows()
+  withWindows(function(open_windows)
+    for _, space_id in ipairs(space_ids) do
+      updateWindow(space_id, open_windows)
+    end
+  end)
+end
+
 local spaces_indicator = sbar.add("item", {
   padding_left = -3,
   padding_right = 0,
@@ -180,6 +245,18 @@ spaces_indicator:subscribe("swap_menus_and_spaces", function(env)
   })
 end)
 
+space_window_observer:subscribe("aerospace_workspace_change", function()
+  updateWindows()
+end)
+
+space_window_observer:subscribe("front_app_switched", function()
+  updateWindows()
+end)
+
+space_window_observer:subscribe("display_change", function()
+  updateWindows()
+end)
+
 spaces_indicator:subscribe("mouse.entered", function(env)
   sbar.animate("tanh", 30, function()
     spaces_indicator:set({
@@ -209,3 +286,5 @@ end)
 spaces_indicator:subscribe("mouse.clicked", function(env)
   sbar.trigger("swap_menus_and_spaces")
 end)
+
+updateWindows()

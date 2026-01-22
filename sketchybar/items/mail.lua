@@ -47,5 +47,5 @@ mail:subscribe({ "forced", "routine", "system_woke" }, function()
 end)
 
 sbar.add("bracket", "widgets.mail.bracket", { mail.name }, {
-    background = { color = colors.bg1 }
+    background = { color = colors.bg1, border_width = 0, border_color = colors.transparent }
 })

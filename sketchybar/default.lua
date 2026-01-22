@@ -28,12 +28,12 @@ sbar.default({
   background = {
     height = 25,
     corner_radius = 9,
-    border_width = 2,
-    border_color = colors.bg2,
+    border_width = 0,
+    border_color = colors.transparent,
     image = {
       corner_radius = 9,
-      border_color = colors.grey,
-      border_width = 1
+      border_color = colors.transparent,
+      border_width = 0
     }
   },
   popup = {
